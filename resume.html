@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="portfolio.html">
                             <span class="icon">
                                 <i class="fa fa-book" aria-hidden="true"></i>
                             </span>
@@ -98,7 +98,7 @@
         <div class="contents">
             <div class="page-resume">
                 <div class="page-tit">
-                    <h2 class="tit">RESUME</h2>
+                    <h2 class="tit">Resume</h2>
                     <p class="text">개인이력</p>
                 </div>
                 <section class="sub-section white-bg">
@@ -249,55 +249,6 @@
 <script src="resources/js/main.min.js"></script>
 <script src="resources/js/action.min.js"></script>
     </div>
-    <script>
-        $(function() {
-            /* experience */
-            var d = new Date,
-                e = d.getFullYear(),
-                f = d.getMonth() + 1,
-                g = 12 * (e - 2013) + (f - 12);
-            $('.experience-date').text("약 " + Math.floor(g / 12) + "년 " + (g % 12) + "개월");
-        })
-
-
-
-        /*$(function($){
-            var $headline = $('.headline');
-            var $li = $headline.find('b');
-            
-            $headline.each(function() {
-                var headline = $(this);
-                setTimeout(function() {
-                    hideWord(headline.find(".is-visible").eq(0));                    
-                }, 2500);
-            });
-            function hideWord($word) {
-                var nextWord = takeNext($word);
-                $(".cd-words-wrapper").animate({
-                    width: "2px"
-                }, 600, function() {
-                    switchWord($word, nextWord);
-                    showWord(nextWord);
-                });
-            }
-            function showWord($word) {
-                $(".cd-words-wrapper").animate({
-                    width: $word.width() + 10
-                }, 600, function() {
-                    setTimeout(function() {
-                        hideWord($word);
-                    }, 1500);
-                });
-            }
-            function takeNext($word) {
-                return (!$word.is(":last-child")) ? $word.next() : $word.parent().children().eq(0);
-            }
-            function switchWord($oldWord, $newWord) {
-                $oldWord.removeClass("is-visible").addClass("is-hidden");
-                $newWord.removeClass("is-hidden").addClass("is-visible");
-            }
-        });*/
-    </script>
 </body>
 
 </html>
