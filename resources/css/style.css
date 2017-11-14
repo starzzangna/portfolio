@@ -2646,6 +2646,25 @@ footer {
 	z-index: 3;
 }
 
+.page-contact {
+	background-color: #e67e22;
+}
+
+.contact-info-list {
+	margin-top: -10px;
+	margin-bottom: 0;
+}
+
+.contact-info-list > li {
+	float: left;
+	width: 50%;
+	margin-top: 10px !important;
+}
+
+.map-area {
+	margin-top: 40px;
+}
+
 @media (min-width: 980px) {
 	.lay-cell.right {
 		width: 66.66666667%;
