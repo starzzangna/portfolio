@@ -2665,6 +2665,10 @@ footer {
 	margin-top: 40px;
 }
 
+.page-feedback {
+	background-color: #e74c3c;
+}
+
 @media (min-width: 980px) {
 	.lay-cell.right {
 		width: 66.66666667%;
