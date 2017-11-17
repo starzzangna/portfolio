@@ -2570,11 +2570,12 @@ footer {
 
 .category-list {
 	display: inline-block;
+	margin-top: -5px;
 }
 
 .category-list > li {
 	float: left;
-	margin: 0 5px;
+	margin: 5px;
 }
 
 .category-list > li a {
