@@ -2261,6 +2261,15 @@ h3.tit {
 	}
 }
 
+.main-portfolio {
+	position: relative;
+	min-height: 50px;
+}
+
+.main-portfolio .loader {
+	position: absolute;
+}
+
 .portfolio {
 	padding: 30px;
 }
