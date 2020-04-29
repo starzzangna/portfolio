@@ -209,6 +209,7 @@ body {
 	font-weight: 400;
 	font-size: 14px;
 	color: #666;
+	letter-spacing: -.5px;
 }
 
 .wrap {
@@ -567,7 +568,7 @@ h2.tit {
 	display: inline-block;
 	margin-top: 0;
 	margin-bottom: 20px;
-	font-size: 25px;
+	font-size: 22px;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -729,9 +730,21 @@ h3.tit {
 }
 
 .employ-list {
+	overflow: auto;
+	max-height: 220px;
 	padding-left: 24px;
 	margin-left: 7px;
 	border-left: 1px solid #a7a7a7;
+}
+
+.employ-list::-webkit-scrollbar {
+	width: 6px;
+}
+.employ-list::-webkit-scrollbar-track {
+	background-color: #f2f2f2;
+}
+.employ-list::-webkit-scrollbar-thumb {
+	background-color: #bbb;
 }
 
 .employ-list > li {
