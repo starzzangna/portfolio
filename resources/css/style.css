@@ -2533,6 +2533,9 @@ h3.tit {
             min-height: 250px;
         }*/
 }
+.timeline-photo {
+	min-height: 30px;
+}
 
 .timeline > li:before, .timeline > li:after {
 	content: '';
