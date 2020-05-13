@@ -1,0 +1,4304 @@
+@import url(font-awesome.min.css);
+@import 'http://fonts.googleapis.com/earlyaccess/notosanskr.css';
+@import url(default.css);
+@import url(bootstrap.min.css);
+@import url(slick.css);
+@-webkit-keyframes textRight
+{
+    0%
+    {
+        margin-left: 50px;
+
+        opacity: 0;
+    }
+    100%
+    {
+        margin-left: 0;
+
+        opacity: 1;
+    }
+}
+
+@keyframes textRight
+{
+    0%
+    {
+        margin-left: 50px;
+
+        opacity: 0;
+    }
+    100%
+    {
+        margin-left: 0;
+
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes textUp
+{
+    0%
+    {
+        margin-top: 50px;
+
+        opacity: 0;
+    }
+    100%
+    {
+        margin-left: 0;
+
+        opacity: 1;
+    }
+}
+
+@keyframes textUp
+{
+    0%
+    {
+        margin-top: 50px;
+
+        opacity: 0;
+    }
+    100%
+    {
+        margin-left: 0;
+
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes loader
+{
+    0%
+    {
+        -webkit-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+    50%
+    {
+        -webkit-transform: scaleY(.4);
+            -ms-transform: scaleY(.4);
+                transform: scaleY(.4);
+    }
+    100%
+    {
+        -webkit-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+}
+
+@keyframes loader
+{
+    0%
+    {
+        -webkit-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+    50%
+    {
+        -webkit-transform: scaleY(.4);
+            -ms-transform: scaleY(.4);
+                transform: scaleY(.4);
+    }
+    100%
+    {
+        -webkit-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+}
+
+body
+{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    letter-spacing: -.5px;
+
+    color: #666;
+    background: url(../images/back-bg.png);
+}
+
+.wrap
+{
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+p
+{
+    margin: 0;
+}
+
+img
+{
+    max-width: 100%;
+}
+
+/*.cell-box {
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-flex-wrap: nowrap;
+	  -ms-flex-wrap: nowrap;
+	  flex-wrap: nowrap;
+	  width: 100%;
+  }*/
+.wrap .row
+{
+    margin: 0;
+}
+
+.wrap div[class^='col-md-']
+{
+    padding: 0;
+}
+
+/* header */
+.header
+{
+    margin: 0;
+    margin-top: 20px;
+}
+
+.header:after
+{
+    display: block;
+    clear: both;
+
+    height: 0;
+
+    content: '';
+}
+
+.me
+{
+    min-height: 300px;
+
+    background: url(../images/me.jpg) 50% 50% no-repeat;
+    background-size: cover;
+}
+
+.name
+{
+    font-size: 40px;
+
+    padding: 27px 40px 28px 40px;
+
+    background-color: #f7f7f7;
+}
+
+h1
+{
+    margin: 0;
+
+    color: #000;
+}
+
+.explanation
+{
+    font-size: 20px;
+
+    padding: 28px 40px 30px 40px;
+
+    background-color: #efefef;
+}
+
+.headline
+{
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0;
+}
+
+.headline span
+{
+    vertical-align: top;
+}
+
+.headline b
+{
+    white-space: nowrap;
+
+    color: #000;
+}
+
+.cd-words-wrapper
+{
+    overflow: hidden;
+}
+
+/* nav */
+.menu-button
+{
+    display: none;
+
+    padding: 15px;
+
+    color: #a2a2a2;
+    border-right: 1px solid #ddd;
+    outline: none;
+}
+
+.menu-button .icon-bar
+{
+    display: block;
+
+    width: 14px;
+    height: 2px;
+
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+
+    border-radius: 1px;
+    background: #a2a2a2;
+}
+
+.menu-button .icon-bar + .icon-bar
+{
+    margin-top: 3px;
+}
+
+.menu-button .icon_ie
+{
+    display: none;
+}
+
+.menu-button.active span
+{
+    display: none\9;
+
+    border-radius: 4px;
+}
+
+.menu-button.active span:nth-of-type(2)
+{
+    transform: translate3d(0, 5px, 0) rotate(45deg);
+}
+
+.menu-button.active span:nth-of-type(3)
+{
+    opacity: 0;
+}
+
+.menu-button.active span:nth-of-type(4)
+{
+    transform: translate3d(0, -5px, 0) rotate(-45deg);
+}
+
+.menu-button.active .icon_ie
+{
+    display: block\9;
+}
+
+.menu-button.active .icon_ie:before
+{
+    display: block;
+
+    width: 14px;
+    height: 12px;
+
+    content: '';
+
+    background: url(../images/common/ico-menu-close.png) no-repeat;
+}
+
+.menu-button.active:hover .icon_ie:before
+{
+    display: block;
+
+    width: 14px;
+    height: 12px;
+
+    content: '';
+
+    background: url(../images/common/ico-menu-close_hover.png) no-repeat;
+}
+
+@-webkit-keyframes flipY
+{
+    0%
+    {
+        transform: perspective(300px) rotateY(90deg);
+
+        opacity: 0;
+    }
+    100%
+    {
+        transform: rotateY(0deg);
+
+        opacity: 1;
+    }
+}
+
+@keyframes flipY
+{
+    0%
+    {
+        transform: perspective(300px) rotateY(90deg);
+
+        opacity: 0;
+    }
+    100%
+    {
+        transform: rotateY(0deg);
+
+        opacity: 1;
+    }
+}
+
+.nav-list
+{
+    margin-bottom: 0;
+
+    background-color: #f7f7f7;
+}
+
+.nav-list:hover a
+{
+    color: rgba(249, 249, 249, .5);
+}
+
+.nav-list:hover a:hover
+{
+    color: rgba(249, 249, 249, .99);
+}
+
+.nav-list > li
+{
+    float: left;
+
+    width: 16.66666666666667%;
+    margin-bottom: 0;
+}
+
+.nav-list > li:first-child
+{
+    background-color: #1abc9c;
+}
+
+.nav-list > li:nth-child(6n+2)
+{
+    background-color: #3498db;
+}
+
+.nav-list > li:nth-child(6n+3)
+{
+    background-color: #9b59b6;
+}
+
+.nav-list > li:nth-child(6n+4)
+{
+    background-color: #e67e22;
+}
+
+.nav-list > li:nth-child(6n+5)
+{
+    background-color: #e74c3c;
+}
+
+.nav-list > li:nth-child(6n+6)
+{
+    background-color: #d9a81d;
+}
+
+.nav-list a
+{
+    display: block;
+
+    height: 120px;
+    padding-top: 23px;
+
+    transition: color .5s;
+    text-align: center;
+    text-decoration: none;
+
+    color: rgba(249, 249, 249, .9);
+}
+
+.nav-list a:hover .icon
+{
+    transition: box-shadow .5s;
+
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, .2);
+}
+
+.nav-list .icon
+{
+    display: inline-block;
+
+    width: 55px;
+    height: 55px;
+    margin-bottom: 10px;
+
+    transition: .6s;
+    text-align: center;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 0 30px transparent;
+}
+
+.nav-list .icon i
+{
+    font-size: 30px;
+
+    display: inline-block;
+
+    padding: 10px;
+}
+
+.nav-list .icon + span
+{
+    font-weight: 600;
+
+    display: block;
+}
+
+.nav-list.main-nav > li:first-child
+{
+    -webkit-animation: flipY .5s ease-in;
+            animation: flipY .5s ease-in;
+}
+
+.nav-list.main-nav > li:nth-child(6n+2)
+{
+    -webkit-animation: flipY .7s ease-in;
+            animation: flipY .7s ease-in;
+}
+
+.nav-list.main-nav > li:nth-child(6n+3)
+{
+    -webkit-animation: flipY .9s ease-in;
+            animation: flipY .9s ease-in;
+}
+
+.nav-list.main-nav > li:nth-child(6n+4)
+{
+    -webkit-animation: flipY 1.1s ease-in;
+            animation: flipY 1.1s ease-in;
+}
+
+.nav-list.main-nav > li:nth-child(6n+5)
+{
+    -webkit-animation: flipY 1.3s ease-in;
+            animation: flipY 1.3s ease-in;
+}
+
+.nav-list.main-nav > li:nth-child(6n+6)
+{
+    -webkit-animation: flipY 1.5s ease-in;
+            animation: flipY 1.5s ease-in;
+}
+
+/* contents */
+h2.tit
+{
+    font-size: 22px;
+
+    display: inline-block;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+
+    color: #000;
+}
+
+h2.tit strong
+{
+    font-weight: 500;
+}
+
+.tit-ko
+{
+    font-size: 12px;
+    font-weight: 400;
+
+    color: #666;
+}
+
+.main-information
+{
+    padding: 30px;
+
+    background-color: #f7f7f7;
+}
+
+.main-information .list
+{
+    margin-top: 21px;
+    margin-bottom: 0;
+}
+
+.main-information .list:first-child
+{
+    margin-top: 0;
+}
+
+.main-information .list dd
+{
+    margin-left: 20px;
+}
+
+.main-information .list .green:before
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+
+    content: '';
+
+    background-color: #1abc9c;
+}
+
+.main-information .list .blue:before
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+
+    content: '';
+
+    background-color: #3498db;
+}
+
+.main-information .list .purple:before
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+
+    content: '';
+
+    background-color: #9b59b6;
+}
+
+.main-information .list .orange:before
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+
+    content: '';
+
+    background-color: #e67e22;
+}
+
+.main-information .list .red:before
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+
+    content: '';
+
+    background-color: #e74c3c;
+}
+
+.main-information .list .tit
+{
+    font-weight: 600;
+
+    margin-bottom: 5px;
+
+    color: #2f2f2f;
+}
+
+.main-information .list .tit + p
+{
+    padding-left: 20px;
+}
+
+.white-bg
+{
+    background-color: #fff;
+}
+
+.gray-bg
+{
+    background-color: #efefef;
+}
+
+.main-position
+{
+    min-height: 370px;
+    padding: 30px;
+}
+
+.skill-box .list
+{
+    margin-bottom: 0;
+}
+
+.skill-box .list > li
+{
+    padding: 9px 0;
+}
+
+h3.tit
+{
+    font-size: 14px;
+
+    margin-top: 0;
+
+    color: #7f7f7f;
+}
+
+.progress
+{
+    overflow: hidden;
+
+    height: 20px;
+    margin-bottom: 0;
+
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.progress-bar
+{
+    font-size: 12px;
+    line-height: 20px;
+
+    float: left;
+
+    width: 0;
+    height: 100%;
+
+    transition: width .6s ease;
+    text-align: center;
+
+    color: #fff;
+    background-color: #000;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+.progress-green
+{
+    background-color: #5cb85c;
+}
+
+.progress-orange
+{
+    background-color: #f0ad4e;
+}
+
+.progress-blue
+{
+    background-color: #5bc0de;
+}
+
+.progress-red
+{
+    background-color: #d9534f;
+}
+
+.main-employment
+{
+    padding: 30px;
+
+    background-color: #e7e7e7;
+}
+
+.employ-list
+{
+    overflow: auto;
+
+    max-height: 220px;
+    margin-left: 7px;
+    padding-left: 24px;
+
+    border-left: 1px solid #a7a7a7;
+}
+
+.employ-list::-webkit-scrollbar
+{
+    width: 6px;
+}
+
+.employ-list::-webkit-scrollbar-track
+{
+    background-color: #f2f2f2;
+}
+
+.employ-list::-webkit-scrollbar-thumb
+{
+    background-color: #bbb;
+}
+
+.employ-list > li
+{
+    margin-top: 20px;
+}
+
+.employ-list > li:first-child
+{
+    margin-top: 0;
+}
+
+.employ-list .date
+{
+    font-size: 11px;
+}
+
+.employ-list .tit
+{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.employ-list .tit a
+{
+    position: relative;
+
+    text-decoration: none;
+
+    color: #3f3f3f;
+}
+
+.employ-list .tit a:before
+{
+    position: absolute;
+    top: 9px;
+    left: -29px;
+
+    width: 9px;
+    height: 9px;
+
+    content: '';
+
+    border-radius: 50%;
+    background-color: #a7a7a7;
+}
+
+.employ-list .tit a:hover
+{
+    opacity: .6;
+}
+
+.employ-list .rank
+{
+    font-size: 13px;
+}
+
+.btn-area
+{
+    margin-top: 20px;
+}
+
+.btn-more
+{
+    font-size: 12px;
+
+    padding: 2px 9px 3px 9px;
+
+    transition: all .35s ease-in-out;
+
+    color: #fff;
+    border-radius: 3px;
+    background-color: #cfcfcf;
+}
+
+.btn-more:hover
+{
+    background-color: #a7a7a7;
+}
+
+.main-technical
+{
+    padding: 30px;
+
+    background-color: #efefef;
+}
+
+.technical-list h3
+{
+    font-size: 16px;
+    font-weight: 400;
+
+    margin-top: 25px;
+}
+
+.technical-list > li
+{
+    margin-top: 20px !important;
+}
+
+.technical-list > li:first-child
+{
+    margin-top: 0 !important;
+}
+
+/* circle */
+.progress-c
+{
+    line-height: 70px;
+
+    position: relative;
+
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+
+    background: none;
+    box-shadow: none;
+}
+
+.progress-c:after
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+
+    border: 7px solid #eee;
+    border-radius: 50%;
+}
+
+.progress-c > span
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+
+    overflow: hidden;
+
+    width: 50%;
+    height: 100%;
+}
+
+.progress-c .left
+{
+    left: 0;
+}
+
+.progress-c .bar
+{
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-width: 7px;
+    border-style: solid;
+    border-color: #1abc9c;
+    background: none;
+}
+
+.progress-c .left .bar
+{
+    left: 100%;
+
+    transform-origin: center left;
+
+    border-left: 0;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
+.progress-c .right
+{
+    right: 0;
+}
+
+.progress-c .right .bar
+{
+    left: -100%;
+
+    transform-origin: center right;
+
+    border-right: 0;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+}
+
+.progress-c .value
+{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+
+    display: flex;
+
+    height: 100%;
+
+    text-align: center;
+
+    border-radius: 50%;
+    background-color: #fff;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-c.blue .bar
+{
+    border-color: #3498db;
+}
+
+.progress-c.orange .bar
+{
+    border-color: #e67e22;
+}
+
+.progress-c + .text
+{
+    display: block;
+
+    margin-top: 10px;
+
+    text-align: center;
+}
+
+.progress-c[data-percentage='1'] .right .bar
+{
+    -webkit-animation: loading-1 1.5s linear forwards;
+            animation: loading-1 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='1'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='2'] .right .bar
+{
+    -webkit-animation: loading-2 1.5s linear forwards;
+            animation: loading-2 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='2'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='3'] .right .bar
+{
+    -webkit-animation: loading-3 1.5s linear forwards;
+            animation: loading-3 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='3'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='4'] .right .bar
+{
+    -webkit-animation: loading-4 1.5s linear forwards;
+            animation: loading-4 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='4'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='5'] .right .bar
+{
+    -webkit-animation: loading-5 1.5s linear forwards;
+            animation: loading-5 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='5'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='6'] .right .bar
+{
+    -webkit-animation: loading-6 1.5s linear forwards;
+            animation: loading-6 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='6'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='7'] .right .bar
+{
+    -webkit-animation: loading-7 1.5s linear forwards;
+            animation: loading-7 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='7'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='8'] .right .bar
+{
+    -webkit-animation: loading-8 1.5s linear forwards;
+            animation: loading-8 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='8'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='9'] .right .bar
+{
+    -webkit-animation: loading-9 1.5s linear forwards;
+            animation: loading-9 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='9'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='10'] .right .bar
+{
+    -webkit-animation: loading-10 1.5s linear forwards;
+            animation: loading-10 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='10'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='11'] .right .bar
+{
+    -webkit-animation: loading-11 1.5s linear forwards;
+            animation: loading-11 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='11'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='12'] .right .bar
+{
+    -webkit-animation: loading-12 1.5s linear forwards;
+            animation: loading-12 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='12'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='13'] .right .bar
+{
+    -webkit-animation: loading-13 1.5s linear forwards;
+            animation: loading-13 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='13'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='14'] .right .bar
+{
+    -webkit-animation: loading-14 1.5s linear forwards;
+            animation: loading-14 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='14'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='15'] .right .bar
+{
+    -webkit-animation: loading-15 1.5s linear forwards;
+            animation: loading-15 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='15'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='16'] .right .bar
+{
+    -webkit-animation: loading-16 1.5s linear forwards;
+            animation: loading-16 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='16'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='17'] .right .bar
+{
+    -webkit-animation: loading-17 1.5s linear forwards;
+            animation: loading-17 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='17'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='18'] .right .bar
+{
+    -webkit-animation: loading-18 1.5s linear forwards;
+            animation: loading-18 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='18'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='19'] .right .bar
+{
+    -webkit-animation: loading-19 1.5s linear forwards;
+            animation: loading-19 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='19'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='20'] .right .bar
+{
+    -webkit-animation: loading-20 1.5s linear forwards;
+            animation: loading-20 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='20'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='21'] .right .bar
+{
+    -webkit-animation: loading-21 1.5s linear forwards;
+            animation: loading-21 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='21'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='22'] .right .bar
+{
+    -webkit-animation: loading-22 1.5s linear forwards;
+            animation: loading-22 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='22'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='23'] .right .bar
+{
+    -webkit-animation: loading-23 1.5s linear forwards;
+            animation: loading-23 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='23'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='24'] .right .bar
+{
+    -webkit-animation: loading-24 1.5s linear forwards;
+            animation: loading-24 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='24'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='25'] .right .bar
+{
+    -webkit-animation: loading-25 1.5s linear forwards;
+            animation: loading-25 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='25'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='26'] .right .bar
+{
+    -webkit-animation: loading-26 1.5s linear forwards;
+            animation: loading-26 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='26'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='27'] .right .bar
+{
+    -webkit-animation: loading-27 1.5s linear forwards;
+            animation: loading-27 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='27'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='28'] .right .bar
+{
+    -webkit-animation: loading-28 1.5s linear forwards;
+            animation: loading-28 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='28'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='29'] .right .bar
+{
+    -webkit-animation: loading-29 1.5s linear forwards;
+            animation: loading-29 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='29'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='30'] .right .bar
+{
+    -webkit-animation: loading-30 1.5s linear forwards;
+            animation: loading-30 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='30'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='31'] .right .bar
+{
+    -webkit-animation: loading-31 1.5s linear forwards;
+            animation: loading-31 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='31'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='32'] .right .bar
+{
+    -webkit-animation: loading-32 1.5s linear forwards;
+            animation: loading-32 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='32'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='33'] .right .bar
+{
+    -webkit-animation: loading-33 1.5s linear forwards;
+            animation: loading-33 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='33'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='34'] .right .bar
+{
+    -webkit-animation: loading-34 1.5s linear forwards;
+            animation: loading-34 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='34'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='35'] .right .bar
+{
+    -webkit-animation: loading-35 1.5s linear forwards;
+            animation: loading-35 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='35'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='36'] .right .bar
+{
+    -webkit-animation: loading-36 1.5s linear forwards;
+            animation: loading-36 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='36'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='37'] .right .bar
+{
+    -webkit-animation: loading-37 1.5s linear forwards;
+            animation: loading-37 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='37'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='38'] .right .bar
+{
+    -webkit-animation: loading-38 1.5s linear forwards;
+            animation: loading-38 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='38'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='39'] .right .bar
+{
+    -webkit-animation: loading-39 1.5s linear forwards;
+            animation: loading-39 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='39'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='40'] .right .bar
+{
+    -webkit-animation: loading-40 1.5s linear forwards;
+            animation: loading-40 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='40'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='41'] .right .bar
+{
+    -webkit-animation: loading-41 1.5s linear forwards;
+            animation: loading-41 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='41'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='42'] .right .bar
+{
+    -webkit-animation: loading-42 1.5s linear forwards;
+            animation: loading-42 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='42'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='43'] .right .bar
+{
+    -webkit-animation: loading-43 1.5s linear forwards;
+            animation: loading-43 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='43'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='44'] .right .bar
+{
+    -webkit-animation: loading-44 1.5s linear forwards;
+            animation: loading-44 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='44'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='45'] .right .bar
+{
+    -webkit-animation: loading-45 1.5s linear forwards;
+            animation: loading-45 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='45'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='46'] .right .bar
+{
+    -webkit-animation: loading-46 1.5s linear forwards;
+            animation: loading-46 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='46'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='47'] .right .bar
+{
+    -webkit-animation: loading-47 1.5s linear forwards;
+            animation: loading-47 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='47'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='48'] .right .bar
+{
+    -webkit-animation: loading-48 1.5s linear forwards;
+            animation: loading-48 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='48'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='49'] .right .bar
+{
+    -webkit-animation: loading-49 1.5s linear forwards;
+            animation: loading-49 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='49'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='50'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='50'] .left .bar
+{
+    -webkit-animation: 0;
+            animation: 0;
+}
+
+.progress-c[data-percentage='51'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='51'] .left .bar
+{
+    -webkit-animation: loading-1 1.5s linear forwards 1.5s;
+            animation: loading-1 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='52'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='52'] .left .bar
+{
+    -webkit-animation: loading-2 1.5s linear forwards 1.5s;
+            animation: loading-2 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='53'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='53'] .left .bar
+{
+    -webkit-animation: loading-3 1.5s linear forwards 1.5s;
+            animation: loading-3 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='54'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='54'] .left .bar
+{
+    -webkit-animation: loading-4 1.5s linear forwards 1.5s;
+            animation: loading-4 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='55'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='55'] .left .bar
+{
+    -webkit-animation: loading-5 1.5s linear forwards 1.5s;
+            animation: loading-5 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='56'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='56'] .left .bar
+{
+    -webkit-animation: loading-6 1.5s linear forwards 1.5s;
+            animation: loading-6 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='57'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='57'] .left .bar
+{
+    -webkit-animation: loading-7 1.5s linear forwards 1.5s;
+            animation: loading-7 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='58'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='58'] .left .bar
+{
+    -webkit-animation: loading-8 1.5s linear forwards 1.5s;
+            animation: loading-8 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='59'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='59'] .left .bar
+{
+    -webkit-animation: loading-9 1.5s linear forwards 1.5s;
+            animation: loading-9 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='60'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='60'] .left .bar
+{
+    -webkit-animation: loading-10 1.5s linear forwards 1.5s;
+            animation: loading-10 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='61'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='61'] .left .bar
+{
+    -webkit-animation: loading-11 1.5s linear forwards 1.5s;
+            animation: loading-11 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='62'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='62'] .left .bar
+{
+    -webkit-animation: loading-12 1.5s linear forwards 1.5s;
+            animation: loading-12 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='63'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='63'] .left .bar
+{
+    -webkit-animation: loading-13 1.5s linear forwards 1.5s;
+            animation: loading-13 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='64'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='64'] .left .bar
+{
+    -webkit-animation: loading-14 1.5s linear forwards 1.5s;
+            animation: loading-14 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='65'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='65'] .left .bar
+{
+    -webkit-animation: loading-15 1.5s linear forwards 1.5s;
+            animation: loading-15 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='66'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='66'] .left .bar
+{
+    -webkit-animation: loading-16 1.5s linear forwards 1.5s;
+            animation: loading-16 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='67'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='67'] .left .bar
+{
+    -webkit-animation: loading-17 1.5s linear forwards 1.5s;
+            animation: loading-17 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='68'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='68'] .left .bar
+{
+    -webkit-animation: loading-18 1.5s linear forwards 1.5s;
+            animation: loading-18 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='69'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='69'] .left .bar
+{
+    -webkit-animation: loading-19 1.5s linear forwards 1.5s;
+            animation: loading-19 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='70'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='70'] .left .bar
+{
+    -webkit-animation: loading-20 1.5s linear forwards 1.5s;
+            animation: loading-20 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='71'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='71'] .left .bar
+{
+    -webkit-animation: loading-21 1.5s linear forwards 1.5s;
+            animation: loading-21 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='72'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='72'] .left .bar
+{
+    -webkit-animation: loading-22 1.5s linear forwards 1.5s;
+            animation: loading-22 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='73'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='73'] .left .bar
+{
+    -webkit-animation: loading-23 1.5s linear forwards 1.5s;
+            animation: loading-23 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='74'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='74'] .left .bar
+{
+    -webkit-animation: loading-24 1.5s linear forwards 1.5s;
+            animation: loading-24 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='75'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='75'] .left .bar
+{
+    -webkit-animation: loading-25 1.5s linear forwards 1.5s;
+            animation: loading-25 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='76'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='76'] .left .bar
+{
+    -webkit-animation: loading-26 1.5s linear forwards 1.5s;
+            animation: loading-26 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='77'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='77'] .left .bar
+{
+    -webkit-animation: loading-27 1.5s linear forwards 1.5s;
+            animation: loading-27 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='78'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='78'] .left .bar
+{
+    -webkit-animation: loading-28 1.5s linear forwards 1.5s;
+            animation: loading-28 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='79'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='79'] .left .bar
+{
+    -webkit-animation: loading-29 1.5s linear forwards 1.5s;
+            animation: loading-29 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='80'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='80'] .left .bar
+{
+    -webkit-animation: loading-30 1.5s linear forwards 1.5s;
+            animation: loading-30 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='81'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='81'] .left .bar
+{
+    -webkit-animation: loading-31 1.5s linear forwards 1.5s;
+            animation: loading-31 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='82'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='82'] .left .bar
+{
+    -webkit-animation: loading-32 1.5s linear forwards 1.5s;
+            animation: loading-32 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='83'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='83'] .left .bar
+{
+    -webkit-animation: loading-33 1.5s linear forwards 1.5s;
+            animation: loading-33 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='84'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='84'] .left .bar
+{
+    -webkit-animation: loading-34 1.5s linear forwards 1.5s;
+            animation: loading-34 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='85'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='85'] .left .bar
+{
+    -webkit-animation: loading-35 1.5s linear forwards 1.5s;
+            animation: loading-35 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='86'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='86'] .left .bar
+{
+    -webkit-animation: loading-36 1.5s linear forwards 1.5s;
+            animation: loading-36 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='87'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='87'] .left .bar
+{
+    -webkit-animation: loading-37 1.5s linear forwards 1.5s;
+            animation: loading-37 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='88'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='88'] .left .bar
+{
+    -webkit-animation: loading-38 1.5s linear forwards 1.5s;
+            animation: loading-38 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='89'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='89'] .left .bar
+{
+    -webkit-animation: loading-39 1.5s linear forwards 1.5s;
+            animation: loading-39 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='90'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='90'] .left .bar
+{
+    -webkit-animation: loading-40 1.5s linear forwards 1.5s;
+            animation: loading-40 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='91'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='91'] .left .bar
+{
+    -webkit-animation: loading-41 1.5s linear forwards 1.5s;
+            animation: loading-41 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='92'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='92'] .left .bar
+{
+    -webkit-animation: loading-42 1.5s linear forwards 1.5s;
+            animation: loading-42 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='93'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='93'] .left .bar
+{
+    -webkit-animation: loading-43 1.5s linear forwards 1.5s;
+            animation: loading-43 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='94'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='94'] .left .bar
+{
+    -webkit-animation: loading-44 1.5s linear forwards 1.5s;
+            animation: loading-44 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='95'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='95'] .left .bar
+{
+    -webkit-animation: loading-45 1.5s linear forwards 1.5s;
+            animation: loading-45 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='96'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='96'] .left .bar
+{
+    -webkit-animation: loading-46 1.5s linear forwards 1.5s;
+            animation: loading-46 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='97'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='97'] .left .bar
+{
+    -webkit-animation: loading-47 1.5s linear forwards 1.5s;
+            animation: loading-47 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='98'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='98'] .left .bar
+{
+    -webkit-animation: loading-48 1.5s linear forwards 1.5s;
+            animation: loading-48 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='99'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='99'] .left .bar
+{
+    -webkit-animation: loading-49 1.5s linear forwards 1.5s;
+            animation: loading-49 1.5s linear forwards 1.5s;
+}
+
+.progress-c[data-percentage='100'] .right .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards;
+            animation: loading-50 1.5s linear forwards;
+}
+
+.progress-c[data-percentage='100'] .left .bar
+{
+    -webkit-animation: loading-50 1.5s linear forwards 1.5s;
+            animation: loading-50 1.5s linear forwards 1.5s;
+}
+
+@-webkit-keyframes loading-1
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(3.6deg);
+    }
+}
+
+@keyframes loading-1
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(3.6deg);
+    }
+}
+
+@-webkit-keyframes loading-2
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(7.2deg);
+    }
+}
+
+@keyframes loading-2
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(7.2deg);
+    }
+}
+
+@-webkit-keyframes loading-3
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(10.8deg);
+    }
+}
+
+@keyframes loading-3
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(10.8deg);
+    }
+}
+
+@-webkit-keyframes loading-4
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(14.4deg);
+    }
+}
+
+@keyframes loading-4
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(14.4deg);
+    }
+}
+
+@-webkit-keyframes loading-5
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(18deg);
+    }
+}
+
+@keyframes loading-5
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(18deg);
+    }
+}
+
+@-webkit-keyframes loading-6
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(21.6deg);
+    }
+}
+
+@keyframes loading-6
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(21.6deg);
+    }
+}
+
+@-webkit-keyframes loading-7
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(25.2deg);
+    }
+}
+
+@keyframes loading-7
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(25.2deg);
+    }
+}
+
+@-webkit-keyframes loading-8
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(28.8deg);
+    }
+}
+
+@keyframes loading-8
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(28.8deg);
+    }
+}
+
+@-webkit-keyframes loading-9
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(32.4deg);
+    }
+}
+
+@keyframes loading-9
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(32.4deg);
+    }
+}
+
+@-webkit-keyframes loading-10
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(36deg);
+    }
+}
+
+@keyframes loading-10
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(36deg);
+    }
+}
+
+@-webkit-keyframes loading-11
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(39.6deg);
+    }
+}
+
+@keyframes loading-11
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(39.6deg);
+    }
+}
+
+@-webkit-keyframes loading-12
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(43.2deg);
+    }
+}
+
+@keyframes loading-12
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(43.2deg);
+    }
+}
+
+@-webkit-keyframes loading-13
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(46.8deg);
+    }
+}
+
+@keyframes loading-13
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(46.8deg);
+    }
+}
+
+@-webkit-keyframes loading-14
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(50.4deg);
+    }
+}
+
+@keyframes loading-14
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(50.4deg);
+    }
+}
+
+@-webkit-keyframes loading-15
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(54deg);
+    }
+}
+
+@keyframes loading-15
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(54deg);
+    }
+}
+
+@-webkit-keyframes loading-16
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(57.6deg);
+    }
+}
+
+@keyframes loading-16
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(57.6deg);
+    }
+}
+
+@-webkit-keyframes loading-17
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(61.2deg);
+    }
+}
+
+@keyframes loading-17
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(61.2deg);
+    }
+}
+
+@-webkit-keyframes loading-18
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(64.8deg);
+    }
+}
+
+@keyframes loading-18
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(64.8deg);
+    }
+}
+
+@-webkit-keyframes loading-19
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(68.4deg);
+    }
+}
+
+@keyframes loading-19
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(68.4deg);
+    }
+}
+
+@-webkit-keyframes loading-20
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(72deg);
+    }
+}
+
+@keyframes loading-20
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(72deg);
+    }
+}
+
+@-webkit-keyframes loading-21
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(75.6deg);
+    }
+}
+
+@keyframes loading-21
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(75.6deg);
+    }
+}
+
+@-webkit-keyframes loading-22
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(79.2deg);
+    }
+}
+
+@keyframes loading-22
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(79.2deg);
+    }
+}
+
+@-webkit-keyframes loading-23
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(82.8deg);
+    }
+}
+
+@keyframes loading-23
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(82.8deg);
+    }
+}
+
+@-webkit-keyframes loading-24
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(86.4deg);
+    }
+}
+
+@keyframes loading-24
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(86.4deg);
+    }
+}
+
+@-webkit-keyframes loading-25
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes loading-25
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(90deg);
+    }
+}
+
+@-webkit-keyframes loading-26
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(93.6deg);
+    }
+}
+
+@keyframes loading-26
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(93.6deg);
+    }
+}
+
+@-webkit-keyframes loading-27
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(97.2deg);
+    }
+}
+
+@keyframes loading-27
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(97.2deg);
+    }
+}
+
+@-webkit-keyframes loading-28
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(100.8deg);
+    }
+}
+
+@keyframes loading-28
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(100.8deg);
+    }
+}
+
+@-webkit-keyframes loading-29
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(104.4deg);
+    }
+}
+
+@keyframes loading-29
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(104.4deg);
+    }
+}
+
+@-webkit-keyframes loading-30
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(108deg);
+    }
+}
+
+@keyframes loading-30
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(108deg);
+    }
+}
+
+@-webkit-keyframes loading-31
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(111.6deg);
+    }
+}
+
+@keyframes loading-31
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(111.6deg);
+    }
+}
+
+@-webkit-keyframes loading-32
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(115.2deg);
+    }
+}
+
+@keyframes loading-32
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(115.2deg);
+    }
+}
+
+@-webkit-keyframes loading-33
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(118.8deg);
+    }
+}
+
+@keyframes loading-33
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(118.8deg);
+    }
+}
+
+@-webkit-keyframes loading-34
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(122.4deg);
+    }
+}
+
+@keyframes loading-34
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(122.4deg);
+    }
+}
+
+@-webkit-keyframes loading-35
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(126deg);
+    }
+}
+
+@keyframes loading-35
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(126deg);
+    }
+}
+
+@-webkit-keyframes loading-36
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(129.6deg);
+    }
+}
+
+@keyframes loading-36
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(129.6deg);
+    }
+}
+
+@-webkit-keyframes loading-37
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(133.2deg);
+    }
+}
+
+@keyframes loading-37
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(133.2deg);
+    }
+}
+
+@-webkit-keyframes loading-38
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(136.8deg);
+    }
+}
+
+@keyframes loading-38
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(136.8deg);
+    }
+}
+
+@-webkit-keyframes loading-39
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(140.4deg);
+    }
+}
+
+@keyframes loading-39
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(140.4deg);
+    }
+}
+
+@-webkit-keyframes loading-40
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(144deg);
+    }
+}
+
+@keyframes loading-40
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(144deg);
+    }
+}
+
+@-webkit-keyframes loading-41
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(147.6deg);
+    }
+}
+
+@keyframes loading-41
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(147.6deg);
+    }
+}
+
+@-webkit-keyframes loading-42
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(151.2deg);
+    }
+}
+
+@keyframes loading-42
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(151.2deg);
+    }
+}
+
+@-webkit-keyframes loading-43
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(154.8deg);
+    }
+}
+
+@keyframes loading-43
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(154.8deg);
+    }
+}
+
+@-webkit-keyframes loading-44
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(158.4deg);
+    }
+}
+
+@keyframes loading-44
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(158.4deg);
+    }
+}
+
+@-webkit-keyframes loading-45
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(162deg);
+    }
+}
+
+@keyframes loading-45
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(162deg);
+    }
+}
+
+@-webkit-keyframes loading-46
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(165.6deg);
+    }
+}
+
+@keyframes loading-46
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(165.6deg);
+    }
+}
+
+@-webkit-keyframes loading-47
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(169.2deg);
+    }
+}
+
+@keyframes loading-47
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(169.2deg);
+    }
+}
+
+@-webkit-keyframes loading-48
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(172.8deg);
+    }
+}
+
+@keyframes loading-48
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(172.8deg);
+    }
+}
+
+@-webkit-keyframes loading-49
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(176.4deg);
+    }
+}
+
+@keyframes loading-49
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(176.4deg);
+    }
+}
+
+@-webkit-keyframes loading-50
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes loading-50
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(180deg);
+    }
+}
+
+.main-portfolio
+{
+    position: relative;
+
+    min-height: 50px;
+}
+
+.main-portfolio .loader
+{
+    position: absolute;
+}
+
+.portfolio
+{
+    padding: 30px;
+}
+
+.portfolio-list
+{
+    margin-top: -20px;
+}
+
+.portfolio-list > li
+{
+    display: inline-block;
+
+    padding: 20px 0;
+}
+
+.portfolio-list > li:after
+{
+    display: block;
+    clear: both;
+
+    height: 0;
+
+    content: '';
+}
+
+.portfolio-list > li .tit
+{
+    color: #000;
+}
+
+.portfolio-list > li .tit span
+{
+    margin-right: 5px;
+}
+
+.portfolio-list > li dd.text
+{
+    font-size: 12px;
+
+    margin-bottom: 5px;
+}
+
+.portfolio-list > li .skill
+{
+    font-size: 12px;
+    font-weight: 300;
+
+    color: #000;
+}
+
+.portfolio-list > li .left
+{
+    float: left;
+
+    margin-right: 10px;
+    padding-right: 10px;
+
+    border-right: 1px solid #dedede;
+}
+
+.portfolio-list > li .right
+{
+    overflow: hidden;
+}
+
+.portfolio-list dl
+{
+    margin-bottom: 5px;
+}
+
+.portfolio-list .img-box
+{
+    position: relative;
+
+    display: flex;
+    overflow: hidden;
+
+    width: 100px;
+    height: 90px;
+
+    border: 1px solid #dedede;
+}
+
+.portfolio-list .img-box img
+{
+    width: 100%;
+}
+
+.portfolio-list .img-box:hover .link
+{
+    top: 0;
+
+    opacity: 1;
+}
+
+.portfolio-list .img-box:hover .link .ico:before,
+.portfolio-list .img-box:hover .link .ico:after
+{
+    left: 0;
+
+    opacity: 1;
+}
+
+.portfolio-list .link
+{
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    transition: all .4s;
+    text-align: center;
+
+    opacity: 0;
+    background: rgba(255, 255, 255, .7);
+}
+
+.portfolio-list .link .ico
+{
+    position: relative;
+
+    display: block;
+
+    width: 30px;
+    height: 30px;
+    margin: 30% auto 0 auto;
+}
+
+.portfolio-list .link .ico:before
+{
+    position: absolute;
+    top: 0;
+    left: -20px;
+
+    display: block;
+
+    width: 30px;
+    height: 30px;
+
+    content: '';
+    transition: all .6s .3s;
+
+    opacity: 0;
+    background: url(../images/common/bg-link-01.png) no-repeat left top;
+
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+}
+
+.portfolio-list .link .ico:after
+{
+    position: absolute;
+    top: 0;
+    left: 20px;
+
+    display: block;
+
+    width: 30px;
+    height: 30px;
+
+    content: '';
+    transition: all .6s .3s;
+
+    opacity: 0;
+    background: url(../images/common/bg-link-02.png) no-repeat left top;
+
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+}
+
+.label-box .label
+{
+    line-height: normal;
+
+    display: inline-block;
+}
+
+.label-box .label:first-child
+{
+    margin-left: 0;
+}
+
+/* sub */
+.page-tit
+{
+    padding: 40px;
+
+    color: #fff;
+}
+
+.page-tit h2.tit
+{
+    margin-bottom: 5px;
+
+    -webkit-animation: textRight 1s ease-out;
+            animation: textRight 1s ease-out;
+
+    color: #fff;
+}
+
+.page-tit .text
+{
+    -webkit-animation: textRight 1s .3s ease-out;
+            animation: textRight 1s .3s ease-out;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+}
+
+.sub-section
+{
+    padding: 40px;
+
+    -webkit-animation: textUp 1s .3s ease-out;
+            animation: textUp 1s .3s ease-out;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+}
+
+.sub-section .top
+{
+    margin-bottom: 40px;
+
+    text-align: center;
+}
+
+.page-resume .page-tit
+{
+    background-color: #3498db;
+}
+
+h3.tit
+{
+    font-size: 20px;
+
+    color: #333;
+}
+
+.me-list
+{
+    margin-top: -10px;
+}
+
+.me-list > li
+{
+    float: left;
+
+    width: 50%;
+    margin-top: 10px;
+}
+
+.me-list span.tit
+{
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    color: #333;
+}
+
+.me-list span.tit i
+{
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.timeline
+{
+    position: relative;
+}
+
+.timeline:before
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    width: 1px;
+    margin-left: -.5px;
+
+    content: '';
+
+    opacity: .3;
+    background-color: #8f8f8f;
+}
+
+.timeline > li
+{
+    position: relative;
+
+    margin-bottom: 20px;
+    /*.timeline-photo {
+				  min-height: 250px;
+			  }*/
+}
+
+.timeline-photo
+{
+    min-height: 30px;
+}
+
+.timeline > li:before
+{
+    display: table;
+
+    content: '';
+}
+
+.timeline > li:after
+{
+    display: table;
+    clear: both;
+
+    content: '';
+    content: '';
+}
+
+.timeline > li.right > .timeline-panel
+{
+    float: right;
+}
+
+.timeline > li.right > .timeline-panel:before
+{
+    right: auto;
+    left: -15px;
+
+    border-right-width: 15px;
+    border-left-width: 0;
+}
+
+.timeline > li:hover .timeline-time,
+.timeline > li:hover .timeline-badge
+{
+    background-color: #e74c3c;
+}
+
+.timeline-badge
+{
+    font-size: 1.4em;
+    line-height: 50px;
+
+    position: absolute;
+    z-index: 100;
+    top: 16px;
+    left: 50%;
+
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+
+    transition: all .5s ease-in-out;
+    text-align: center;
+
+    border-radius: 50%;
+    background-color: #8f8f8f;
+}
+
+.timeline-badge i:before
+{
+    font-size: 25px;
+
+    color: #fff;
+}
+
+.timeline-panel
+{
+    position: relative;
+
+    float: left;
+
+    width: 45%;
+    padding: 30px;
+
+    transition: all .5s ease-in-out;
+
+    border: 1px dashed #8f8f8f;
+    border-radius: 0;
+    background-color: #fff;
+}
+
+.timeline-panel:before
+{
+    position: absolute;
+    top: 26px;
+    right: -15px;
+
+    display: inline-block;
+
+    content: '';
+
+    border-top: 15px solid transparent;
+    border-right: 0 solid #8f8f8f;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #8f8f8f;
+}
+
+.timeline-panel .timeline-body
+{
+    margin-top: 10px;
+}
+
+.timeline-time
+{
+    font-size: 12px;
+
+    position: absolute;
+    z-index: 9;
+
+    padding: 6px 18px;
+
+    transition: all .5s ease-in-out;
+    text-transform: uppercase;
+
+    color: #fff;
+    background-color: #676767;
+}
+
+.timeline-text
+{
+    font-weight: 300;
+
+    margin-top: 24px;
+}
+
+.timeline-text .tit
+{
+    font-size: 20px;
+    font-weight: 500;
+
+    color: #333;
+}
+
+.timeline-text .class
+{
+    font-size: 16px;
+
+    margin-bottom: 5px;
+
+    color: #8f8f8f;
+}
+
+footer
+{
+    font-size: 12px;
+    font-weight: 300;
+
+    padding-top: 20px;
+
+    text-align: center;
+
+    color: #fff;
+}
+
+.back-top
+{
+    position: fixed;
+    z-index: 99;
+    right: 30px;
+    bottom: 40px;
+
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+
+    color: #fff;
+    background-color: #bfbfbf;
+}
+
+.back-top:hover
+{
+    background-color: #e74c3c;
+}
+
+.page-portfolio .page-tit
+{
+    background-color: #9b59b6;
+}
+
+.category-box
+{
+    text-align: center;
+}
+
+.category-list
+{
+    display: inline-block;
+
+    margin-top: -5px;
+}
+
+.category-list > li
+{
+    float: left;
+
+    margin: 5px;
+}
+
+.category-list > li a
+{
+    font-weight: 300;
+
+    display: block;
+
+    padding: 10px 15px;
+
+    text-decoration: none;
+
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+.category-list .on
+{
+    color: #fff;
+    background: #333;
+}
+
+.category-item-box
+{
+    position: relative;
+}
+
+.portfolio-list
+{
+    opacity: 0;
+}
+
+.portfolio-list > li.item
+{
+    padding: 5px;
+}
+
+.portfolio-list > li.item .area
+{
+    padding: 10px;
+
+    border: 1px solid #dedede;
+}
+
+.portfolio-list > li.item .area .date
+{
+    font-size: 12px;
+    font-weight: 300;
+
+    margin-top: 10px;
+
+    text-align: right;
+}
+
+.portfolio-list > li.item .area .label-box
+{
+    text-align: right;
+}
+
+.portfolio-list > li.item .img-box
+{
+    margin-bottom: 10px;
+}
+
+.portfolio-list.detail
+{
+    margin-top: 0;
+}
+
+.portfolio-list.detail > li
+{
+    width: 25%;
+}
+
+.portfolio-list.detail .img-box
+{
+    width: 100%;
+    height: auto;
+
+    border: 0;
+}
+
+.accessibility:before
+{
+    position: absolute;
+    z-index: 3;
+    bottom: 15px;
+    left: 15px;
+
+    display: block;
+
+    width: 50px;
+    height: 36px;
+
+    content: '';
+
+    background: url(../images/common/webmark.png) no-repeat;
+    background-size: 50px;
+}
+
+.page-contact
+{
+    background-color: #e67e22;
+}
+
+.contact-info-list
+{
+    margin-top: -10px;
+    margin-bottom: 0;
+}
+
+.contact-info-list > li
+{
+    float: left;
+
+    width: 50%;
+    margin-top: 10px !important;
+}
+
+.map-area
+{
+    margin-top: 40px;
+}
+
+.page-feedback
+{
+    background-color: #e74c3c;
+}
+
+.loader
+{
+    z-index: 9999;
+
+    display: table;
+
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+
+    text-align: center;
+}
+
+.loader-inner
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+
+.loader-inner > div
+{
+    display: inline-block;
+
+    width: 6px;
+    height: 50px;
+    margin: 2px;
+
+    -webkit-animation: loader 1s linear infinite;
+            animation: loader 1s linear infinite;
+
+    border-radius: 2px;
+    background-color: #9b59b6;
+
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+.loader-inner > div:nth-child(2),
+.loader-inner > div:nth-child(4)
+{
+    -webkit-animation-delay: -.4s !important;
+            animation-delay: -.4s !important;
+}
+
+.loader-inner > div:nth-child(1),
+.loader-inner > div:nth-child(5)
+{
+    -webkit-animation-delay: -.2s !important;
+            animation-delay: -.2s !important;
+}
+
+@media (min-width: 980px)
+{
+    .lay-cell.right
+    {
+        width: 66.66666667%;
+    }
+}
+
+@media (min-width: 769px)
+{
+    .nav-list
+    {
+        display: block !important;
+    }
+}
+
+@media (max-width: 980px)
+{
+    .wrap
+    {
+        padding-top: 0;
+    }
+    .lay-left,
+    .lay-right
+    {
+        float: none;
+
+        width: 100%;
+    }
+    .header
+    {
+        margin-top: 0;
+    }
+    .cell-box
+    {
+        display: block;
+    }
+    .lay-cell
+    {
+        display: block;
+
+        width: 100%;
+    }
+    .main-information .list > li
+    {
+        float: left;
+
+        width: 50%;
+    }
+    .main-information .list > li.all
+    {
+        width: 100%;
+    }
+    .timeline:before
+    {
+        left: 26px;
+    }
+    .timeline > li
+    {
+        padding-left: 80px;
+    }
+    .timeline > li .timeline-badge
+    {
+        top: 16px;
+        left: 0;
+
+        margin-left: 0;
+    }
+    .timeline .timeline-panel
+    {
+        float: right;
+
+        width: 100%;
+    }
+    .timeline .timeline-panel:before
+    {
+        right: auto;
+        left: -15px;
+
+        border-right-width: 15px;
+        border-left-width: 0;
+    }
+    .portfolio-list.detail > li
+    {
+        width: 33.333%;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .wrap
+    {
+        margin-top: 42px;
+    }
+    .nav
+    {
+        position: fixed;
+        z-index: 99;
+        top: 0;
+
+        width: 100%;
+
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+    }
+    .menu-button
+    {
+        display: inline-block;
+    }
+    .nav-list
+    {
+        display: none;
+    }
+    .nav-list li
+    {
+        float: none;
+
+        width: 100%;
+    }
+    .nav-list a
+    {
+        height: auto;
+        padding: 5px 15px;
+
+        text-align: left;
+    }
+    .nav-list .icon
+    {
+        margin-bottom: 0;
+
+        vertical-align: middle;
+    }
+    .nav-list .icon + span
+    {
+        font-size: 16px;
+
+        display: inline-block;
+    }
+    .me
+    {
+        min-height: 200px;
+    }
+    .name
+    {
+        padding: 20px;
+    }
+    .name h1
+    {
+        font-size: 18px;
+    }
+    .explanation
+    {
+        font-size: 16px;
+
+        padding: 15px 20px;
+    }
+    h2.tit
+    {
+        font-size: 18px;
+    }
+    .main-information .list > li
+    {
+        float: none;
+
+        width: 100%;
+    }
+    .cell-box section
+    {
+        padding: 30px 15px;
+    }
+    .progress-c + .text
+    {
+        font-size: 12px;
+    }
+    .technical-list h3
+    {
+        margin-top: 0;
+        padding: 0;
+    }
+    .technical-list > li
+    {
+        margin-top: 40px !important;
+    }
+    .technical-list .col-xs-4
+    {
+        padding: 0;
+    }
+    .me-list > li
+    {
+        width: 100%;
+    }
+    .sub-section,
+    .page-tit
+    {
+        padding: 30px 20px;
+    }
+    .timeline:before
+    {
+        content: none;
+    }
+    .timeline > li
+    {
+        padding-left: 0;
+    }
+    .timeline .timeline-panel
+    {
+        padding: 20px;
+    }
+    .timeline .timeline-panel:before
+    {
+        content: none;
+    }
+    .timeline-badge
+    {
+        display: none;
+    }
+    .portfolio-list.detail > li
+    {
+        width: 50%;
+    }
+}
