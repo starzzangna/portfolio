@@ -396,11 +396,13 @@
             // 데이터
             $.ajax({
                     type: "GET",
-                    url: 'https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1_W3Sq6tNaoEUo1b-rsP6vrx7mWbPzvFjXDmRUL3KyiA&sheet=Sheet1',
+                    url: 'https://opensheet.elk.sh/1_W3Sq6tNaoEUo1b-rsP6vrx7mWbPzvFjXDmRUL3KyiA/sheet1',
                     dataType: "json"
                 })
                 .done(function(data) {
-                    var sheet = data.Sheet1;
+                    console.log(1)
+                    console.log(data)
+                    var sheet = data;
                     var i = 0;
                     var _ul = $('.portfolio-list');
                     var _frag = $(document.createDocumentFragment());
