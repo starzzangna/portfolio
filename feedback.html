@@ -129,45 +129,6 @@
         <script src="./js/bootstrap.min.js"></script>
         <script src="./js/lib.min.js"></script>
         <script src="./js/action.min.js"></script>
-        <script>
-            function initMap() {
-                var Y_point = 37.664307,
-                    X_point = 126.886387;
-
-                var zoomLevel = 11;
-                var markerTitle = "서식지";
-                var markerMaxWidth = 300;
-
-                // 말풍선 내용
-                /*var contentString = '<div>' +
-                '<h2>샘플</h2>'+
-                '<p>샘플텍스트</p>';*/
-
-                var myLatlng = new google.maps.LatLng(Y_point, X_point);
-                var mapOptions = {
-                    zoom: zoomLevel,
-                    center: myLatlng,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                }
-                var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-                var marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map,
-                    title: markerTitle
-                });
-
-                var infowindow = new google.maps.InfoWindow({
-                    /*content: contentString,*/
-                    maxWidth: markerMaxWidth
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.open(map, marker);
-                });
-            }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRosK3NxE7jgipV4GWKIvVxB9O7e-adRc&callback=initMap">
         </script>
     </div>
 </body>

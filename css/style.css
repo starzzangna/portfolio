@@ -3800,11 +3800,8 @@ h3.tit
 
 .timeline-time
 {
+    display: inline-block;
     font-size: 12px;
-
-    position: absolute;
-    z-index: 9;
-
     padding: 6px 18px;
 
     transition: all .5s ease-in-out;
