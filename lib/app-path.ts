@@ -31,3 +31,27 @@ export function withBasePath(assetPath: string): string {
   }
   return `${base}${assetPath}`;
 }
+
+/**
+ * `NEXT_PUBLIC_BASE_PATH`가 비어 있을 때 `usePathname()`으로 서브 경로만 추론합니다.
+ * (접힌 Collapsible처럼 클라이언트에서만 그려지는 링크에서 env 누락이 나는 경우 대비)
+ */
+export function inferDocumentBaseFromPathname(
+  pathname: string,
+  targetHref: string,
+): string {
+  if (!targetHref.startsWith("/")) {
+    return "";
+  }
+  const seg = pathname.split("/").filter(Boolean);
+  if (!seg.length || seg[0] === "projects") {
+    return "";
+  }
+  if (seg.length >= 2 && seg[1] === "projects") {
+    return `/${seg[0]}`;
+  }
+  if (seg.length === 1 && seg[0] !== "projects" && targetHref.startsWith("/projects")) {
+    return `/${seg[0]}`;
+  }
+  return "";
+}
