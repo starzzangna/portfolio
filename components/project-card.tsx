@@ -8,6 +8,7 @@ import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { withBasePath } from '@/lib/app-path';
 import type { ProjectItem } from '@/lib/types';
 
 export function ProjectCard({
@@ -89,7 +90,7 @@ export function ProjectCard({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   key={imageKey}
-                  src={project.image}
+                  src={withBasePath(project.image)}
                   alt={project.title}
                   loading={publishPriority ? 'eager' : 'lazy'}
                   fetchPriority={publishPriority ? 'high' : 'auto'}
@@ -115,7 +116,7 @@ export function ProjectCard({
             <div className="absolute inset-0 z-10 bg-gradient-to-t from-[var(--background)]/20 to-transparent" />
             <Image
               key={imageKey}
-              src={project.image}
+              src={withBasePath(project.image)}
               alt={project.title}
               fill
               quality={100}
@@ -199,10 +200,10 @@ export function ProjectCard({
                 size="sm"
                 className="rounded-full border-[var(--cta-border)] bg-[var(--cta-bg)] px-5 font-medium !text-white shadow-lg shadow-[var(--cta-shadow)] transition-all hover:translate-y-[-1px] hover:bg-[var(--cta-hover-bg)]"
               >
-                <a href={detailHref} className="flex items-center gap-1.5">
+                <Link href={detailHref} className="flex items-center gap-1.5">
                   View Detail
                   <ArrowUpRight className="size-4" />
-                </a>
+                </Link>
               </Button>
             </div>
           ) : null}

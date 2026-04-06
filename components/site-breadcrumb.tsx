@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 import { usePathname } from "next/navigation";
 
+import { stripPublicBasePath } from "@/lib/app-path";
+
 const segmentLabels: Record<string, string> = {
   projects: "프로젝트",
   fe: "FE",
@@ -16,12 +18,13 @@ function formatSegment(segment: string) {
 
 export function SiteBreadcrumb() {
   const pathname = usePathname();
+  const appPath = stripPublicBasePath(pathname);
 
-  if (pathname === "/") {
+  if (appPath === "/" || appPath === "") {
     return null;
   }
 
-  const segments = pathname.split("/").filter(Boolean);
+  const segments = appPath.split("/").filter(Boolean);
   const items = segments.map((segment, index) => {
     const href = `/${segments.slice(0, index + 1).join("/")}`;
     const isLast = index === segments.length - 1;

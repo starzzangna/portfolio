@@ -11,7 +11,7 @@ import { notFound } from 'next/navigation';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { getProjectDetail } from '@/lib/site-data';
+import { getProjectDetail, getProjectsByType } from '@/lib/site-data';
 import type { ProjectType } from '@/lib/types';
 
 function highlightOutcomeText(text: string) {
@@ -40,6 +40,20 @@ function highlightOutcomeText(text: string) {
 
 function isProjectType(value: string): value is ProjectType {
   return value === 'fe' || value === 'publish';
+}
+
+export async function generateStaticParams() {
+  const types: ProjectType[] = ['fe', 'publish'];
+  const params: { type: string; slug: string }[] = [];
+
+  for (const type of types) {
+    const projects = await getProjectsByType(type);
+    for (const project of projects) {
+      params.push({ type, slug: project.slug });
+    }
+  }
+
+  return params;
 }
 
 export async function generateMetadata({
@@ -256,7 +270,7 @@ export default async function ProjectDetailPage({
             variant="outline"
             className="bg-[var(--soft-button-bg)] text-[var(--foreground)] hover:bg-[var(--soft-button-hover-bg)]"
           >
-            <a href={`/projects/${project.type}`}>목록으로</a>
+            <Link href={`/projects/${project.type}`}>목록으로</Link>
           </Button>
           {project.type === 'publish' && project.externalUrl ? (
             <Button

@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { isAppHomePathname } from '@/lib/app-path';
 import { profile } from '@/lib/site-data';
 
 const homeLinks = [
@@ -23,7 +24,7 @@ const homeLinks = [
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const onHome = pathname === '/';
+  const onHome = isAppHomePathname(pathname);
 
   return (
     <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[color:color-mix(in_oklab,var(--background)_82%,transparent)] backdrop-blur-xl">

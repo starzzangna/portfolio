@@ -8,6 +8,7 @@ import { SectionHeading } from '@/components/section-heading';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { withBasePath } from '@/lib/app-path';
 import {
   careers,
   getFeaturedProjects,
@@ -31,7 +32,7 @@ export default async function HomePage() {
           <div className="order-1 flex justify-center lg:hidden">
             <div className="relative size-28 overflow-hidden rounded-full border border-[var(--border)] bg-[var(--surface)] shadow-[0_18px_40px_rgba(15,23,42,0.12)]">
               <Image
-                src={profile.image}
+                src={withBasePath(profile.image)}
                 alt={`${profile.name} 프로필 이미지`}
                 fill
                 className="object-cover object-top"
@@ -72,7 +73,7 @@ export default async function HomePage() {
           <article className="order-1 relative hidden overflow-hidden rounded-[10px] border border-[var(--border)] bg-[var(--surface)] shadow-[0_30px_80px_rgba(15,23,42,0.08)] lg:order-2 lg:block lg:h-full lg:rounded-[2.5rem]">
             <div className="relative aspect-video overflow-hidden rounded-[10px] lg:h-full lg:rounded-[2.5rem] lg:aspect-auto sm:aspect-[4/5]">
               <Image
-                src={profile.image}
+                src={withBasePath(profile.image)}
                 alt={`${profile.name} 프로필 이미지`}
                 fill
                 className="object-contain lg:object-cover object-top"

@@ -26,6 +26,10 @@ function isProjectType(value: string): value is ProjectType {
   return value === 'fe' || value === 'publish';
 }
 
+export function generateStaticParams() {
+  return [{ type: 'fe' }, { type: 'publish' }];
+}
+
 export async function generateMetadata({
   params,
 }: {

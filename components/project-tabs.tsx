@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { ProjectCard } from "@/components/project-card";
@@ -35,7 +36,7 @@ export function ProjectTabs({
           size="sm"
           className="h-9 px-3 text-xs bg-[var(--soft-button-bg)] text-[var(--foreground)] hover:bg-[var(--soft-button-hover-bg)] md:h-10 md:px-5 md:text-sm"
         >
-          <a href={moreHref}>더 보기</a>
+          <Link href={moreHref}>더 보기</Link>
         </Button>
       </div>
       <TabsContent value="fe">
