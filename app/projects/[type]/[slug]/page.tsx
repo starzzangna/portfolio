@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import {
   AlertTriangle,
   ArrowRight,
@@ -9,6 +8,7 @@ import {
 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+import { DocumentLink } from '@/components/document-link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { getProjectDetail, getProjectsByType } from '@/lib/site-data';
@@ -270,17 +270,17 @@ export default async function ProjectDetailPage({
             variant="outline"
             className="bg-[var(--soft-button-bg)] text-[var(--foreground)] hover:bg-[var(--soft-button-hover-bg)]"
           >
-            <Link href={`/projects/${project.type}`}>목록으로</Link>
+            <DocumentLink href={`/projects/${project.type}`}>목록으로</DocumentLink>
           </Button>
           {project.type === 'publish' && project.externalUrl ? (
             <Button
               asChild
               className="border-[var(--cta-border)] bg-[var(--cta-bg)] !text-white hover:border-[var(--cta-hover-border)] hover:bg-[var(--cta-hover-bg)] hover:!text-white"
             >
-              <Link href={project.externalUrl} target="_blank">
+              <DocumentLink href={project.externalUrl} target="_blank" rel="noopener noreferrer">
                 원본 사이트 보기
                 <ExternalLink className="size-4" />
-              </Link>
+              </DocumentLink>
             </Button>
           ) : null}
         </div>

@@ -41,6 +41,19 @@ npm run build
 
 생성된 `out/`을 정적 서버로 열어 확인할 수 있습니다.
 
+### 상세 페이지가 404일 때 (주소 확인)
+
+GitHub **프로젝트 페이지**는 반드시 **`https://<사용자>.github.io/<저장소이름>/`** 아래에만 올라갑니다. 저장소 이름이 `portfolio`이면 앞에 **`/portfolio`** 가 들어가야 합니다.
+
+| 구분 | 예시 |
+|------|------|
+| 잘못된 주소 (루트 사이트로 인식) | `https://starzzangna.github.io/projects/fe/tourvis-common-rerenewal` |
+| 올바른 주소 | `https://starzzangna.github.io/portfolio/projects/fe/tourvis-common-rerenewal/` |
+
+첫 번째 형태는 `github.io` **최상위**에 `projects/...` 폴더가 없어서 404가 납니다. 브라우저 주소창에 공유·북마크할 때는 항상 **`/portfolio`까지 포함**했는지 확인하세요. (빌드에 `trailingSlash`를 켜 두었으므로 **끝의 `/`** 가 있으면 더 안전합니다.)
+
+`https://starzzangna.github.io/` 만 쓰고 싶다면 별도 저장소 `starzzangna.github.io`에 루트로 배포하고, 이 프로젝트에서는 `basePath`를 비우는 식으로 설정을 바꿔야 합니다.
+
 ## 디렉터리 안내
 
 | 경로 | 설명 |

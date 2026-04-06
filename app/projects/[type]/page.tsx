@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+
+import { DocumentLink } from '@/components/document-link';
 
 import { PublishProjectTabs } from '@/components/publish-project-tabs';
 import { ProjectCard } from '@/components/project-card';
@@ -74,7 +75,7 @@ export default async function ProjectTypePage({
           size="sm"
           className="bg-[var(--soft-button-bg)] text-[var(--foreground)] hover:bg-[var(--soft-button-hover-bg)]"
         >
-          <Link href="/projects">프로젝트 목록으로</Link>
+          <DocumentLink href="/projects">프로젝트 목록으로</DocumentLink>
         </Button>
         <Button
           asChild
@@ -82,7 +83,7 @@ export default async function ProjectTypePage({
           size="sm"
           className="bg-[var(--soft-button-bg)] text-[var(--foreground)] hover:bg-[var(--soft-button-hover-bg)]"
         >
-          <Link href="/">메인으로</Link>
+          <DocumentLink href="/">메인으로</DocumentLink>
         </Button>
       </div>
 

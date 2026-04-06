@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
+import { DocumentLink } from "@/components/document-link";
 import { ProjectCard } from "@/components/project-card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -36,7 +36,7 @@ export function ProjectTabs({
           size="sm"
           className="h-9 px-3 text-xs bg-[var(--soft-button-bg)] text-[var(--foreground)] hover:bg-[var(--soft-button-hover-bg)] md:h-10 md:px-5 md:text-sm"
         >
-          <Link href={moreHref}>더 보기</Link>
+          <DocumentLink href={moreHref}>더 보기</DocumentLink>
         </Button>
       </div>
       <TabsContent value="fe">

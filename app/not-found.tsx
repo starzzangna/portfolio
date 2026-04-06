@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import { DocumentLink } from "@/components/document-link";
 import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
@@ -14,10 +13,10 @@ export default function NotFound() {
       </p>
       <div className="mt-8 flex gap-3">
         <Button asChild>
-          <Link href="/">메인으로 이동</Link>
+          <DocumentLink href="/">메인으로 이동</DocumentLink>
         </Button>
         <Button asChild variant="outline">
-          <Link href="/projects/fe">프로젝트 보기</Link>
+          <DocumentLink href="/projects/fe">프로젝트 보기</DocumentLink>
         </Button>
       </div>
     </section>

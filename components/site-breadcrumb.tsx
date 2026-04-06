@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 import { usePathname } from "next/navigation";
 
+import { DocumentLink } from "@/components/document-link";
 import { stripPublicBasePath } from "@/lib/app-path";
 
 const segmentLabels: Record<string, string> = {
@@ -44,13 +44,13 @@ export function SiteBreadcrumb() {
       >
         <ol className="flex flex-wrap items-center gap-2 text-sm">
           <li className="flex items-center gap-2">
-            <Link
+            <DocumentLink
               href="/"
               className="inline-flex items-center gap-2 text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]"
             >
               <Home className="size-4" />
               <span>홈</span>
-            </Link>
+            </DocumentLink>
           </li>
           {items.map((item) => (
             <li key={item.href} className="flex items-center gap-2">
@@ -60,12 +60,12 @@ export function SiteBreadcrumb() {
                   {item.label}
                 </span>
               ) : (
-                <Link
+                <DocumentLink
                   href={item.href}
                   className="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]"
                 >
                   {item.label}
-                </Link>
+                </DocumentLink>
               )}
             </li>
           ))}

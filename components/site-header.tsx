@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
+import { DocumentLink } from '@/components/document-link';
+
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import {
@@ -30,11 +32,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[color:color-mix(in_oklab,var(--background)_82%,transparent)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-4">
-          <Link href="/" className="flex min-w-0">
+          <DocumentLink href="/" className="flex min-w-0">
             <p className="min-w-0 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted-foreground)] line-clamp-2 md:line-clamp-none">
               {profile.role}
             </p>
-          </Link>
+          </DocumentLink>
         </div>
 
         <nav className="hidden items-center gap-2 md:flex">
@@ -45,7 +47,7 @@ export function SiteHeader() {
           ))}
           {!onHome ? (
             <Button asChild variant="ghost" size="sm">
-              <Link href="/projects">프로젝트 목록</Link>
+              <DocumentLink href="/projects">프로젝트 목록</DocumentLink>
             </Button>
           ) : null}
           <ThemeToggle />
@@ -81,13 +83,12 @@ export function SiteHeader() {
                   </SheetClose>
                 ))}
                 <SheetClose asChild>
-                  {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                  <a
+                  <DocumentLink
                     href="/projects"
                     className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] px-4 py-3.5 text-base font-medium"
                   >
                     전체 프로젝트
-                  </a>
+                  </DocumentLink>
                 </SheetClose>
               </div>
             </SheetContent>

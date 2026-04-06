@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 import { CareerList } from '@/components/career-list';
+import { DocumentLink } from '@/components/document-link';
 import { ProjectTabs } from '@/components/project-tabs';
 import { SectionHeading } from '@/components/section-heading';
 import { Badge } from '@/components/ui/badge';
@@ -63,10 +63,10 @@ export default async function HomePage() {
                 asChild
                 className="border-[var(--cta-border)] bg-[var(--cta-bg)] !text-white shadow-[0_16px_32px_var(--cta-shadow)] hover:border-[var(--cta-hover-border)] hover:bg-[var(--cta-hover-bg)] hover:!text-white"
               >
-                <Link href="/projects">
+                <DocumentLink href="/projects">
                   프로젝트 보기
                   <ArrowRight className="size-4" />
-                </Link>
+                </DocumentLink>
               </Button>
             </div>
           </article>

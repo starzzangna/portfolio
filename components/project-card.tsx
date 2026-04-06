@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
+import { DocumentLink } from '@/components/document-link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -161,13 +161,14 @@ export function ProjectCard({
               {project.title}
             </h3>
             {project.type === 'publish' && project.externalUrl && (
-              <Link
+              <DocumentLink
                 href={project.externalUrl}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="mt-1 inline-flex p-1 rounded-full hover:bg-[var(--accent)]/10 text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-all"
               >
                 <ExternalLink className="size-4" />
-              </Link>
+              </DocumentLink>
             )}
           </div>
           <p className="line-clamp-3 text-sm leading-relaxed text-[var(--muted-foreground)]">
@@ -200,10 +201,10 @@ export function ProjectCard({
                 size="sm"
                 className="rounded-full border-[var(--cta-border)] bg-[var(--cta-bg)] px-5 font-medium !text-white shadow-lg shadow-[var(--cta-shadow)] transition-all hover:translate-y-[-1px] hover:bg-[var(--cta-hover-bg)]"
               >
-                <Link href={detailHref} className="flex items-center gap-1.5">
+                <DocumentLink href={detailHref} className="flex items-center gap-1.5">
                   View Detail
                   <ArrowUpRight className="size-4" />
-                </Link>
+                </DocumentLink>
               </Button>
             </div>
           ) : null}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowRight, Code2, PanelsTopLeft } from 'lucide-react';
 
+import { DocumentLink } from '@/components/document-link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -71,10 +71,10 @@ export default function ProjectsPage() {
                     size="sm"
                     className="border-[var(--cta-border)] bg-[var(--cta-bg)] !text-white hover:border-[var(--cta-hover-border)] hover:bg-[var(--cta-hover-bg)] hover:!text-white sm:px-5 sm:py-3 sm:text-sm"
                   >
-                    <Link href={entry.href}>
+                    <DocumentLink href={entry.href}>
                       들어가기
                       <ArrowRight className="size-4" />
-                    </Link>
+                    </DocumentLink>
                   </Button>
                 </div>
               </CardContent>
