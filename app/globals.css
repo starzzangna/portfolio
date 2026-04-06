@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5efe4;
+  --foreground: #172033;
+  --card: rgba(255, 252, 247, 0.86);
+  --surface: rgba(255, 255, 255, 0.46);
+  --border: rgba(23, 32, 51, 0.12);
+  --muted-foreground: #536077;
+  --accent: #b8572c;
+  --accent-strong: #933c16;
+  --cta-bg: #933c16;
+  --cta-border: #933c16;
+  --cta-fg: #ffffff;
+  --cta-hover-bg: #7f3211;
+  --cta-hover-border: #7f3211;
+  --cta-hover-fg: #ffffff;
+  --cta-shadow: rgba(147, 60, 22, 0.24);
+  --soft-button-bg: rgba(255, 252, 247, 0.9);
+  --soft-button-hover-bg: rgba(23, 32, 51, 0.08);
+  --font-body: "Avenir Next", "Pretendard Variable", "Noto Sans KR",
+    "Apple SD Gothic Neo", sans-serif;
+  --font-display: "Space Grotesk", "Suisse Intl", "Avenir Next",
+    "Pretendard Variable", sans-serif;
+}
+
+.dark {
+  --background: #111827;
+  --foreground: #f3f4f6;
+  --card: rgba(17, 24, 39, 0.82);
+  --surface: rgba(31, 41, 55, 0.82);
+  --border: rgba(243, 244, 246, 0.12);
+  --muted-foreground: #c2cad7;
+  --accent: #f59e0b;
+  --accent-strong: #fbbf24;
+  --cta-bg: #f59e0b;
+  --cta-border: #f59e0b;
+  --cta-fg: #111827;
+  --cta-hover-bg: #d18a08;
+  --cta-hover-border: #d18a08;
+  --cta-hover-fg: #111827;
+  --cta-shadow: rgba(245, 158, 11, 0.22);
+  --soft-button-bg: rgba(31, 41, 55, 0.92);
+  --soft-button-hover-bg: rgba(243, 244, 246, 0.12);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(184, 87, 44, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(23, 32, 51, 0.14), transparent 25%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.36), transparent 36%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, white);
+}
+
+.section-shell {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.glass-panel {
+  background: var(--card);
+  backdrop-filter: blur(18px);
+}
+
+.masonry-grid {
+  column-gap: 1.5rem;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.publish-masonry {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 20px;
+  grid-auto-flow: row;
+  align-items: start;
+}
+
+.publish-masonry__item {
+  min-width: 0;
+}
+
+.publish-masonry__content {
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    columns: 4;
+  }
+}
+
+/* 카드 구분을 위한 클래스 강화 */
+.glass-panel {
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border); /* 명시적 보더 추가 */
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(23, 32, 51, 0.15);
+  border-color: color-mix(in oklab, var(--accent) 30%, var(--border));
+}
