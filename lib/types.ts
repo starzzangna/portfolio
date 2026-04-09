@@ -1,4 +1,4 @@
-export type ProjectType = "fe" | "publish";
+export type ProjectType = 'fe' | 'publish';
 
 export interface Profile {
   name: string;
@@ -6,6 +6,7 @@ export interface Profile {
   role: string;
   intro: string;
   email: string;
+  github: string;
   location: string;
   image: string;
 }
@@ -13,7 +14,7 @@ export interface Profile {
 export interface Strength {
   title: string;
   description: string;
-  icon: "layout" | "sparkles" | "accessibility";
+  icon: 'layout' | 'sparkles' | 'accessibility';
 }
 
 export interface SkillGroup {
@@ -51,7 +52,7 @@ interface BaseProjectItem {
 }
 
 export interface FeProjectItem extends BaseProjectItem {
-  type: "fe";
+  type: 'fe';
   teamSize: string;
   body: string[];
   troubleshooting: TroubleshootingItem[];
@@ -59,11 +60,10 @@ export interface FeProjectItem extends BaseProjectItem {
 }
 
 export interface PublishProjectItem extends BaseProjectItem {
-  type: "publish";
+  type: 'publish';
   contribution: string;
   externalUrl?: string;
   dateLabel: string;
 }
 
 export type ProjectItem = FeProjectItem | PublishProjectItem;
-

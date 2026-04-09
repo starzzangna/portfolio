@@ -21,6 +21,7 @@ export const profile: Profile = {
   intro:
     '디자인과 퍼블리싱 경험을 기반으로 React 중심의 반응형 UI를 구현하고, 운영 효율을 높이는 자동화와 공통화까지 연결하는 프론트엔드 개발자입니다.',
   email: 'starzzangna@naver.com',
+  github: 'https://github.com/starzzangna',
   location: 'Goyang, South Korea',
   image: '/images/me.jpg',
 };
@@ -401,7 +402,7 @@ export const feProjects: FeProjectItem[] = [
     summary:
       '운영 회원 데이터를 기반으로 고객센터 요청 프로세스를 연결하고, HTML + JavaScript 중심 레거시 화면을 정리한 프로젝트입니다.',
     period: '2025.05 - 2025.08',
-    teamSize: 'Frontend 1명, Backend 협업',
+    teamSize: 'Frontend 1명, 기획 1명, Backend 1명 협업',
     skills: [
       'JavaScript',
       'API Integration',
@@ -436,7 +437,7 @@ export const feProjects: FeProjectItem[] = [
     summary:
       '다음 가이드에 맞춘 전용 메인 페이지를 구축하면서 다크 모드와 공통 카드 컴포넌트 체계를 함께 정리한 프로젝트입니다.',
     period: '2025.03 - 2025.04',
-    teamSize: 'Frontend 1명',
+    teamSize: 'Frontend 1명, 기획 1명 협업',
     skills: ['React', 'Tailwind CSS', 'Radix UI', 'Dark Mode'],
     image: '/images/portpolio/kt.jpg',
     body: [
@@ -465,7 +466,7 @@ export const feProjects: FeProjectItem[] = [
     summary:
       '투어비스 내 패키지 상품 견적 문의를 위한 별도 게시판을 구축하고, 회원/비회원 흐름을 함께 정리한 프로젝트입니다.',
     period: '2025.12 - 2026.01',
-    teamSize: 'Frontend 1명',
+    teamSize: 'Frontend 1명, 기획 1명 협업',
     skills: ['Next.js', 'React', 'TypeScript', 'Form UX'],
     image: '/images/portpolio/neighbor.jpg',
     body: [
@@ -523,7 +524,7 @@ export const feProjects: FeProjectItem[] = [
     summary:
       '마이페이지 주요 영역을 리뉴얼하면서 내여행, 쿠폰함, 이용권 페이지의 사용 흐름을 개선한 프로젝트입니다.',
     period: '2023.08 - 2023.10',
-    teamSize: 'Frontend 1명',
+    teamSize: 'Frontend 1명, 기획 1명, 디자인 1명 협업',
     skills: ['React', 'Next.js', 'Responsive UI', 'Publishing'],
     image: '/images/portpolio/kisdi.jpg',
     body: [
@@ -579,7 +580,7 @@ export const feProjects: FeProjectItem[] = [
     summary:
       '사용자 연령층과 고객센터 문의 패턴을 반영해 PC 친화적인 공통 화면을 재정비한 서비스 개선 프로젝트입니다.',
     period: '2023.06 - 2023.09',
-    teamSize: 'Frontend 1명',
+    teamSize: 'Frontend 1명, 기획 1명, 디자인 1명 협업',
     skills: ['React', 'Responsive UI', 'UI/UX', 'Publishing'],
     image: '/images/portpolio/smart.jpg',
     body: [
@@ -668,18 +669,14 @@ export function mapPublishSheetRow(row: PublishSheetRow): PublishProjectItem {
 
 function parsePublishPeriodValue(period: string, position: 'start' | 'end') {
   const normalized = period.replace(/[~–—]/g, '-');
-  const matches = [
-    ...normalized.matchAll(/(\d{4})(?:\.(\d{1,2}))?/g),
-  ].map((match) => {
-    const year = Number(match[1]);
-    const month = match[2]
-      ? Number(match[2])
-      : position === 'start'
-        ? 1
-        : 12;
+  const matches = [...normalized.matchAll(/(\d{4})(?:\.(\d{1,2}))?/g)].map(
+    (match) => {
+      const year = Number(match[1]);
+      const month = match[2] ? Number(match[2]) : position === 'start' ? 1 : 12;
 
-    return year * 100 + month;
-  });
+      return year * 100 + month;
+    },
+  );
 
   if (!matches.length) {
     return 0;
@@ -724,8 +721,8 @@ export async function getPublishProjects(): Promise<PublishProjectItem[]> {
 
     return sortPublishProjects(
       rows
-      .filter((row) => normalizePublishType(row.Type) === 'publish')
-      .map(mapPublishSheetRow),
+        .filter((row) => normalizePublishType(row.Type) === 'publish')
+        .map(mapPublishSheetRow),
     );
   } catch {
     return [];

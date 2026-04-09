@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Github } from 'lucide-react';
 
 import { CareerList } from '@/components/career-list';
 import { DocumentLink } from '@/components/document-link';
@@ -27,7 +28,10 @@ export default async function HomePage() {
 
   return (
     <div className="pb-24">
-      <section id="profile" className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20">
+      <section
+        id="profile"
+        className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20"
+      >
         <div className="grid items-stretch gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
           <div className="order-1 flex justify-center lg:hidden">
             <div className="relative size-28 overflow-hidden rounded-full border border-[var(--border)] bg-[var(--surface)] shadow-[0_18px_40px_rgba(15,23,42,0.12)]">
@@ -57,6 +61,17 @@ export default async function HomePage() {
               </Badge>
               <Badge>{profile.location}</Badge>
               <Badge className="break-all">{profile.email}</Badge>
+              <Badge>
+                <Link
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center text-[var(--foreground)]"
+                  aria-label="GitHub 프로필 (새 탭)"
+                >
+                  <Github className="size-4" aria-hidden />
+                </Link>
+              </Badge>
             </div>
             <div className="mt-10 flex flex-wrap gap-3 justify-end">
               <Button
@@ -85,7 +100,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="strengths" className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20">
+      <section
+        id="strengths"
+        className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20"
+      >
         <SectionHeading
           eyebrow="핵심 강점"
           title="퍼블리싱 경험을 바탕으로 실무형 프론트엔드를 만듭니다."
@@ -96,8 +114,8 @@ export default async function HomePage() {
             const Icon = strengthIcons[strength.icon];
 
             return (
-                <Card key={strength.title} className="glass-panel">
-                  <CardContent className="space-y-5 p-7">
+              <Card key={strength.title} className="glass-panel">
+                <CardContent className="space-y-5 p-7">
                   <div className="flex items-center gap-3 sm:block">
                     <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[color:color-mix(in_oklab,var(--accent)_16%,white)] text-[var(--accent)] sm:size-14 sm:rounded-2xl">
                       <Icon className="size-[18px] sm:size-7" />
@@ -118,7 +136,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="skills" className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20">
+      <section
+        id="skills"
+        className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20"
+      >
         <SectionHeading
           eyebrow="기술 스택"
           title="운영 환경에 맞는 기술 조합으로 빠르게 구현합니다."
@@ -144,7 +165,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="careers" className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20">
+      <section
+        id="careers"
+        className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20"
+      >
         <SectionHeading
           eyebrow="경력"
           title="구축 프로젝트부터 실서비스 운영까지 폭넓게 경험했습니다."
@@ -155,7 +179,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="projects" className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20">
+      <section
+        id="projects"
+        className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20"
+      >
         <SectionHeading
           eyebrow="프로젝트"
           title="주요 프론트엔드 작업과 구축형 퍼블리싱 이력"
