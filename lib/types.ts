@@ -40,6 +40,11 @@ export interface TroubleshootingItem {
   solution: string;
 }
 
+export interface ProjectGalleryImage {
+  src: string;
+  alt?: string;
+}
+
 interface BaseProjectItem {
   type: ProjectType;
   slug: string;
@@ -57,6 +62,8 @@ export interface FeProjectItem extends BaseProjectItem {
   body: string[];
   troubleshooting: TroubleshootingItem[];
   outcomes: string[];
+  /** 상세 페이지 썸네일·라이트박스 갤러리 (선택) */
+  detailGallery?: ProjectGalleryImage[];
 }
 
 export interface PublishProjectItem extends BaseProjectItem {

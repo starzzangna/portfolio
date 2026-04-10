@@ -345,9 +345,10 @@ export const feProjects: FeProjectItem[] = [
     skills: ['Next.js', 'React', 'TypeScript', 'Supabase'],
     image: '/images/portpolio/neighbor.jpg',
     body: [
+      '기획-디자인-퍼블리싱 사이의 반복 커뮤니케이션을 줄이고, 마케팅 이메일 제작 속도를 높이는 데 집중했습니다.',
       'Figma URL 입력만으로 a 태그, button 태그, 링크 주소를 매핑하고 이미지 프리뷰까지 함께 확인할 수 있는 빌더를 구현했습니다.',
       '생성 결과물을 Supabase에 업로드한 뒤 미리보기와 다운로드까지 한 흐름에서 처리할 수 있도록 구성했습니다.',
-      '기획-디자인-퍼블리싱 사이의 반복 커뮤니케이션을 줄이고, 마케팅 이메일 제작 속도를 높이는 데 집중했습니다.',
+      'Figma API 호출만으로는 안정적으로 데이터를 가져오기 어려웠습니다. Figma 플러그인을 별도로 개발해 API 직접 호출 대신 JSON 데이터를 생성하고 업로드하는 방식도 추가했습니다.',
     ],
     troubleshooting: [
       {
@@ -366,6 +367,32 @@ export const feProjects: FeProjectItem[] = [
     outcomes: [
       '이메일 제작 프로세스 25% 감소',
       '마케팅용 이메일 제작 시간 15% 단축',
+    ],
+    detailGallery: [
+      {
+        src: '/images/builder/builder-1.jpg',
+        alt: 'Figma URL 입력 및 링크 매핑 화면',
+      },
+      {
+        src: '/images/builder/builder-2.jpg',
+        alt: '이메일 빌더 편집 화면',
+      },
+      {
+        src: '/images/builder/builder-3.jpg',
+        alt: '이미지 프리뷰 및 레이어 구성',
+      },
+      {
+        src: '/images/builder/builder-4.jpg',
+        alt: '생성 결과 미리보기',
+      },
+      {
+        src: '/images/builder/builder-5.jpg',
+        alt: '업로드 및 다운로드 흐름',
+      },
+      {
+        src: '/images/builder/builder-6.png',
+        alt: '빌더 UI 상세',
+      },
     ],
   },
   {

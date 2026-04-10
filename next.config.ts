@@ -17,11 +17,13 @@ const nextConfig: NextConfig = {
         images: {
           unoptimized: true,
           formats: ["image/avif", "image/webp"] as const,
+          qualities: [100, 75],
         },
       }
     : {
         images: {
           formats: ["image/avif", "image/webp"],
+          qualities: [100, 75],
         },
       }),
 };

@@ -9,6 +9,7 @@ import {
 import { notFound } from 'next/navigation';
 
 import { DocumentLink } from '@/components/document-link';
+import { ProjectDetailGallery } from '@/components/project-detail-gallery';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { getProjectDetail, getProjectsByType } from '@/lib/site-data';
@@ -156,6 +157,14 @@ export default async function ProjectDetailPage({
             </div>
           </div>
         </div>
+
+        {project.type === 'fe' && project.detailGallery?.length ? (
+          <ProjectDetailGallery
+            images={project.detailGallery}
+            heading="빌더 화면"
+            dialogTitle={`${project.title} — 화면 갤러리`}
+          />
+        ) : null}
 
         <div className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] p-5 sm:p-6">
           <h2 className="text-xl font-semibold sm:text-2xl">프로젝트 내용</h2>
