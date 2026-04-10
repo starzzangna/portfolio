@@ -32,19 +32,7 @@ export default async function HomePage() {
         id="profile"
         className="section-shell scroll-mt-18 py-10 sm:scroll-mt-20 sm:py-20"
       >
-        <div className="grid items-stretch gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
-          <div className="order-1 flex justify-center lg:hidden">
-            <div className="relative size-28 overflow-hidden rounded-full border border-[var(--border)] bg-[var(--surface)] shadow-[0_18px_40px_rgba(15,23,42,0.12)]">
-              <Image
-                src={withBasePath(profile.image)}
-                alt={`${profile.name} 프로필 이미지`}
-                fill
-                className="object-cover object-top"
-                priority
-                sizes="112px"
-              />
-            </div>
-          </div>
+        <div>
           <article className="order-2 glass-panel overflow-hidden rounded-[10px] lg:rounded-[2.5rem] border border-[var(--border)] p-6 shadow-[0_30px_80px_rgba(15,23,42,0.08)] sm:p-10 lg:order-1">
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">
               Frontend Developer / Publisher
@@ -83,18 +71,6 @@ export default async function HomePage() {
                   <ArrowRight className="size-4" />
                 </DocumentLink>
               </Button>
-            </div>
-          </article>
-          <article className="order-1 relative hidden overflow-hidden rounded-[10px] border border-[var(--border)] bg-[var(--surface)] shadow-[0_30px_80px_rgba(15,23,42,0.08)] lg:order-2 lg:block lg:h-full lg:rounded-[2.5rem]">
-            <div className="relative aspect-video overflow-hidden rounded-[10px] lg:h-full lg:rounded-[2.5rem] lg:aspect-auto sm:aspect-[4/5]">
-              <Image
-                src={withBasePath(profile.image)}
-                alt={`${profile.name} 프로필 이미지`}
-                fill
-                className="object-contain lg:object-cover object-top"
-                priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
             </div>
           </article>
         </div>
