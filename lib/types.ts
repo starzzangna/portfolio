@@ -64,6 +64,7 @@ export interface FeProjectItem extends BaseProjectItem {
   outcomes: string[];
   /** 상세 페이지 썸네일·라이트박스 갤러리 (선택) */
   detailGallery?: ProjectGalleryImage[];
+  detailGalleryHeading?: string;
 }
 
 export interface PublishProjectItem extends BaseProjectItem {

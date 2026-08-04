@@ -116,6 +116,14 @@ export const careers: CareerItem[] = [
         ],
       },
       {
+        title: 'usj 관련 ai 챗봇 ui 컴포넌트 설계 및 작업',
+        items: [
+          '2025.09 - 2025.11',
+          'ai 스트리밍 챗봇을 바탕으로, 기존에 자주 질문받던 리스트를 뽑아, 하단에 추천질문 좌우 리스트로 구현',
+          '성과 : 고객센터 관련 문의 12% 감소',
+        ],
+      },
+      {
         title: '마케팅용 vercel 앱 프록시 연동 및 ai 를 이용한 seo 강화',
         items: [
           '2025.08 - 2025.08',
@@ -368,6 +376,7 @@ export const feProjects: FeProjectItem[] = [
       '이메일 제작 프로세스 25% 감소',
       '마케팅용 이메일 제작 시간 15% 단축',
     ],
+    detailGalleryHeading: '빌더 화면',
     detailGallery: [
       {
         src: '/images/builder/builder-1.jpg',
@@ -392,6 +401,36 @@ export const feProjects: FeProjectItem[] = [
       {
         src: '/images/builder/builder-6.png',
         alt: '빌더 UI 상세',
+      },
+    ],
+  },
+  {
+    type: 'fe',
+    slug: 'usj-ai-chatbot-ui',
+    company: 'Tidesquare',
+    title: 'USJ AI 챗봇 UI 컴포넌트 설계 및 작업',
+    summary:
+      'USJ 관련 AI 스트리밍 챗봇을 기반으로 자주 묻는 질문을 추천 질문 리스트로 구성해, 고객센터 문의 부담을 줄인 UI 컴포넌트 작업입니다.',
+    period: '2025.09 - 2025.11',
+    teamSize: 'Frontend 1명',
+    skills: ['React', 'TypeScript', 'Streaming UI', 'Component Design'],
+    image: '/images/portpolio/tourvis.jpg',
+    body: [
+      'AI 스트리밍 챗봇 구조를 바탕으로 대화 UI 컴포넌트를 설계하고 구현했습니다.',
+      '기존에 자주 받던 질문 목록을 추려 하단 추천 질문 영역으로 구성하고, 좌우로 탐색할 수 있는 리스트 UI로 정리했습니다.',
+      '사용자가 바로 질문을 선택할 수 있게 해 챗봇 진입 허들을 낮추고 고객센터 문의로 이어지는 비중을 줄이는 데 집중했습니다.',
+    ],
+    troubleshooting: [],
+    outcomes: ['고객센터 관련 문의 12% 감소'],
+    detailGalleryHeading: '챗봇 화면',
+    detailGallery: [
+      {
+        src: '/images/chatbot/chatbot-1.png',
+        alt: 'USJ 챗봇 초기 화면과 추천 질문 리스트',
+      },
+      {
+        src: '/images/chatbot/chatbot-2.png',
+        alt: 'USJ 챗봇 질문·응답 및 추천 질문 연동 화면',
       },
     ],
   },

@@ -161,7 +161,7 @@ export default async function ProjectDetailPage({
         {project.type === 'fe' && project.detailGallery?.length ? (
           <ProjectDetailGallery
             images={project.detailGallery}
-            heading="빌더 화면"
+            heading={project.detailGalleryHeading}
             dialogTitle={`${project.title} — 화면 갤러리`}
           />
         ) : null}

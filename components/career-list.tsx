@@ -128,6 +128,8 @@ const feProjectLinkMap: Record<string, string> = {
     '/projects/fe/figma-email-builder',
   [slugifyTitle('패키지 견적문의 게시판 작업')]:
     '/projects/fe/package-estimate-board',
+  [slugifyTitle('usj 관련 ai 챗봇 ui 컴포넌트 설계 및 작업')]:
+    '/projects/fe/usj-ai-chatbot-ui',
   [slugifyTitle('마케팅용 vercel 앱 프록시 연동 및 ai 를 이용한 seo 강화')]:
     '/projects/fe/marketing-proxy-seo',
   [slugifyTitle('고객센터 젠데스크 주요 요청 api 연동')]:
