@@ -14,7 +14,7 @@ export interface Profile {
 export interface Strength {
   title: string;
   description: string;
-  icon: 'layout' | 'sparkles' | 'accessibility';
+  icon: 'layout' | 'sparkles' | 'users';
 }
 
 export interface SkillGroup {
@@ -32,6 +32,7 @@ export interface CareerItem {
   company: string;
   period: string;
   summary: string;
+  skills?: string[];
   responsibilities: CareerDetailGroup[];
 }
 

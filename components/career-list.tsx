@@ -124,25 +124,32 @@ function slugifyTitle(value: string) {
 }
 
 const feProjectLinkMap: Record<string, string> = {
-  [slugifyTitle('마케팅용 Figma to Email HTML 개발')]:
+  [slugifyTitle('AI Builder — 내부 프로모션 페이지 빌더 설계·구현')]:
+    '/projects/fe/ai-builder',
+  [slugifyTitle('TideBuilder — Figma to Email HTML 제작 자동화')]:
     '/projects/fe/figma-email-builder',
-  [slugifyTitle('패키지 견적문의 게시판 작업')]:
+  [slugifyTitle('패키지 맞춤여행 견적 문의 게시판')]:
     '/projects/fe/package-estimate-board',
-  [slugifyTitle('usj 관련 ai 챗봇 ui 컴포넌트 설계 및 작업')]:
+  [slugifyTitle('투어비스 USJ AI 챗봇 UI')]:
     '/projects/fe/usj-ai-chatbot-ui',
-  [slugifyTitle('마케팅용 vercel 앱 프록시 연동 및 ai 를 이용한 seo 강화')]:
+  [slugifyTitle('마케팅 Vercel 앱 프록시 연동 및 AI 기반 SEO 강화')]:
     '/projects/fe/marketing-proxy-seo',
-  [slugifyTitle('고객센터 젠데스크 주요 요청 api 연동')]:
-    '/projects/fe/zendesk-request-integration',
-  [slugifyTitle('daum 전용 페이지 구축')]: '/projects/fe/daum-page-build',
-  [slugifyTitle('airspot 백오피스 리뉴얼 UI/UX 개발 백업')]:
+  [slugifyTitle(
+    '투어비스 고객센터 (Zendesk Guide) — API 연동 및 챗봇/셀프서비스 고도화',
+  )]: '/projects/fe/zendesk-request-integration',
+  [slugifyTitle('다음 쇼핑 제휴 랜딩 — CMS 템플릿 섹션 시스템')]:
+    '/projects/fe/daum-page-build',
+  [slugifyTitle('airspot 백오피스 리뉴얼 UI/UX 안정화')]:
     '/projects/fe/airspot-backoffice-ui-backup',
-  [slugifyTitle('투어비스 마이페이지 리뉴얼 퍼블리싱 및 FE 개발')]:
-    '/projects/fe/tourvis-mypage-renewal',
-  [slugifyTitle('퍼블리싱 팀 gulp 자동화')]:
-    '/projects/fe/publishing-team-gulp-automation',
-  [slugifyTitle('투어비스 공통 재리뉴얼 퍼블리싱 및 FE 개발')]:
+  [slugifyTitle(
+    '투어비스 마이페이지 리뉴얼 — 내여행 · 쿠폰함 · 이용권',
+  )]: '/projects/fe/tourvis-mypage-renewal',
+  [slugifyTitle('투어비스 공통 메인 · GNB 리뉴얼')]:
     '/projects/fe/tourvis-common-rerenewal',
+  [slugifyTitle('투어비스 호텔 메인 UI 리뉴얼')]:
+    '/projects/fe/tourvis-hotel-main-ui',
+  [slugifyTitle('투어비스 Publish — Gulp 빌드 환경 도입 및 표준화')]:
+    '/projects/fe/publishing-team-gulp-automation',
 };
 
 function resolveProjectHref(title: string) {
@@ -180,6 +187,18 @@ export function CareerList({ items }: { items: CareerItem[] }) {
                   <p className="mt-4 text-sm leading-6 text-[var(--muted-foreground)]">
                     {item.summary}
                   </p>
+                  {item.skills?.length ? (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {item.skills.map((skill) => (
+                        <Badge
+                          key={skill}
+                          className="border-[var(--border)] bg-transparent px-2 py-0 text-[10px] text-[var(--muted-foreground)]"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
                 <CollapsibleTrigger className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-5 py-2 text-sm font-bold transition-all hover:bg-[var(--surface)] md:mx-0">
                   상세 업무 내역

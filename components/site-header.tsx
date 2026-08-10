@@ -19,9 +19,9 @@ import { isAppHomePathname } from '@/lib/app-path';
 import { profile } from '@/lib/site-data';
 
 const homeLinks = [
-  { href: '/#skills', label: '기술' },
   { href: '/#careers', label: '경력' },
   { href: '/#projects', label: '프로젝트' },
+  { href: '/#skills', label: '기술' },
 ];
 
 export function SiteHeader() {
