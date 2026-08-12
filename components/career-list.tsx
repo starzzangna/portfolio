@@ -1,10 +1,8 @@
 'use client';
 
 import {
-  AlertCircle,
   ArrowUpRight,
   Briefcase,
-  CheckCircle2,
   ChevronDown,
   Trophy,
   Zap,
@@ -107,13 +105,8 @@ function parseProjectGroup(group: CareerDetailGroup) {
   return { period, summary, outcomes, troubles };
 }
 
-function isProjectGroup(group: CareerDetailGroup) {
-  return (
-    group.items.some((item) => isPeriodLine(item)) ||
-    group.items.some((item) => item.startsWith('이슈')) ||
-    group.items.some((item) => item.startsWith('해결')) ||
-    group.items.some((item) => item.startsWith('성과'))
-  );
+function isServiceGroup(group: CareerDetailGroup) {
+  return group.title === '구축 서비스';
 }
 
 function slugifyTitle(value: string) {
@@ -208,7 +201,7 @@ export function CareerList({ items }: { items: CareerItem[] }) {
 
               <CollapsibleContent>
                 <div className="space-y-8 border-t border-[var(--border)] bg-[color:color-mix(in_oklab,var(--background)_40%,transparent)] p-6">
-                  {item.responsibilities.some((group) => isProjectGroup(group)) ? (
+                  {item.responsibilities.length ? (
                     <div className="flex items-center gap-2">
                       <Briefcase className="size-5 text-[var(--accent)]" />
                       <span className="text-sm font-bold uppercase tracking-widest text-[var(--foreground)]">
@@ -217,27 +210,41 @@ export function CareerList({ items }: { items: CareerItem[] }) {
                     </div>
                   ) : null}
                   {item.responsibilities.map((group) => {
-                    if (!isProjectGroup(group)) {
+                    if (isServiceGroup(group)) {
                       return (
-                        <section key={group.title} className="space-y-4">
-                          <div className="flex items-center gap-2">
-                            <Briefcase className="size-5 text-[var(--accent)]" />
-                            <span className="text-sm font-bold uppercase tracking-widest text-[var(--foreground)]">
-                              {group.title}
-                            </span>
-                          </div>
+                        <Collapsible
+                          key={group.title}
+                          className="group/service space-y-4"
+                        >
+                          <CollapsibleTrigger className="flex w-full items-center justify-between gap-3 rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-left transition-colors hover:bg-[var(--surface)]">
+                            <div className="flex min-w-0 items-center gap-2">
+                              <Briefcase className="size-5 shrink-0 text-[var(--accent)]" />
+                              <span className="text-sm font-bold uppercase tracking-widest text-[var(--foreground)]">
+                                {group.title}
+                              </span>
+                              <span className="rounded-full border border-[var(--border)] px-2 py-0.5 text-[11px] font-semibold text-[var(--muted-foreground)]">
+                                {group.items.length}건
+                              </span>
+                            </div>
+                            <ChevronDown className="size-4 shrink-0 text-[var(--muted-foreground)] transition-transform group-data-[state=open]/service:rotate-180" />
+                          </CollapsibleTrigger>
 
-                          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
-                            <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
-                              {group.items.map((entry) => (
-                                <li key={entry} className="flex items-start gap-3 leading-7">
-                                  <span className="mt-2 size-1.5 rounded-full bg-[var(--accent)]" />
-                                  <span>{entry}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </section>
+                          <CollapsibleContent>
+                            <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
+                              <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
+                                {group.items.map((entry) => (
+                                  <li
+                                    key={entry}
+                                    className="flex items-start gap-3 leading-7"
+                                  >
+                                    <span className="mt-2 size-1.5 rounded-full bg-[var(--accent)]" />
+                                    <span>{entry}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </CollapsibleContent>
+                        </Collapsible>
                       );
                     }
 
@@ -282,46 +289,6 @@ export function CareerList({ items }: { items: CareerItem[] }) {
                                 </li>
                               ))}
                             </ul>
-                          ) : null}
-
-                          {parsed.troubles.length ? (
-                            <div className="grid gap-4">
-                              {parsed.troubles.map((trouble, index) => (
-                                <article
-                                  key={`${group.title}-trouble-${index}`}
-                                  className="grid items-stretch gap-3 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
-                                >
-                                  {trouble.problem ? (
-                                    <div className="h-full rounded-xl border border-[color:color-mix(in_oklab,var(--accent)_16%,var(--border))] bg-[var(--card)] p-4">
-                                      <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase text-[var(--accent)]">
-                                        <AlertCircle className="size-4" />
-                                        이슈
-                                      </div>
-                                      <p className="text-sm leading-6 text-[var(--foreground)]">
-                                        {trouble.problem}
-                                      </p>
-                                    </div>
-                                  ) : null}
-                                  <div className="hidden items-center justify-center md:flex">
-                                    <ChevronDown className="-rotate-90 size-4 text-[var(--border)]" />
-                                  </div>
-                                  <div className="flex justify-center md:hidden">
-                                    <div className="h-6 w-0.5 bg-[var(--border)]" />
-                                  </div>
-                                  {trouble.solution ? (
-                                    <div className="h-full rounded-xl border border-[color:color-mix(in_oklab,var(--foreground)_14%,var(--border))] bg-[var(--card)] p-4">
-                                      <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase text-[var(--foreground)]">
-                                        <CheckCircle2 className="size-4" />
-                                        해결
-                                      </div>
-                                      <p className="text-sm leading-6 text-[var(--muted-foreground)]">
-                                        {trouble.solution}
-                                      </p>
-                                    </div>
-                                  ) : null}
-                                </article>
-                              ))}
-                            </div>
                           ) : null}
 
                           {parsed.outcomes.length ? (

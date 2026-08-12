@@ -167,7 +167,7 @@ export default async function ProjectDetailPage({
         ) : null}
 
         <div className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] p-5 sm:p-6">
-          <h2 className="text-xl font-semibold sm:text-2xl">프로젝트 내용</h2>
+          <h2 className="text-base font-semibold">프로젝트 내용</h2>
           <div className="mt-5 space-y-4 border-t border-[var(--border)] pt-5">
             {project.type === 'fe' ? (
               project.body.map((item) => (
@@ -193,23 +193,23 @@ export default async function ProjectDetailPage({
 
         {troubleItems.length ? (
           <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm sm:p-7">
-            <h2 className="flex items-center gap-2.5 text-2xl font-bold tracking-tight text-[var(--foreground)] sm:gap-3 sm:text-3xl">
-              <AlertTriangle className="size-6 text-[var(--accent)] sm:size-8" />
+            <h2 className="flex items-center gap-2 text-base font-bold tracking-tight text-[var(--foreground)]">
+              <AlertTriangle className="size-4 text-[var(--accent)]" />
               트러블 슈팅
             </h2>
 
-            <div className="mt-6 space-y-6 border-t border-[var(--border)] pt-6 sm:mt-8 sm:space-y-8 sm:pt-8">
+            <div className="mt-5 space-y-6 border-t border-[var(--border)] pt-5">
               {troubleItems.map((item, index) => (
                 <article
                   key={`${item.problem}-${index}`}
                   className="relative grid items-start gap-4 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-6"
                 >
                   <div className="rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 shadow-inner sm:p-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-[color:color-mix(in_oklab,var(--accent)_10%,transparent)] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[var(--accent-strong)] sm:px-3.5 sm:py-1.5 sm:text-xs">
-                      <AlertTriangle className="size-3.5 sm:size-4" />
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-[color:color-mix(in_oklab,var(--accent)_10%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--accent-strong)]">
+                      <AlertTriangle className="size-3" />
                       문제
                     </div>
-                    <p className="mt-3 text-[14px] font-medium leading-7 text-[var(--foreground)] sm:mt-4 sm:text-[15px] sm:leading-8">
+                    <p className="mt-3 text-[13px] leading-6 text-[var(--foreground)] sm:text-sm sm:leading-7">
                       {item.problem}
                     </p>
                   </div>
@@ -223,11 +223,11 @@ export default async function ProjectDetailPage({
                   </div>
 
                   <div className="rounded-lg border border-[var(--accent)] bg-[color:color-mix(in_oklab,var(--accent)_5%,var(--card))] p-4 shadow-[0_4px_12px_rgba(184,87,44,0.08)] dark:shadow-[0_4px_12px_rgba(245,158,11,0.15)] sm:p-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:px-3.5 sm:py-1.5 sm:text-xs">
-                      <Lightbulb className="size-3.5 sm:size-4" />
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-[var(--accent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+                      <Lightbulb className="size-3" />
                       해결
                     </div>
-                    <p className="mt-3 text-[14px] font-medium leading-7 text-[var(--foreground)] sm:mt-4 sm:text-[15px] sm:leading-8">
+                    <p className="mt-3 text-[13px] leading-6 text-[var(--foreground)] sm:text-sm sm:leading-7">
                       {item.solution}
                     </p>
                   </div>
@@ -238,12 +238,12 @@ export default async function ProjectDetailPage({
         ) : null}
 
         <div className="mt-10 rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm sm:p-7">
-          <h2 className="flex items-center gap-2.5 text-2xl font-bold tracking-tight text-[var(--foreground)] sm:gap-3 sm:text-3xl">
-            <CheckCircle2 className="size-6 text-emerald-500 sm:size-8" />
+          <h2 className="flex items-center gap-2 text-base font-bold tracking-tight text-[var(--foreground)]">
+            <CheckCircle2 className="size-4 text-emerald-500" />
             성과
           </h2>
 
-          <ul className="mt-6 grid gap-3 border-t border-[var(--border)] pt-6 sm:mt-8 sm:gap-4 sm:pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-5 grid gap-3 border-t border-[var(--border)] pt-5 sm:grid-cols-2">
             {(project.type === 'fe'
               ? project.outcomes
               : [
@@ -253,10 +253,10 @@ export default async function ProjectDetailPage({
             ).map((item) => (
               <li
                 key={item}
-                className="group flex gap-3 rounded-xl border border-[var(--border)] bg-[var(--background)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-md sm:gap-4 sm:p-5"
+                className="group flex gap-2 rounded-xl border border-[var(--border)] bg-[var(--background)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-md sm:p-5"
               >
-                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[var(--accent)] transition-colors group-hover:text-[var(--accent-strong)] sm:size-6" />
-                <span className="text-[14px] font-medium leading-6 text-[var(--foreground)] sm:text-[15px] sm:leading-7">
+                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[var(--accent)] transition-colors group-hover:text-[var(--accent-strong)]" />
+                <span className="text-[13px] leading-6 text-[var(--foreground)] sm:text-sm sm:leading-7">
                   {highlightOutcomeText(item)}
                 </span>
               </li>
