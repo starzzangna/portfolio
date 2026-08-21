@@ -117,6 +117,9 @@ function slugifyTitle(value: string) {
 }
 
 const feProjectLinkMap: Record<string, string> = {
+  [slugifyTitle(
+    '프로모션 템플릿·배포 관리자 — 멀티브랜드 정적 UI·QA 운영',
+  )]: '/projects/fe/promotion-deployment-platform',
   [slugifyTitle('AI Builder — 내부 프로모션 페이지 빌더 설계·구현')]:
     '/projects/fe/ai-builder',
   [slugifyTitle('TideBuilder — Figma to Email HTML 제작 자동화')]:
