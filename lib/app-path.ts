@@ -23,6 +23,12 @@ export function isAppHomePathname(pathname: string): boolean {
   return p === "/" || p === "";
 }
 
+/** 포트폴리오 내비·푸터에 연결하지 않는 로컬 작업 경로 */
+export function isInternalToolPath(pathname: string): boolean {
+  const p = stripPublicBasePath(pathname).replace(/\/$/, "") || "/";
+  return p === "/lab/resume" || p.startsWith("/lab/resume/");
+}
+
 /** `public/` 정적 경로에 서브 경로 배포용 prefix를 붙입니다. */
 export function withBasePath(assetPath: string): string {
   const base = getPublicBasePath();

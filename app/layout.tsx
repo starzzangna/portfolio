@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 
-import { BackToTopButton } from "@/components/back-to-top-button";
-import { SiteBreadcrumb } from "@/components/site-breadcrumb";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteShell } from "@/components/site-shell";
 import { ThemeProvider } from "@/components/theme-provider";
 import { profile } from "@/lib/site-data";
 
@@ -48,11 +45,7 @@ export default function RootLayout({
       <body className="antialiased">
         <ThemeProvider>
           <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-            <SiteHeader />
-            <SiteBreadcrumb />
-            <main>{children}</main>
-            <SiteFooter />
-            <BackToTopButton />
+            <SiteShell>{children}</SiteShell>
           </div>
         </ThemeProvider>
       </body>
