@@ -273,6 +273,12 @@ export default async function ProjectDetailPage({
           </div>
         </div>
 
+        {project.type === 'fe' && project.note ? (
+          <p className="text-[13px] leading-6 text-[var(--muted-foreground)] sm:text-sm sm:leading-7">
+            * {project.note}
+          </p>
+        ) : null}
+
         <div className="flex flex-wrap justify-end gap-3">
           <Button
             asChild

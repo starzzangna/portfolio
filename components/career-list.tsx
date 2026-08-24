@@ -120,6 +120,9 @@ const feProjectLinkMap: Record<string, string> = {
   [slugifyTitle(
     '프로모션 템플릿·배포 관리자 — 멀티브랜드 정적 UI·QA 운영',
   )]: '/projects/fe/promotion-deployment-platform',
+  [slugifyTitle(
+    '멀티브랜드 프로모션 프론트 통합 — v0 · SEO 시트 · slug 라우팅',
+  )]: '/projects/fe/marketing-v0-seo-routing',
   [slugifyTitle('AI Builder — 내부 프로모션 페이지 빌더 설계·구현')]:
     '/projects/fe/ai-builder',
   [slugifyTitle('TideBuilder — Figma to Email HTML 제작 자동화')]:
@@ -135,6 +138,8 @@ const feProjectLinkMap: Record<string, string> = {
   )]: '/projects/fe/zendesk-request-integration',
   [slugifyTitle('다음 쇼핑 제휴 랜딩 — CMS 템플릿 섹션 시스템')]:
     '/projects/fe/daum-page-build',
+  [slugifyTitle('투어비스 항공 공통 셸 연동 — GNB · 푸터 · 하단 탭바')]:
+    '/projects/fe/air-common-shell-integration',
   [slugifyTitle('airspot 백오피스 리뉴얼 UI/UX 안정화')]:
     '/projects/fe/airspot-backoffice-ui-backup',
   [slugifyTitle(
@@ -146,6 +151,8 @@ const feProjectLinkMap: Record<string, string> = {
     '/projects/fe/tourvis-hotel-main-ui',
   [slugifyTitle('투어비스 Publish — Gulp 빌드 환경 도입 및 표준화')]:
     '/projects/fe/publishing-team-gulp-automation',
+  [slugifyTitle('공통 UI 디자인 시스템 구축')]:
+    '/projects/fe/common-ui-design-system',
 };
 
 function resolveProjectHref(title: string) {
