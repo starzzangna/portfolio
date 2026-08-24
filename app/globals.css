@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5efe4;
-  --foreground: #172033;
-  --card: rgba(255, 252, 247, 0.86);
-  --surface: rgba(255, 255, 255, 0.46);
-  --border: rgba(23, 32, 51, 0.12);
-  --muted-foreground: #536077;
+  --background: #eeebe4;
+  --foreground: #243044;
+  --card: rgba(250, 248, 244, 0.92);
+  --surface: rgba(243, 240, 234, 0.68);
+  --border: rgba(36, 48, 68, 0.1);
+  --muted-foreground: #5a6578;
   --accent: #b8572c;
   --accent-strong: #933c16;
   --cta-bg: #933c16;
@@ -15,9 +15,12 @@
   --cta-hover-bg: #7f3211;
   --cta-hover-border: #7f3211;
   --cta-hover-fg: #ffffff;
-  --cta-shadow: rgba(147, 60, 22, 0.24);
-  --soft-button-bg: rgba(255, 252, 247, 0.9);
-  --soft-button-hover-bg: rgba(23, 32, 51, 0.08);
+  --cta-shadow: rgba(147, 60, 22, 0.2);
+  --soft-button-bg: rgba(250, 248, 244, 0.92);
+  --soft-button-hover-bg: rgba(36, 48, 68, 0.06);
+  --card-shadow: 0 20px 50px rgba(36, 48, 68, 0.06);
+  --page-glow-start: rgba(184, 87, 44, 0.06);
+  --page-glow-end: rgba(36, 48, 68, 0.05);
   --font-body: "Avenir Next", "Pretendard Variable", "Noto Sans KR",
     "Apple SD Gothic Neo", sans-serif;
   --font-display: "Space Grotesk", "Suisse Intl", "Avenir Next",
@@ -42,6 +45,9 @@
   --cta-shadow: rgba(245, 158, 11, 0.22);
   --soft-button-bg: rgba(31, 41, 55, 0.92);
   --soft-button-hover-bg: rgba(243, 244, 246, 0.12);
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  --page-glow-start: rgba(245, 158, 11, 0.08);
+  --page-glow-end: rgba(243, 244, 246, 0.04);
 }
 
 * {
@@ -54,9 +60,8 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(184, 87, 44, 0.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(23, 32, 51, 0.14), transparent 25%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.36), transparent 36%),
+    radial-gradient(circle at top left, var(--page-glow-start), transparent 30%),
+    radial-gradient(circle at top right, var(--page-glow-end), transparent 26%),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
@@ -136,6 +141,6 @@ a {
 
 .glass-panel:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px -10px rgba(23, 32, 51, 0.15);
+  box-shadow: 0 12px 30px -10px rgba(36, 48, 68, 0.1);
   border-color: color-mix(in oklab, var(--accent) 30%, var(--border));
 }

@@ -40,7 +40,7 @@ export function SiteBreadcrumb() {
     <div className="section-shell pt-5 sm:pt-6">
       <nav
         aria-label="Breadcrumb"
-        className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] px-4 py-3 shadow-[0_12px_24px_rgba(15,23,42,0.04)]"
+        className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] px-4 py-3 shadow-[0_12px_24px_rgba(36,48,68,0.04)]"
       >
         <ol className="flex flex-wrap items-center gap-2 text-sm">
           <li className="flex items-center gap-2">

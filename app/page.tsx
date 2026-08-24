@@ -33,7 +33,7 @@ export default async function HomePage() {
         className="section-shell scroll-mt-18 py-5 sm:scroll-mt-20 sm:py-10"
       >
         <div>
-          <article className="order-2 glass-panel overflow-hidden rounded-[10px] lg:rounded-[2.5rem] border border-[var(--border)] p-6 shadow-[0_30px_80px_rgba(15,23,42,0.08)] sm:p-10 lg:order-1">
+          <article className="order-2 glass-panel overflow-hidden rounded-[10px] lg:rounded-[2.5rem] border border-[var(--border)] p-6 shadow-[0_30px_80px_rgba(36,48,68,0.06)] sm:p-10 lg:order-1">
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">
               Frontend Developer
             </p>
