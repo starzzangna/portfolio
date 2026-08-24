@@ -69,7 +69,7 @@ function toYears(months: number, round: 'floor' | 'ceil') {
   return round === 'ceil' ? Math.ceil(years) : Math.floor(years);
 }
 
-/** 프론트: 타이드스퀘어 근속(만 년) + 1, 퍼블리셔: 전체 경력(개월 올림) */
+/** 프론트: 타이드스퀘어 근속(만 년) + 1, 퍼블리셔: 7년 고정 */
 export function getCareerExperienceYears(
   items: CareerItem[],
   now = new Date(),
@@ -82,18 +82,10 @@ export function getCareerExperienceYears(
     tideIndex >= 0
       ? monthsBetween(ranges[tideIndex].start, ranges[tideIndex].end)
       : 0;
-  const earliestStart = ranges.reduce(
-    (earliest, range) => (range.start < earliest ? range.start : earliest),
-    ranges[0]?.start ?? now,
-  );
-  const latestEnd = ranges.reduce(
-    (latest, range) => (range.end > latest ? range.end : latest),
-    ranges[0]?.end ?? now,
-  );
 
   return {
     frontend: toYears(tideMonths, 'floor') + 1,
-    publisher: toYears(monthsBetween(earliestStart, latestEnd), 'ceil'),
+    publisher: 7,
   };
 }
 
@@ -601,7 +593,7 @@ export const profile: Profile = {
   name: '조정민',
   englishName: 'Jeongmin Jo',
   role: 'Frontend Developer / Web Publisher',
-  intro: `${experienceYears.frontend}년차 프론트엔드·${experienceYears.publisher}년차 웹 퍼블리셔로서, React·Next.js 기반 서비스 고도화와 AI 자동화 도입에 특화되어 있습니다. 퍼블리싱에서 쌓은 UI 완성도를 바탕으로 복잡한 문제를 해결하고, 팀·타 부서 조율과 업무 리딩을 통해 서비스 품질과 업무 효율을 동시에 혁신한 경험이 강점입니다.`,
+  intro: `${experienceYears.frontend}년차 프론트엔드 개발자로서, React·Next.js 기반 서비스 고도화와 AI 자동화 도입에 특화되어 있습니다. 이전 7년간의 웹 퍼블리셔 경력에서 쌓은 UI 구현 역량과 높은 완성도를 바탕으로 복잡한 문제를 해결하고, 팀·타 부서 조율과 업무 리딩을 통해 서비스 품질과 업무 효율을 동시에 혁신한 경험이 강점입니다.`,
   email: 'starzzangna@naver.com',
   github: 'https://github.com/starzzangna',
   location: '서울 노원',
