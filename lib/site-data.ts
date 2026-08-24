@@ -176,7 +176,7 @@ export const careers: CareerItem[] = [
     company: '(주)타이드스퀘어',
     period: '2021.08 - 2026.08',
     summary:
-      '투어비스 실서비스에서 반응형 UI·마케팅 페이지·공통 컴포넌트·업무 자동화와 프로모션 배포 플랫폼을 담당했으며, 매니저로서 우선순위를 정리하고 업무를 리딩했습니다. 기획·디자인·마케팅·CS·운영과 요구사항을 조율해 구현 가능한 형태로 연결했습니다.',
+      '투어비스·프리비아 실서비스에서 반응형 UI와 공통 컴포넌트를 담당하고, 마케팅 페이지부터 프로모션 배포·업무 자동화까지 구축했습니다. 매니저로서 우선순위를 정리해 업무를 리딩하고, 기획·디자인·마케팅·CS·운영 요구사항을 구현 가능한 형태로 조율했습니다.',
     skills: [
       'Next.js',
       'React',
@@ -468,14 +468,7 @@ export const careers: CareerItem[] = [
     period: '2016.05 - 2016.12',
     summary:
       '브랜드 사이트와 마이크로 사이트를 다수 구축하며 반응형 퍼블리싱 완성도와 일정 대응력을 빠르게 끌어올렸습니다.',
-    skills: [
-      'HTML5',
-      'SCSS',
-      'JavaScript',
-      'jQuery',
-      'Gulp',
-      'Responsive Web',
-    ],
+    skills: ['HTML5', 'SCSS', 'JavaScript', 'jQuery', 'Gulp', 'Responsive Web'],
     responsibilities: [
       {
         title: '다수의 웹사이트 퍼블리싱 - 9건',
@@ -592,7 +585,7 @@ const experienceYears = getCareerExperienceYears(careers);
 export const profile: Profile = {
   name: '조정민',
   englishName: 'Jeongmin Jo',
-  role: 'Frontend Developer / Web Publisher',
+  role: 'Frontend Developer',
   intro: `${experienceYears.frontend}년차 프론트엔드 개발자로서, React·Next.js 기반 서비스 고도화와 AI 자동화 도입에 특화되어 있습니다. 이전 7년간의 웹 퍼블리셔 경력에서 쌓은 UI 구현 역량과 높은 완성도를 바탕으로 복잡한 문제를 해결하고, 팀·타 부서 조율과 업무 리딩을 통해 서비스 품질과 업무 효율을 동시에 혁신한 경험이 강점입니다.`,
   email: 'starzzangna@naver.com',
   github: 'https://github.com/starzzangna',

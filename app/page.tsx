@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Github } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import { CareerList } from '@/components/career-list';
 import { DocumentLink } from '@/components/document-link';
@@ -35,32 +35,14 @@ export default async function HomePage() {
         <div>
           <article className="order-2 glass-panel overflow-hidden rounded-[10px] lg:rounded-[2.5rem] border border-[var(--border)] p-6 shadow-[0_30px_80px_rgba(15,23,42,0.08)] sm:p-10 lg:order-1">
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">
-              Frontend Developer / Publisher
+              Frontend Developer
             </p>
             <h1 className="mt-4 text-2xl font-semibold leading-tight tracking-tight sm:mt-5 lg:text-3xl">
-              사용자 경험과 운영 효율을 함께 설계하는 프론트엔드 개발자
+              사용자 경험과 운영 효율을 함께 설계합니다.
             </h1>
             <p className="mt-5 text-sm leading-7 text-[var(--muted-foreground)] sm:mt-6 sm:text-lg sm:leading-8">
               {profile.intro}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Badge className="bg-[color:color-mix(in_oklab,var(--surface)_86%,white)] text-[var(--foreground)]">
-                {profile.name}
-              </Badge>
-              <Badge>{profile.location}</Badge>
-              <Badge className="break-all">{profile.email}</Badge>
-              {/* <Badge>
-                <Link
-                  href={profile.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center text-[var(--foreground)]"
-                  aria-label="GitHub 프로필 (새 탭)"
-                >
-                  <Github className="size-4" aria-hidden />
-                </Link>
-              </Badge> */}
-            </div>
             <div className="mt-5 flex flex-wrap gap-3 justify-end">
               <Button
                 asChild
