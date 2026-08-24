@@ -132,9 +132,11 @@ export const skillGroups: SkillGroup[] = [
       'Next.js',
       'TypeScript',
       'JavaScript',
-      'Zustand',
       'TanStack Query',
+      'React Hook Form',
+      'Zod',
       'Tailwind CSS',
+      'shadcn/ui',
       'SCSS Modules',
     ],
   },
@@ -151,6 +153,17 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    category: '백엔드 & API',
+    items: [
+      'Node.js',
+      'Express',
+      'REST API',
+      'SSE',
+      'OpenAI API',
+      'Supabase Storage',
+    ],
+  },
+  {
     category: '협업 및 도구',
     items: [
       'Cursor',
@@ -159,11 +172,8 @@ export const skillGroups: SkillGroup[] = [
       'GitHub',
       'Figma',
       'Vercel',
-      'Node.js',
       'Playwright',
       'pnpm',
-      'Docker',
-      'AWS',
     ],
   },
 ];
@@ -175,7 +185,18 @@ export const careers: CareerItem[] = [
     period: '2021.08 - 2026.08',
     summary:
       '투어비스 실서비스에서 반응형 UI·마케팅 페이지·공통 컴포넌트·업무 자동화와 프로모션 배포 플랫폼을 담당했으며, 매니저로서 우선순위를 정리하고 업무를 리딩했습니다. 기획·디자인·마케팅·CS·운영과 요구사항을 조율해 구현 가능한 형태로 연결했습니다.',
-    skills: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SCSS', 'Gulp'],
+    skills: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'TanStack Query',
+      'Zod',
+      'Tailwind CSS',
+      'SCSS',
+      'REST API',
+      'OpenAI API',
+      'Gulp',
+    ],
     responsibilities: [
       {
         title: '프로모션 템플릿·배포 관리자 — 멀티브랜드 정적 UI·QA 운영',
@@ -366,7 +387,15 @@ export const careers: CareerItem[] = [
     period: '2017.04 - 2021.07',
     summary:
       '서비스·관리자 UI의 반응형 퍼블리싱과 프론트엔드 구현을 담당하고, 공통 모듈 구조로 화면 품질과 작업 효율을 높인 시기입니다.',
-    skills: ['PHP UI', 'HTML5', 'SCSS', 'jQuery', 'Gulp', 'Responsive'],
+    skills: [
+      'PHP Templates',
+      'HTML5',
+      'SCSS',
+      'jQuery',
+      'Gulp',
+      'Responsive Web',
+      'Web Standards',
+    ],
     responsibilities: [
       {
         title: 'PHP 기반 프론트엔드 UI',
@@ -408,7 +437,14 @@ export const careers: CareerItem[] = [
     period: '2016.05 - 2016.12',
     summary:
       '브랜드 사이트와 마이크로 사이트를 다수 구축하며 반응형 퍼블리싱 완성도와 일정 대응력을 빠르게 끌어올렸습니다.',
-    skills: ['HTML5', 'SCSS', 'jQuery', 'Gulp', 'Responsive'],
+    skills: [
+      'HTML5',
+      'SCSS',
+      'JavaScript',
+      'jQuery',
+      'Gulp',
+      'Responsive Web',
+    ],
     responsibilities: [
       {
         title: '다수의 웹사이트 퍼블리싱 - 9건',
@@ -440,7 +476,7 @@ export const careers: CareerItem[] = [
     period: '2015.10 - 2016.04',
     summary:
       '프로모션, 기관, 브랜드 사이트를 빠르게 구축하며 웹 표준과 반응형 실무 감각을 다진 시기입니다.',
-    skills: ['HTML5', 'CSS3', 'jQuery', 'Responsive', 'Web Standards'],
+    skills: ['HTML5', 'CSS3', 'jQuery', 'Responsive Web', 'Web Standards'],
     responsibilities: [
       {
         title: '다수의 웹사이트 퍼블리싱 - 7건',
@@ -470,7 +506,14 @@ export const careers: CareerItem[] = [
     period: '2013.12 - 2015.10',
     summary:
       '디자인과 퍼블리싱을 함께 수행하며 웹 접근성, 웹 표준, 반응형 구축 경험을 폭넓게 쌓은 초기 커리어입니다.',
-    skills: ['HTML5', 'CSS3', 'jQuery', 'Responsive', 'Web Accessibility'],
+    skills: [
+      'HTML5',
+      'CSS3',
+      'jQuery',
+      'Responsive Web',
+      'Web Standards',
+      'Web Accessibility',
+    ],
     responsibilities: [
       {
         title: '다수의 웹사이트 퍼블리싱 - 23건',
@@ -522,7 +565,7 @@ export const profile: Profile = {
   intro: `${experienceYears.frontend}년차 프론트엔드·${experienceYears.publisher}년차 웹 퍼블리셔로서, React·Next.js 기반 서비스 고도화와 AI 자동화 도입에 특화되어 있습니다. 퍼블리싱에서 쌓은 UI 완성도를 바탕으로 복잡한 문제를 해결하고, 팀·타 부서 조율과 업무 리딩을 통해 서비스 품질과 업무 효율을 동시에 혁신한 경험이 강점입니다.`,
   email: 'starzzangna@naver.com',
   github: 'https://github.com/starzzangna',
-  location: 'Goyang, South Korea',
+  location: '서울 노원',
   image: '/images/me.jpg',
 };
 

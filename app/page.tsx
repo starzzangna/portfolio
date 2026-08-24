@@ -148,9 +148,9 @@ export default async function HomePage() {
         <SectionHeading
           eyebrow="기술 스택"
           title="운영 환경에 맞는 기술 조합으로 빠르게 구현합니다."
-          description="React, Next.js, TypeScript를 중심으로 퍼블리싱 역량과 AI 도구를 활용해 유지보수 가능한 화면을 구축합니다."
+          description="React, Next.js, TypeScript를 중심으로 퍼블리싱부터 백엔드 API 연동, AI 도구 활용까지 유지보수 가능한 화면을 구축합니다."
         />
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group) => (
             <Card key={group.category} className="glass-panel">
               <CardContent className="space-y-5 p-7">
