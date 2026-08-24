@@ -6,7 +6,6 @@ import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 import { DocumentLink } from '@/components/document-link';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { withBasePath } from '@/lib/app-path';
 import type { ProjectItem } from '@/lib/types';
@@ -63,7 +62,7 @@ export function ProjectCard({
     };
   }, [project.type, publishPriority, shouldLoadImage]);
 
-  return (
+  const card = (
     <Card
       className={`glass-panel group overflow-hidden border-none outline-none ${
         isPublishNaturalCard ? '' : 'flex h-full flex-col'
@@ -196,20 +195,28 @@ export function ProjectCard({
           {/* 하단 액션 */}
           {project.type === 'fe' ? (
             <div className="flex items-center justify-end">
-              <Button
-                asChild
-                size="sm"
-                className="rounded-full border-[var(--cta-border)] bg-[var(--cta-bg)] px-5 font-medium !text-white shadow-lg shadow-[var(--cta-shadow)] transition-all hover:translate-y-[-1px] hover:bg-[var(--cta-hover-bg)]"
-              >
-                <DocumentLink href={detailHref} className="flex items-center gap-1.5">
-                  View Detail
-                  <ArrowUpRight className="size-4" />
-                </DocumentLink>
-              </Button>
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)]">
+                상세 보기
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
             </div>
           ) : null}
         </div>
       </CardContent>
     </Card>
   );
+
+  if (project.type === 'fe') {
+    return (
+      <DocumentLink
+        href={detailHref}
+        aria-label={`${project.title} 상세 보기`}
+        className="block h-full rounded-[10px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+      >
+        {card}
+      </DocumentLink>
+    );
+  }
+
+  return card;
 }

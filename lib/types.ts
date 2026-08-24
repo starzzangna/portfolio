@@ -15,6 +15,11 @@ export interface Strength {
   title: string;
   description: string;
   icon: 'layout' | 'sparkles' | 'users';
+  /** 강점을 실제로 적용한 대표 프로젝트 */
+  evidence: {
+    label: string;
+    href: string;
+  };
 }
 
 export interface SkillGroup {

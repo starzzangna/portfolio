@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 
 import { DocumentLink } from '@/components/document-link';
+import { MetricText } from '@/components/metric-text';
 import {
   Collapsible,
   CollapsibleContent,
@@ -22,27 +23,6 @@ type TroublePair = {
   problem?: string;
   solution?: string;
 };
-
-function highlightOutcomeText(text: string) {
-  const parts = text.split(
-    /(\d+(?:\.\d+)?%|\d+(?:\.\d+)?초|\d+(?:\.\d+)?줄|\d+(?:\.\d+)?개|\d+(?:\.\d+)?시간|\d+(?:\.\d+)?건|\d+(?:\.\d+)?회)/g,
-  );
-
-  return parts.map((part, index) => {
-    const isHighlight =
-      /^(?:\d+(?:\.\d+)?%|\d+(?:\.\d+)?초|\d+(?:\.\d+)?줄|\d+(?:\.\d+)?개|\d+(?:\.\d+)?시간|\d+(?:\.\d+)?건|\d+(?:\.\d+)?회)$/.test(
-        part,
-      );
-
-    return isHighlight ? (
-      <span key={`${part}-${index}`} className="font-semibold text-[var(--accent)]">
-        {part}
-      </span>
-    ) : (
-      <span key={`${part}-${index}`}>{part}</span>
-    );
-  });
-}
 
 function isPeriodLine(value: string) {
   return /^\d{4}\.\d{2}\s-\s(?:\d{4}\.\d{2}|Present)$/i.test(value);
@@ -317,7 +297,7 @@ export function CareerList({ items }: { items: CareerItem[] }) {
                                   >
                                     <Zap className="size-4 text-[var(--accent)]" />
                                     <span className="text-sm font-medium text-[var(--foreground)]">
-                                      {highlightOutcomeText(entry)}
+                                      <MetricText text={entry} />
                                     </span>
                                   </div>
                                 ))}

@@ -15,11 +15,16 @@ export const metadata: Metadata = {
   ),
   title: `${profile.name} | ${profile.role}`,
   description:
-    "프론트엔드 개발과 퍼블리싱을 함께 다루는 조정민의 포트폴리오입니다.",
+    "여행 커머스 실서비스에서 반복되는 화면 제작을 시스템으로 바꿔온 프론트엔드 개발자 조정민의 포트폴리오입니다. CMS 섹션 조립, 공통 컴포넌트, AI 페이지 빌더와 배포 관리자 구축 사례를 담았습니다.",
   keywords: [
     "조정민",
     "포트폴리오",
     "프론트엔드 개발자",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "디자인 시스템",
+    "업무 자동화",
     "웹 퍼블리셔",
     "반응형 웹",
     "웹 접근성",
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${profile.name} | ${profile.role}`,
     description:
-      "Semantic UI, accessibility, and polished frontend craft by Jeongmin Jo.",
+      "반복되는 화면 제작을 시스템으로 바꾸는 프론트엔드 개발자 조정민의 포트폴리오. 공통 컴포넌트·CMS 조립 구조·운영 자동화 사례를 소개합니다.",
     images: ["/images/me.jpg"],
     type: "website",
   },

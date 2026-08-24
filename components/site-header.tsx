@@ -20,8 +20,8 @@ import { isAppHomePathname } from '@/lib/app-path';
 import { profile } from '@/lib/site-data';
 
 const homeLinks = [
-  { target: 'careers', label: '경력' },
   { target: 'projects', label: '프로젝트' },
+  { target: 'careers', label: '경력' },
   { target: 'skills', label: '기술' },
 ];
 

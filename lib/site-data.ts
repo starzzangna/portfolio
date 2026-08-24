@@ -69,7 +69,7 @@ function toYears(months: number, round: 'floor' | 'ceil') {
   return round === 'ceil' ? Math.ceil(years) : Math.floor(years);
 }
 
-/** 프론트: 타이드스퀘어 근속(만 년) + 1, 퍼블리셔: 7년 고정 */
+/** total: 첫 경력 시작부터 현재까지의 만 년, frontend: 타이드스퀘어 근속(만 년) + 1 */
 export function getCareerExperienceYears(
   items: CareerItem[],
   now = new Date(),
@@ -82,31 +82,49 @@ export function getCareerExperienceYears(
     tideIndex >= 0
       ? monthsBetween(ranges[tideIndex].start, ranges[tideIndex].end)
       : 0;
+  const totalMonths = ranges.length
+    ? monthsBetween(
+        new Date(Math.min(...ranges.map((range) => range.start.getTime()))),
+        new Date(Math.max(...ranges.map((range) => range.end.getTime()))),
+      )
+    : 0;
 
   return {
+    total: toYears(totalMonths, 'floor'),
     frontend: toYears(tideMonths, 'floor') + 1,
-    publisher: 7,
   };
 }
 
 export const strengths: Strength[] = [
   {
-    title: '실무형 UI 설계',
+    title: '변경과 확장을 고려해 구조를 설계합니다',
     description:
-      '기획·디자인 의도를 구현 가능한 형태로 정리해, 운영과 확장에 강한 반응형 UI로 연결합니다.',
+      '요구사항을 UI·데이터·상태 단위로 나누고 공통 영역과 개별 차이를 구분합니다. 처음 만드는 속도뿐 아니라 이후 변경과 확장까지 고려합니다.',
     icon: 'layout',
+    evidence: {
+      label: '적용 사례 · 다음 쇼핑 제휴 랜딩',
+      href: '/projects/fe/daum-page-build',
+    },
   },
   {
-    title: '업무 흐름 최적화',
+    title: '반복 작업을 안정적인 흐름으로 바꿉니다',
     description:
-      '빌더, 공통 컴포넌트, 퍼블리싱 자동화처럼 반복 업무를 줄이는 구조를 직접 만듭니다.',
+      '반복되는 제작·검증·반영 작업을 도구와 파이프라인으로 옮깁니다. 자동화 이후의 검증과 복구 과정까지 설계해 운영 안정성을 지킵니다.',
     icon: 'sparkles',
+    evidence: {
+      label: '적용 사례 · AI Builder',
+      href: '/projects/fe/ai-builder',
+    },
   },
   {
-    title: '협업·조율·리딩',
+    title: '요구사항과 역할을 맞춰 완성합니다',
     description:
-      '팀원과 역할·일정·품질 기준을 맞추고, 기획·디자인·마케팅·CS 등 타 부서와 요구사항을 조율합니다. 매니저로서 우선순위를 정리하고 업무를 리딩해 구현까지 밀어붙입니다.',
+      '함께 일하는 직군의 요구를 구현 가능한 조건으로 정리하고, 역할과 인터페이스를 명확히 맞춥니다. 우선순위와 완료 기준을 공유하며 실제 도입까지 책임집니다.',
     icon: 'users',
+    evidence: {
+      label: '적용 사례 · 프로모션 배포 관리자',
+      href: '/projects/fe/promotion-deployment-platform',
+    },
   },
 ];
 
@@ -174,7 +192,7 @@ export const careers: CareerItem[] = [
   {
     role: 'Frontend Developer / Web Publisher',
     company: '(주)타이드스퀘어',
-    period: '2021.08 - 2026.08',
+    period: '2021.08 - 재직중',
     summary:
       '투어비스·프리비아 실서비스에서 반응형 UI와 공통 컴포넌트를 담당하고, 마케팅 페이지부터 프로모션 배포·업무 자동화까지 구축했습니다. 매니저로서 우선순위를 정리해 업무를 리딩하고, 기획·디자인·마케팅·CS·운영 요구사항을 구현 가능한 형태로 조율했습니다.',
     skills: [
@@ -586,7 +604,7 @@ export const profile: Profile = {
   name: '조정민',
   englishName: 'Jeongmin Jo',
   role: 'Frontend Developer',
-  intro: `${experienceYears.frontend}년차 프론트엔드 개발자로서, React·Next.js 기반 서비스 고도화와 AI 자동화 도입에 특화되어 있습니다. 이전 7년간의 웹 퍼블리셔 경력에서 쌓은 UI 구현 역량과 높은 완성도를 바탕으로 복잡한 문제를 해결하고, 팀·타 부서 조율과 업무 리딩을 통해 서비스 품질과 업무 효율을 동시에 혁신한 경험이 강점입니다.`,
+  intro: `웹 경력 ${experienceYears.total}년 중 프론트엔드 ${experienceYears.frontend}년차로, 구축형 웹부터 여행 커머스 실서비스 운영까지 다양한 환경을 경험했습니다. 퍼블리싱으로 다진 UI 구현력을 바탕으로 Next.js·TypeScript 기반 구조 설계와 공통 컴포넌트, 운영 자동화까지 역할을 확장해 왔습니다. 여러 직군의 요구를 구현 가능한 구조로 정리하고, 반복되는 업무를 유지보수 가능한 제품과 도구로 전환합니다.`,
   email: 'starzzangna@naver.com',
   github: 'https://github.com/starzzangna',
   location: '서울 노원',

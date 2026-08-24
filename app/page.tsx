@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 import { CareerList } from '@/components/career-list';
 import { DocumentLink } from '@/components/document-link';
@@ -38,12 +38,12 @@ export default async function HomePage() {
               Frontend Developer
             </p>
             <h1 className="mt-4 text-2xl font-semibold leading-tight tracking-tight sm:mt-5 lg:text-3xl">
-              사용자 경험과 운영 효율을 함께 설계합니다.
+              반복되는 화면 제작을, 운영 가능한 시스템으로 바꿉니다.
             </h1>
             <p className="mt-5 text-sm leading-7 text-[var(--muted-foreground)] sm:mt-6 sm:text-lg sm:leading-8">
               {profile.intro}
             </p>
-            <div className="mt-5 flex flex-wrap gap-3 justify-end">
+            <div className="mt-6 flex flex-wrap gap-3 justify-end">
               <Button
                 asChild
                 className="border-[var(--cta-border)] bg-[var(--cta-bg)] !text-white shadow-[0_16px_32px_var(--cta-shadow)] hover:border-[var(--cta-hover-border)] hover:bg-[var(--cta-hover-bg)] hover:!text-white"
@@ -63,46 +63,39 @@ export default async function HomePage() {
         className="section-shell scroll-mt-18 py-5 sm:scroll-mt-20 sm:py-10"
       >
         <SectionHeading
-          eyebrow="핵심 강점"
-          title="퍼블리싱 경험을 바탕으로 실무형 프론트엔드를 만듭니다."
-          description="화면 구현에 그치지 않고 공통화·자동화와 함께, 팀 협업·타 부서 조율·업무 리딩으로 서비스 완성도를 끌어올립니다."
+          eyebrow="일하는 방식"
+          title="구조화하고, 자동화하고, 협업하며 완성합니다."
+          description="요구사항을 코드와 운영 흐름으로 구체화하고, 초기 구현부터 이후의 변경과 운영까지 고려해 제품을 완성합니다."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {strengths.map((strength) => {
             const Icon = strengthIcons[strength.icon];
 
             return (
-              <Card key={strength.title} className="glass-panel">
-                <CardContent className="space-y-5 p-7">
+              <Card key={strength.title} className="glass-panel h-full">
+                <CardContent className="flex h-full flex-col p-7">
                   <div className="flex items-center gap-3">
                     <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[color:color-mix(in_oklab,var(--accent)_16%,white)] text-[var(--accent)]">
                       <Icon className="size-[18px]" />
                     </div>
                     <h3 className="text-lg font-semibold">{strength.title}</h3>
                   </div>
-                  <div>
-                    <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">
-                      {strength.description}
-                    </p>
-                  </div>
+                  <p className="mt-5 text-sm leading-7 text-[var(--muted-foreground)]">
+                    {strength.description}
+                  </p>
+                  <DocumentLink
+                    href={strength.evidence.href}
+                    className="mt-auto inline-flex items-center justify-end gap-1.5 self-end pt-5 text-right text-xs font-semibold text-[var(--accent)] hover:underline"
+                  >
+                    <span>
+                      {strength.evidence.label}
+                    </span>
+                    <ArrowUpRight className="size-3.5 shrink-0" />
+                  </DocumentLink>
                 </CardContent>
               </Card>
             );
           })}
-        </div>
-      </section>
-
-      <section
-        id="careers"
-        className="section-shell scroll-mt-18 py-5 sm:scroll-mt-20 sm:py-10"
-      >
-        <SectionHeading
-          eyebrow="경력"
-          title="구축 프로젝트부터 실서비스 운영까지 폭넓게 경험했습니다."
-          description="다양한 산업군의 웹사이트 구축 경험 위에, 최근에는 운영 서비스의 프론트엔드 개선과 자동화 중심 업무를 확장해 왔습니다."
-        />
-        <div className="mt-10">
-          <CareerList items={careers} />
         </div>
       </section>
 
@@ -120,6 +113,20 @@ export default async function HomePage() {
             feProjects={feProjects}
             publishProjects={publishProjects}
           />
+        </div>
+      </section>
+
+      <section
+        id="careers"
+        className="section-shell scroll-mt-18 py-5 sm:scroll-mt-20 sm:py-10"
+      >
+        <SectionHeading
+          eyebrow="경력"
+          title="구축 프로젝트부터 실서비스 운영까지 폭넓게 경험했습니다."
+          description="다양한 산업군의 웹사이트 구축 경험 위에, 최근에는 운영 서비스의 프론트엔드 개선과 자동화 중심 업무를 확장해 왔습니다."
+        />
+        <div className="mt-10">
+          <CareerList items={careers} />
         </div>
       </section>
 
