@@ -45,10 +45,11 @@ type StoredState = {
 };
 
 type FilterTab = 'all' | 'changed' | 'included';
+type IncludeStatus = 'included' | 'partial' | 'excluded';
 
 const ALL_COMPANIES = 'all';
 
-function includeStatusLabel(status: 'included' | 'partial' | 'excluded') {
+function includeStatusLabel(status: IncludeStatus) {
   if (status === 'included') {
     return '포함';
   }
@@ -311,7 +312,7 @@ export function CareerResumeWorkbench({
 
     return [...groups.values()].map((group) => {
       const visible = group.rows.filter((row) => visibleRows.includes(row));
-      const includeStatus =
+      const includeStatus: IncludeStatus =
         group.includedCount === 0
           ? 'excluded'
           : group.includedCount === group.rows.length

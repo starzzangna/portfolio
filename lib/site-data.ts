@@ -142,48 +142,44 @@ export const skillGroups: SkillGroup[] = [
       'Next.js',
       'TypeScript',
       'JavaScript',
-      'TanStack Query',
-      'React Hook Form',
-      'Zod',
       'Tailwind CSS',
-      'shadcn/ui',
       'SCSS Modules',
     ],
   },
   {
-    category: '퍼블리싱 & UI',
+    category: 'UI·아키텍처',
     items: [
-      'HTML5',
-      'CSS3',
-      'SCSS',
-      'jQuery',
-      'Gulp',
-      'Responsive Web',
-      'Web Accessibility',
+      'Storybook',
+      'Radix UI',
+      'Zustand',
+      'TanStack Query',
+      'Zod',
+      'CMS',
     ],
   },
   {
-    category: '백엔드 & API',
+    category: '플랫폼·품질',
     items: [
       'Node.js',
-      'Express',
       'REST API',
+      'Server Action',
       'SSE',
-      'OpenAI API',
-      'Supabase Storage',
+      'PostgreSQL',
+      'Supabase',
+      'SEO',
+      'Sitemap',
+      'Playwright',
     ],
   },
   {
-    category: '협업 및 도구',
+    category: 'AI 자동화·협업',
     items: [
-      'Cursor',
-      'Codex',
+      'LLM 기반 코드 생성',
+      'AI 검증 자동화',
       'Git',
       'GitHub',
       'Figma',
       'Vercel',
-      'Playwright',
-      'pnpm',
     ],
   },
 ];
@@ -238,7 +234,7 @@ export const careers: CareerItem[] = [
         ],
       },
       {
-        title: '멀티브랜드 프로모션 프론트 통합 — v0 · SEO 시트 · slug 라우팅',
+        title: '멀티브랜드 프로모션 프론트 통합 — SEO 시트 · slug 라우팅',
         items: [
           '2026.01 - 2026.03',
           '브랜드·지역·캠페인별로 흩어진 호텔 프로모션을 브랜드별 Next.js 단일 앱의 동적 라우팅 구조로 통합',
@@ -324,17 +320,6 @@ export const careers: CareerItem[] = [
         ],
       },
       {
-        title: '투어비스 항공 공통 셸 연동 — GNB · 푸터 · 하단 탭바',
-        items: [
-          '2024.07 - 2024.07',
-          '항공에서 별도 운영하던 헤더·푸터를 투어비스 공통 컴포넌트에 연결하고 모바일 하단 탭바 적용',
-          '항공 메인·국제선/국내선 예약상세·메타서치 검수 화면에 공통 셸을 연동하고 화면별 예외를 조정',
-          '이슈 : 하단 탭바 추가 후 전체 메뉴·최근 본 여행 모달이 탭바에 가려지거나 콘텐츠가 밀리고, 화면별 수동 처리가 반복',
-          '해결 : `airClassSet`에서 탭바 존재를 감지해 `body.wrap-bar`를 공통 적용하고, SCSS의 z-index·하단 여백 규칙으로 레이어 충돌을 해결',
-          '성과 : 항공과 다른 상품군의 내비게이션 경험을 통일하고, 탭바 유무에 따른 모달 레이아웃 상태를 공통 로직으로 관리',
-        ],
-      },
-      {
         title: 'airspot 백오피스 리뉴얼 UI/UX 안정화',
         items: [
           '2024.03 - 2024.05',
@@ -389,7 +374,7 @@ export const careers: CareerItem[] = [
           '컬러 팔레트와 전역·리셋 스타일 정의 및 문서화',
           'PC·모바일에서 재사용할 수 있는 공통 헤더와 날짜·객실·최근 검색 상태를 포함한 숙소 검색 UI 개발',
           '이미지, 가격, 배지, 평점을 조합하는 상품 카드와 텍스트·배지·링크·레이아웃 등 기본 UI 구현',
-          'TypeScript와 SCSS Module로 컴포넌트 API와 스타일 범위를 표준화하고, 상태·조합 사례를 Storybook으로 관리',
+          'TypeScript와 SCSS Modules로 컴포넌트 API와 스타일 범위를 표준화하고, 상태·조합 사례를 Storybook으로 관리',
           '이슈 : 서비스마다 UI가 따로 구현되어 일관성과 재사용이 떨어지고, 상태·조합을 한곳에서 검증하기 어려움',
           '해결 : 디자인 토큰과 조합형 공통 컴포넌트를 설계하고 Storybook으로 문서화·독립 검증',
           '성과 : 반복 UI를 공통 컴포넌트로 전환할 수 있는 기반을 마련하고, 디자인·개발 결과물을 독립 확인하는 협업 환경 구축',
@@ -435,7 +420,7 @@ export const careers: CareerItem[] = [
   {
     role: 'Frontend Developer / Web Publisher',
     company: '(주)엘에스이노베이션',
-    period: '2017.04 - 2021.07',
+    period: '2018.04 - 2021.07',
     summary:
       '서비스·관리자 UI의 반응형 퍼블리싱과 프론트엔드 구현을 담당하고, 공통 모듈 구조로 화면 품질과 작업 효율을 높인 시기입니다.',
     skills: [
@@ -456,7 +441,7 @@ export const careers: CareerItem[] = [
           '반응형 레이아웃과 인터랙션을 맞춰 화면 일관성과 사용성 개선',
           '이슈 : 역할·화면마다 UI 패턴이 달라 목록·폼·상태 표현이 제각각이고 사용 흐름이 끊김',
           '해결 : 공통 UI 패턴(레이아웃·목록·폼·상태)을 정리해 역할별 화면에 동일하게 적용',
-          '성과 : 역할별 UI 불일치 이슈 약 50% 감소, 화면 추가·수정 공수 약 30% 단축',
+          '성과 : 역할별 UI 패턴을 공통화해 화면 간 일관성을 높이고, 화면 추가·수정에 재사용 가능한 기반을 마련',
         ],
       },
       {
@@ -485,7 +470,7 @@ export const careers: CareerItem[] = [
   {
     role: 'Web Publisher',
     company: 'AON Real Estate',
-    period: '2016.05 - 2016.12',
+    period: '2016.05 - 2018.01',
     summary:
       '브랜드 사이트와 마이크로 사이트를 다수 구축하며 반응형 퍼블리싱 완성도와 일정 대응력을 빠르게 끌어올렸습니다.',
     skills: ['HTML5', 'SCSS', 'JavaScript', 'jQuery', 'Gulp', 'Responsive Web'],
@@ -606,7 +591,7 @@ export const profile: Profile = {
   name: '조정민',
   englishName: 'Jeongmin Jo',
   role: 'Frontend Developer',
-  intro: `웹 경력 ${experienceYears.total}년 중 프론트엔드 ${experienceYears.frontend}년차로, 구축형 웹부터 여행 커머스 실서비스 운영까지 다양한 환경을 경험했습니다. 퍼블리싱으로 다진 UI 구현력을 바탕으로 Next.js·TypeScript 기반 구조 설계와 공통 컴포넌트, 운영 자동화까지 역할을 확장해 왔습니다. 여러 직군의 요구를 구현 가능한 구조로 정리하고, 반복되는 업무를 유지보수 가능한 제품과 도구로 전환합니다.`,
+  intro: `React·Next.js·TypeScript 기반의 여행 서비스와 멀티브랜드 프로모션 플랫폼을 설계·고도화해 왔습니다. 퍼블리싱 경험을 바탕으로 컴포넌트 아키텍처와 반응형 UI 품질을 표준화하고, LLM 기반 AI 자동화·SEO 최적화·배포 운영 도구를 도입해 제작 리드타임과 운영 효율을 개선했습니다. 기획·디자인·마케팅·CS·백엔드와의 협업에서는 UI 정책과 API 계약을 명확히 정리해 제품 품질과 개발 속도를 함께 높입니다.`,
   email: 'starzzangna@naver.com',
   github: 'https://github.com/starzzangna',
   location: '서울 노원',
@@ -628,7 +613,7 @@ export const feProjects: FeProjectItem[] = [
       'React 19.2',
       'TypeScript',
       'Tailwind CSS 4',
-      'shadcn/ui',
+      'Radix UI',
       'TanStack Query 5',
       'React Hook Form',
       'Zod 4',
@@ -801,7 +786,7 @@ export const feProjects: FeProjectItem[] = [
     type: 'fe',
     slug: 'marketing-v0-seo-routing',
     company: 'Tidesquare',
-    title: '멀티브랜드 프로모션 프론트 통합 — v0 · SEO 시트 · slug 라우팅',
+    title: '멀티브랜드 프로모션 프론트 통합 — SEO 시트 · slug 라우팅',
     summary:
       '브랜드·지역·캠페인별 프로모션을 브랜드별 Next.js 단일 앱으로 통합하고, 동적 라우팅과 스프레드시트 기반 SEO·콘텐츠 운영을 연결한 프로젝트',
     period: '2026.01 - 2026.03',
@@ -1200,61 +1185,6 @@ export const feProjects: FeProjectItem[] = [
   },
   {
     type: 'fe',
-    slug: 'air-common-shell-integration',
-    company: 'Tidesquare',
-    title: '투어비스 항공 공통 셸 연동 — GNB · 푸터 · 하단 탭바',
-    summary:
-      '항공에서 별도로 관리하던 헤더·푸터를 투어비스 공통 컴포넌트에 연동하고, 모바일 하단 탭바 도입 과정의 모달·레이어 충돌을 공통 로직으로 해결한 프로젝트',
-    period: '2024.07 - 2024.07',
-    teamSize: '항공 공통 UI 연동 담당, 프론트엔드 개발 협업',
-    skills: [
-      'HTML5',
-      'SCSS',
-      'JavaScript',
-      'jQuery',
-      'Gulp',
-      'Web Components',
-      'Responsive UI',
-      'Common UI',
-    ],
-    image: '/images/portpolio/tourvis.jpg',
-    body: [
-      '투어비스 공통 메인과 다른 상품군은 공통 내비게이션을 사용하고 있었지만, 항공은 개편 이후에도 헤더·푸터를 별도 자산으로 운영했습니다. 공통 메뉴·앱 배너·모바일 하단 탭바 정책을 항공에도 일관되게 적용할 수 있도록 기존 항공 퍼블리싱 화면을 공통 셸에 합류시키는 작업을 담당했습니다.',
-      '항공 퍼블리싱의 `new-common.js`에서 공통 CDN의 모바일 퀵서치·내비게이션·푸터 HTML을 불러오고, 항공 전용 화면에는 `air` 스타일 범위를 적용했습니다. React 기반 항공 앱은 `gnb-widget`, `footer-widget`, `bottom-tab-bar-widget` 커스텀 엘리먼트를 소비하는 구조로 연결되어, 기존 앱을 전면 재작성하지 않고 공통 UI를 사용할 수 있었습니다.',
-      '주요 적용·검수 범위는 항공 메인, 국제선·국내선 예약상세, 메타서치 화면이었습니다. 화면마다 탭바 유무와 기존 고정 UI가 달라 퀵박스 가림, 탑 버튼 위치, 채널별 헤더 커스텀, 팝업 노출 순서 같은 후속 QA를 화면 성격에 맞게 조정했습니다.',
-      '모바일 하단 탭바를 추가하자 전체 메뉴와 최근 본 여행 모달이 탭바 아래로 밀리거나 가려지는 문제가 발생했습니다. `airClassSet`이 `.bottom-tab-bar` 존재 여부를 확인해 `body`에 `wrap-bar`를 자동으로 부여하도록 하고, SCSS에서 해당 상태의 모달 z-index와 하단 여백을 보정했습니다.',
-      '이 작업은 공통 위젯 패키지 자체를 새로 설계한 프로젝트가 아니라, 이미 운영 중인 공통 셸을 항공의 HTML·SCSS·JavaScript 구조에 안전하게 연결하고 화면별 충돌을 정리한 연동 프로젝트입니다. 2023년 공통 메인·GNB 리뉴얼이 공통 셸을 만든 단계라면, 2024년 작업은 예외로 남아 있던 항공을 그 구조에 편입한 단계입니다.',
-    ],
-    troubleshooting: [
-      {
-        problem:
-          '항공만 헤더·푸터를 별도로 운영해 공통 메뉴와 하단 탭바 정책 변경 시 항공용 자산을 다시 수정해야 했고, 다른 상품군과 내비게이션 경험도 달랐습니다.',
-        solution:
-          '공통 CDN HTML과 Web Component를 항공 퍼블리싱·앱에 연결하고 `air` 클래스 범위로 기존 스타일을 보존했습니다. 전면 재작성 없이 공통 GNB·푸터·탭바를 소비하도록 브리지해 정책 변경 지점을 공통 레이어로 모았습니다.',
-      },
-      {
-        problem:
-          '고정된 모바일 하단 탭바가 추가되면서 전체 메뉴·최근 본 여행 모달이 가려지거나 콘텐츠가 57px 영역과 겹쳤고, 페이지별로 body 상태를 직접 맞추면 누락 가능성이 있었습니다.',
-        solution:
-          '`airClassSet`에서 탭바 DOM을 감지해 `body.wrap-bar`를 자동 적용하고, 해당 상태에서 모달의 z-index와 padding-bottom을 조정했습니다. 탭바가 없는 페이지는 같은 상태를 유지하지 않도록 분리했습니다.',
-      },
-      {
-        problem:
-          '메인·예약상세·메타서치는 퀵박스, 탑 버튼, 팝업 순서와 커스텀 헤더 조건이 달라 공통 컴포넌트를 붙인 뒤 화면별 레이아웃 충돌이 발생했습니다.',
-        solution:
-          '공통 구조를 되돌리지 않고 항공용 클래스와 화면별 예외 규칙만 최소한으로 추가했습니다. 연동 후 QA에서 퀵박스 가림·메타서치 탑 버튼·팝업 노출 순서를 순차적으로 검증해 공통 셸과 기존 항공 기능을 함께 유지했습니다.',
-      },
-    ],
-    outcomes: [
-      '항공 메인·국제선/국내선 예약상세·메타서치에 투어비스 공통 셸 연동',
-      '항공과 다른 상품군의 GNB·푸터·모바일 하단 탭바 경험 통일',
-      '`airClassSet`·`wrap-bar` 공통 상태 처리로 탭바 유무에 따른 모달 충돌 재발 방지',
-      '기존 항공 앱을 전면 재작성하지 않고 CDN 공통 HTML·Web Component를 연결',
-      '연동 후 화면별 QA를 통해 퀵박스·탑 버튼·팝업 레이어 예외 정리',
-    ],
-  },
-  {
-    type: 'fe',
     slug: 'airspot-backoffice-ui-backup',
     company: 'Tidesquare',
     title: 'airspot 백오피스 리뉴얼 UI/UX 안정화',
@@ -1413,7 +1343,7 @@ export const feProjects: FeProjectItem[] = [
       '서비스마다 헤더, 검색, 상품 카드 같은 UI가 따로 만들어지면서 시각 일관성과 유지보수 비용이 커지고 있었습니다. 컬러부터 주요 컴포넌트까지 한 기준으로 모으고, 화면과 분리해 상태·조합을 검증할 수 있는 Storybook 기반 디자인 시스템을 구축했습니다.',
       '역할은 프론트엔드 개발로, 디자인 토큰과 공통 UI 컴포넌트를 담당했습니다. 컬러 팔레트와 전역·리셋 스타일을 정의·문서화하고, PC·모바일에서 재사용할 수 있는 공통 헤더를 만들었습니다.',
       '숙소 검색은 날짜·객실·최근 검색 상태를 한 UI에서 다루도록 구성했습니다. 상품 카드는 이미지, 가격, 배지, 평점을 조합할 수 있게 설계해 화면마다 다시 짜지 않도록 했습니다.',
-      '텍스트, 배지, 링크, 레이아웃 등 기본 UI도 함께 구현하고, 컴포넌트 상태와 조합 사례를 Storybook으로 관리했습니다. TypeScript와 SCSS Module로 컴포넌트 API와 스타일 범위를 표준화해 사용 방식과 영향 범위를 맞췄습니다.',
+      '텍스트, 배지, 링크, 레이아웃 등 기본 UI도 함께 구현하고, 컴포넌트 상태와 조합 사례를 Storybook으로 관리했습니다. TypeScript와 SCSS Modules로 컴포넌트 API와 스타일 범위를 표준화해 사용 방식과 영향 범위를 맞췄습니다.',
     ],
     troubleshooting: [
       {
@@ -1426,7 +1356,7 @@ export const feProjects: FeProjectItem[] = [
         problem:
           '컴포넌트의 상태와 조합을 실제 화면 안에서만 확인하면, 디자인·개발이 독립적으로 검수하기 어렵고 예외 케이스가 누락되기 쉬웠습니다.',
         solution:
-          'Storybook에서 상태·조합 사례를 문서화하고 화면과 분리해 검증했습니다. TypeScript와 SCSS Module로 API와 스타일 범위를 맞춰 사용 방식과 영향 범위를 표준화했습니다.',
+          'Storybook에서 상태·조합 사례를 문서화하고 화면과 분리해 검증했습니다. TypeScript와 SCSS Modules로 API와 스타일 범위를 맞춰 사용 방식과 영향 범위를 표준화했습니다.',
       },
     ],
     outcomes: [

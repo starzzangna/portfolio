@@ -80,7 +80,7 @@ export function buildResumeSourceItems(careers: CareerItem[]): ResumeSourceItem[
           company: career.company,
           companyPeriod: career.period,
           title: formatResumeTitle(group.title),
-          period: parsed.period,
+          period: parsed.period ?? null,
           bullets: parsed.summary,
           outcome: parsed.outcomes[0] ?? null,
         },
