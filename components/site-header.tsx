@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import { Github, Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, type MouseEvent } from 'react';
 
@@ -101,6 +101,17 @@ export function SiteHeader() {
               <DocumentLink href="/projects">프로젝트 목록</DocumentLink>
             </Button>
           ) : null}
+          <Button asChild variant="ghost" size="sm">
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub 프로필"
+              title="GitHub 프로필"
+            >
+              <Github className="size-4" />
+            </a>
+          </Button>
           <ThemeToggle />
         </nav>
 
@@ -144,6 +155,15 @@ export function SiteHeader() {
                     전체 프로젝트
                   </DocumentLink>
                 </SheetClose>
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 rounded-[10px] border border-[var(--border)] bg-[var(--card)] px-4 py-3.5 text-base font-medium"
+                >
+                  <Github className="size-4" />
+                  GitHub
+                </a>
               </div>
             </SheetContent>
           </Sheet>
