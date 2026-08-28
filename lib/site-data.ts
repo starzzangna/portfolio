@@ -214,12 +214,14 @@ export const careers: CareerItem[] = [
           '2026.07 - 2026.08',
           '투어비스·프리비아 프로모션 정적 템플릿과 Next.js 배포 관리자 UI를 구축',
           '브랜드별 PC·모바일 헤더·푸터, SEO·OG·분석 도구, 공개 위젯 연동을 재사용 가능한 제작 환경으로 표준화',
-          '대시보드·브랜드별 배포·작업 이력·사이트맵 화면과 tar 드롭존, 검색·필터, 릴리스 관리 UI 구현',
+          '대시보드·브랜드별 배포·작업 이력·사이트맵·사용법 화면과 템플릿 ZIP·tar 드롭존, 검수·즉시 배포, 검색·필터, 릴리스·게시 관리 UI 구현',
           'REST 초기 로그와 SSE·보완 polling을 결합한 실시간 콘솔, 모바일·PC QA 캡처, 승인 상태를 한 화면에 구성',
           'Backend 담당과 Zod API 계약·작업 상태 모델을 맞추고, Admin은 화면·입력, Worker는 업로드·QA·배포 전환을 소유하도록 경계를 분리',
           '이슈 : 브랜드별 UI 차이와 다단계 배포 상태 때문에 제작 규칙이 분산되고 운영 진행 상황을 파악하기 어려움',
           '해결 : 브랜드별 정적 템플릿과 공통 AI 규칙을 정리하고, TanStack Query·React Hook Form·Zod 기반 Admin 흐름으로 통합',
-          '성과 : 템플릿 제작부터 업로드·QA·승인·릴리스·사이트맵 확인까지 하나의 반응형 운영 화면으로 연결',
+          '이슈 : 제작 담당자에게 저장소 전체를 넘기면 Admin·Worker와 로컬 설정이 섞이고 브랜드별 전달 기준이 흔들림',
+          '해결 : 사용법 화면에 역할별 절차와 명령을 고정하고, 배포 시점 브랜드 ZIP만 Admin에서 내려받게 해 전달본을 표준화',
+          '성과 : 템플릿 전달부터 업로드·QA·승인·릴리스까지 하나의 반응형 운영 화면으로 연결',
         ],
       },
       {
@@ -618,7 +620,7 @@ export const feProjects: FeProjectItem[] = [
     company: 'Tidesquare',
     title: '프로모션 템플릿·배포 관리자 — 멀티브랜드 정적 UI·QA 운영',
     summary:
-      '투어비스·프리비아 프로모션 정적 템플릿과 배포 Admin을 구축해 페이지 제작, tar 등록, 모바일·PC QA, 승인·릴리스 관리를 한 흐름으로 연결한 프로젝트',
+      '투어비스·프리비아 프로모션 정적 템플릿과 배포 Admin을 구축해 템플릿 전달, tar 등록, 모바일·PC QA, 검수·즉시 배포, 승인·릴리스와 게시 관리를 한 흐름으로 연결한 프로젝트',
     period: '2026.07 - 2026.08',
     teamSize: '프론트엔드 담당 1명, 백엔드 1명',
     skills: [
@@ -639,8 +641,8 @@ export const feProjects: FeProjectItem[] = [
       '투어비스·프리비아 프로모션을 같은 제작 규칙으로 만들고 운영 반영 전 화면까지 확인할 수 있도록, 브랜드 정적 템플릿과 배포 관리자 프론트엔드를 구축한 프로젝트입니다.',
       'Frontend·Backend 2인으로 구성해 프론트엔드는 브랜드 템플릿과 Admin의 정보 구조·상태·상호작용을, 백엔드는 Worker API·PostgreSQL 작업 큐·QA·배포 전환을 담당하도록 역할을 나눴습니다. 두 영역은 공통 Zod 계약과 작업 상태 모델을 기준으로 연결했습니다.',
       '브랜드 템플릿은 Next.js static export를 기준으로 PC·모바일 헤더·푸터와 내비게이션, SEO·OG, GTM·Datadog, 공개 API 위젯을 기본 제공하도록 구성했습니다. 투어비스와 프리비아는 독립 workspace로 브랜드별 차이를 유지하면서도 `/promo/{slug}` 산출물 구조와 AI 제작·검증 규칙은 동일하게 맞췄습니다.',
-      'Admin은 통합 대시보드, 브랜드별 배포 목록, 작업 이력·상세, 사이트맵의 route 중심 구조로 설계했습니다. 데스크톱 표와 모바일 카드를 분리하고 path 검색·브랜드 필터·상태 배지·행 작업을 화면 폭에 맞춰 제공해 운영 정보의 밀도와 탐색성을 조정했습니다.',
-      '원격 상태는 TanStack Query로 조회·자동 갱신하고, 배포 Dialog는 React Hook Form과 Zod로 파일·배포 방식을 검증했습니다. tar 클릭 선택과 drag-and-drop, 파일명·용량·교체·제거 상태를 한 필드에 제공하고, 신규 path는 archive 구조에서 자동 확인해 중복 입력을 없앴습니다.',
+      'Admin은 통합 대시보드, 브랜드별 배포 목록, 작업 이력·상세, 사이트맵, 사용법의 route 중심 구조로 설계했습니다. 사용법에서는 제작 담당자와 운영자 역할을 나눠 전체 흐름, 복사 가능한 명령, 브랜드 템플릿 ZIP 내려받기를 한 화면에 두었습니다. 데스크톱 표와 모바일 카드를 분리하고 path 검색·브랜드 필터·상태 배지·행 작업을 화면 폭에 맞춰 제공해 운영 정보의 밀도와 탐색성을 조정했습니다.',
+      '원격 상태는 TanStack Query로 조회·자동 갱신하고, 배포 Dialog는 React Hook Form과 Zod로 파일·배포 방식을 검증했습니다. tar 클릭 선택과 drag-and-drop, 파일명·용량·교체·제거 상태를 한 필드에 제공하고, 신규 path는 archive 구조에서 자동 확인해 중복 입력을 없앴습니다. 검수 후 승인과 QA 후 즉시 배포를 구분하고, 현재 릴리스 tar 내려받기와 게시 중지·재게시를 행 작업으로 연결했습니다.',
       '작업 상세에서는 REST로 이전 로그를 먼저 가져온 뒤 SSE를 이어 붙이고, 프록시 버퍼링 시 증분 polling으로 진행률을 보완했습니다. 콘솔 아래에 모바일 390×844·데스크톱 1440×900 QA 캡처와 승인 상태를 배치했으며, 키보드 탐색·focus-visible·reduced motion을 반영해 운영 화면의 접근성도 함께 검증했습니다.',
     ],
     troubleshooting: [
@@ -660,13 +662,19 @@ export const feProjects: FeProjectItem[] = [
         problem:
           '네이티브 파일 입력은 선택 상태가 초기화되거나 macOS에서 `.tar.gz`가 비활성화되는 문제가 있었고, 수동 slug 입력은 archive 경로와 불일치할 여지가 있었습니다.',
         solution:
-          '클릭·드래그앤드롭을 함께 지원하는 제어형 Dropzone을 만들고 확장자는 선택 후 Zod로 검증했습니다. slug는 tar의 `/promo/{slug}` 구조에서 자동 확인하고 수정 배포 path는 읽기 전용으로 고정했습니다.',
+          '클릭·드래그앤드롭을 함께 지원하는 제어형 Dropzone을 만들고 확장자는 선택 후 Zod로 `.tar.gz`·`.tgz`만 허용했습니다. slug는 tar의 `/promo/{slug}` 구조에서 자동 확인하고 수정 배포 path는 읽기 전용으로 고정했습니다.',
+      },
+      {
+        problem:
+          '제작 담당자에게 저장소 전체를 넘기면 Admin·Worker와 로컬 설정이 섞이고, 브랜드별로 받을 소스가 달라 전달 기준이 흔들렸습니다.',
+        solution:
+          '사용법 화면에 역할별 절차와 명령을 고정하고, 배포 시점에 만든 브랜드 ZIP만 Admin에서 내려받게 했습니다. 전달본 slug는 비워 두어 담당자가 로컬에서 `pnpm promo:setup`으로 path를 정하도록 했습니다.',
       },
     ],
     outcomes: [
       '투어비스·프리비아 반응형 UI와 static export 규칙을 브랜드별 제작 템플릿으로 표준화',
-      '대시보드·배포·작업·사이트맵을 하나의 Admin 정보 구조로 통합',
-      'Backend Worker와 공통 Zod 계약으로 tar Dropzone부터 실시간 콘솔·모바일/PC QA·승인·릴리스 관리까지 연결',
+      '대시보드부터 사용법·템플릿 전달까지 Admin 정보 구조로 통합',
+      'Backend Worker와 공통 Zod 계약으로 템플릿 ZIP·tar Dropzone부터 QA·승인·즉시 배포·릴리스·게시 관리까지 연결',
       '390×844·768×900·1024×900·1440×900 주요 화면에서 가로 overflow와 console 오류 0건 검증',
       '키보드 탐색·접근성 상태 안내·reduced motion 대응으로 운영 UI 사용성 보강',
     ],
@@ -681,8 +689,20 @@ export const feProjects: FeProjectItem[] = [
         alt: '투어비스 배포 목록 — path 검색과 릴리스 관리',
       },
       {
+        src: '/images/promotion/11-admin-privia-deployments.png',
+        alt: '프리비아 배포 목록 — 운영 중·게시 중지와 행 작업',
+      },
+      {
         src: '/images/promotion/03-admin-new-deployment-modal.png',
         alt: '신규 배포 — tar 드롭존과 배포 방식 선택',
+      },
+      {
+        src: '/images/promotion/09-admin-update-deployment-modal.png',
+        alt: '수정 배포 — 대상 path 고정과 tar 교체',
+      },
+      {
+        src: '/images/promotion/10-admin-immediate-deploy-confirm.png',
+        alt: '즉시 배포 확인 — QA 후 승인 생략 경고',
       },
       {
         src: '/images/promotion/04-admin-release-history-modal.png',
@@ -699,6 +719,10 @@ export const feProjects: FeProjectItem[] = [
       {
         src: '/images/promotion/07-admin-sitemaps.png',
         alt: '사이트맵 관리 — 브랜드별 운영 URL과 등록 상태',
+      },
+      {
+        src: '/images/promotion/08-admin-usage-guide.png',
+        alt: '사용법 — 배포 흐름, 템플릿 ZIP 내려받기, 제작 절차',
       },
     ],
   },
