@@ -188,7 +188,7 @@ export const careers: CareerItem[] = [
   {
     role: 'Frontend Developer / Web Publisher',
     company: '(주)타이드스퀘어',
-    period: '2021.08 - 재직중',
+    period: '2021.08 - 2026.08',
     summary:
       '투어비스·프리비아 실서비스에서 반응형 UI와 공통 컴포넌트를 담당하고, 마케팅 페이지부터 프로모션 배포·업무 자동화까지 구축했습니다. 매니저로서 우선순위를 정리해 업무를 리딩하고, 기획·디자인·마케팅·CS·운영 요구사항을 구현 가능한 형태로 조율했습니다.',
     skills: [
