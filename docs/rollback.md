@@ -8,6 +8,7 @@
 - 미커밋 변경 포함 원본: `5ba289c114ed8fe9a1605cec7d0e8c646f3ddebd`
 - 백업 브랜치: `codex/backup-portfolio-before-v2-20261023`
 - v2 작업 브랜치: `codex/portfolio-v2`
+- 저장소 내 원본 소스: `beforeProject/v1/` (기존 HTML 포트폴리오는 `beforeProject/v0/`)
 - 별도 소스 ZIP: `D:/project/portfolio-backups/portfolio-before-v2-20261023.zip`
 - 전체 Git 이력 bundle: `D:/project/portfolio-backups/portfolio-before-v2-20261023.bundle`
 
@@ -34,4 +35,4 @@ v2로 돌아가려면 `git switch codex/portfolio-v2` 후 같은 설치·빌드 
 git clone -b codex/backup-portfolio-before-v2-20261023 D:/project/portfolio-backups/portfolio-before-v2-20261023.bundle D:/project/portfolio-restored
 ```
 
-원격 push·운영 배포는 별도 작업입니다. 현재 백업과 v2 커밋만으로 GitHub의 배포 버전이 바뀌지는 않습니다.
+GitHub Pages 운영 버전을 원본으로 되돌릴 때는 원본 백업 커밋을 기반으로 배포 브랜치의 변경을 검토하고 새 커밋으로 반영합니다. 로컬 브랜치 전환만으로 운영 배포는 바뀌지 않습니다. 강제 push 없이 원격의 후속 변경도 보존하세요.

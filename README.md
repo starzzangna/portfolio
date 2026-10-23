@@ -1,6 +1,6 @@
 # portfolio
 
-React·Next.js·TypeScript 기반 개인 포트폴리오입니다. 검토한 v2 내용을 기존 portfolio 저장소에 반영했습니다. 이전 정적 HTML·jQuery 소스는 `beforeProject/`에 유지합니다.
+React·Next.js·TypeScript 기반 개인 포트폴리오입니다. 검토한 v2 내용을 기존 portfolio 저장소에 반영했습니다. 이전 HTML·jQuery 소스는 `beforeProject/v0/`, v2 전환 직전 Next.js 원본은 `beforeProject/v1/`에 보관합니다.
 
 ## 실행과 검증
 
@@ -32,7 +32,7 @@ $env:NEXT_PUBLIC_SITE_URL='https://starzzangna.github.io/portfolio'
 npm run build
 ```
 
-정적 산출물은 `out/`에 생성합니다. `.github/workflows/deploy-github-pages.yml`은 기존과 같이 main/master push 시 배포하므로, 검토 중인 로컬 브랜치를 원격에 반영하기 전 배포 범위를 확인합니다. 이번 전환 작업에서는 원격 push·배포를 수행하지 않았습니다.
+정적 산출물은 `out/`에 생성합니다. `.github/workflows/deploy-github-pages.yml`은 main/master push 시 빌드 후 GitHub Pages에 배포합니다. 실제 배포 결과는 GitHub Actions 실행 내역에서 확인합니다.
 
 ## 원본 백업과 복원
 
