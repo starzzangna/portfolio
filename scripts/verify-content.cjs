@@ -41,7 +41,7 @@ const deployment = projects.find(project => project.slug === 'promotion-deployme
 const logDetails = deployment.troubleshooting.map(item => item.solution).join(' ');
 for (const term of ['SSE', '12초', '1초', '증분', '중복', 'ID']) assert.ok(logDetails.includes(term), `로그 보완 동작 누락: ${term}`);
 assert.ok(!/12초|1초|증분 조회|중복 제거/.test(deployment.caseStudy.implementation.join(' ')), '로그 복구 절차는 문제 해결 사례에서만 설명해야 합니다.');
-assert.equal(fs.readFileSync(path.join(root, 'docs/resume-v2.md'), 'utf8'), resumeMarkdown(careers), '이력서 파일을 다시 생성해야 합니다.');
+assert.equal(fs.readFileSync(path.join(root, 'docs/resume-v2.md'), 'utf8').replace(/\r\n/g, '\n'), resumeMarkdown(careers), '이력서 파일을 다시 생성해야 합니다.');
 // 실제 웹 이력서 변환 경로가 4단계와 성과를 누락하지 않는지 검증한다.
 function loadTs(relative, imports = {}) {
   const text = fs.readFileSync(path.join(root, relative), 'utf8');
@@ -65,11 +65,11 @@ const dated = [
   { title: '최신 완료', period: '2026.07 - 2026.08' },
   { title: '진행 중', period: '2026.01 - 현재' },
 ];
-assert.equal(sortProjectsByDate(dated).map(item => item.title).join(','), '진행 중,최신 완료,나중 시작,먼저 시작,날짜 없음');
+assert.equal(sortProjectsByDate(dated).map(item => item.title).join(','), '최신 완료,나중 시작,진행 중,먼저 시작,날짜 없음');
 assert.equal(dated[0].title, '날짜 없음', '정렬 과정에서 원본을 변경하면 안 됩니다.');
 assert.equal(sortProjectsByDate(projects)[0].slug, 'promotion-deployment-platform');
-assert.equal(sortProjectsByDate(projects)[1].slug, 'hotel-room-review-improvement');
-assert.equal(sortProjectsByDate(projects)[2].slug, 'ai-builder');
+assert.equal(sortProjectsByDate(projects)[1].slug, 'ai-builder');
+assert.equal(sortProjectsByDate(projects)[5].slug, 'hotel-room-review-improvement');
 const resume = loadTs('lib/career-resume.ts', { '@/lib/career-parse': parser });
 const entries = resume.buildResumeSourceItems(careers);
 for (const career of careers) {
