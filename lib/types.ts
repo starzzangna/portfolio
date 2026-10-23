@@ -64,6 +64,15 @@ interface BaseProjectItem {
 
 export interface FeProjectItem extends BaseProjectItem {
   type: 'fe';
+  caseStudy: {
+    problem: string[];
+    choice: string[];
+    choiceReasons: string[];
+    implementation: string[];
+    results: string[];
+    effects: string[];
+    learning: string[];
+  };
   teamSize: string;
   body: string[];
   troubleshooting: TroubleshootingItem[];

@@ -35,7 +35,7 @@ import {
 } from '@/lib/career-resume';
 import { cn } from '@/lib/utils';
 
-const STORAGE_KEY = 'portfolio:career-resume-draft:v1';
+const STORAGE_KEY = 'portfolio-v2:career-resume-draft:v1';
 
 type StoredDraft = ResumeDraftItem & { base: ResumeSnapshot };
 

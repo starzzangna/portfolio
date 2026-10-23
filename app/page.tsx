@@ -44,11 +44,6 @@ export default async function HomePage() {
               {profile.intro}
             </p>
             <div className="mt-6 flex flex-wrap gap-3 justify-end">
-              <Button asChild variant="outline">
-                <a href="http://127.0.0.1:3205/lab/">
-                  개인 설계·검증 프로젝트 <ArrowUpRight className="size-4" />
-                </a>
-              </Button>
               <Button
                 asChild
                 className="border-[var(--cta-border)] bg-[var(--cta-bg)] !text-white shadow-[0_16px_32px_var(--cta-shadow)] hover:border-[var(--cta-hover-border)] hover:bg-[var(--cta-hover-bg)] hover:!text-white"

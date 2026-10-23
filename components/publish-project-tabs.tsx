@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef } from "react";
 
 import { ProjectCard } from "@/components/project-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { sortPublishProjects } from "@/lib/site-data";
+import { sortProjectsByDate as sortPublishProjects } from "@/lib/project-sort";
 import type { PublishProjectItem } from "@/lib/types";
 
 type PublishTab = "all" | "basic" | "responsive" | "accessibility" | "mobile";

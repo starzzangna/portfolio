@@ -32,7 +32,7 @@ export function parseProjectGroup(group: CareerDetailGroup) {
       return;
     }
 
-    if (entry.startsWith('해결')) {
+    if (/^해결\d*\s*:/.test(entry)) {
       if (!currentTrouble) {
         currentTrouble = {};
       }

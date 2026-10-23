@@ -102,9 +102,6 @@ export function SiteHeader() {
             </Button>
           ) : null}
           <Button asChild variant="ghost" size="sm">
-            <a href="http://127.0.0.1:3205/lab/">Engineering Lab</a>
-          </Button>
-          <Button asChild variant="ghost" size="sm">
             <a
               href={profile.github}
               target="_blank"
@@ -157,14 +154,6 @@ export function SiteHeader() {
                   >
                     전체 프로젝트
                   </DocumentLink>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a
-                    href="http://127.0.0.1:3205/lab/"
-                    className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] px-4 py-3.5 text-base font-medium"
-                  >
-                    Engineering Lab
-                  </a>
                 </SheetClose>
                 <a
                   href={profile.github}

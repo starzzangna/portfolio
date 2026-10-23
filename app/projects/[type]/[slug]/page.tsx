@@ -1,11 +1,5 @@
 import type { Metadata } from 'next';
-import {
-  AlertTriangle,
-  ArrowRight,
-  CheckCircle2,
-  ExternalLink,
-  Lightbulb,
-} from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import { DocumentLink } from '@/components/document-link';
@@ -16,26 +10,12 @@ import { getProjectDetail, getProjectsByType } from '@/lib/site-data';
 import type { ProjectType } from '@/lib/types';
 
 function highlightOutcomeText(text: string) {
-  const parts = text.split(
-    /(\d+(?:\.\d+)?%|\d+(?:\.\d+)?초|\d+(?:\.\d+)?줄|\d+(?:\.\d+)?개|\d+(?:\.\d+)?시간|\d+(?:\.\d+)?건|\d+(?:\.\d+)?회)/g,
-  );
-
+  const parts = text.split(/(\d+(?:\.\d+)?%|\d+(?:\.\d+)?초|\d+(?:\.\d+)?줄|\d+(?:\.\d+)?개|\d+(?:\.\d+)?시간|\d+(?:\.\d+)?건|\d+(?:\.\d+)?회)/g);
   return parts.map((part, index) => {
-    const isHighlight =
-      /^(?:\d+(?:\.\d+)?%|\d+(?:\.\d+)?초|\d+(?:\.\d+)?줄|\d+(?:\.\d+)?개|\d+(?:\.\d+)?시간|\d+(?:\.\d+)?건|\d+(?:\.\d+)?회)$/.test(
-        part,
-      );
-
+    const isHighlight = /^(?:\d+(?:\.\d+)?%|\d+(?:\.\d+)?초|\d+(?:\.\d+)?줄|\d+(?:\.\d+)?개|\d+(?:\.\d+)?시간|\d+(?:\.\d+)?건|\d+(?:\.\d+)?회)$/.test(part);
     return isHighlight ? (
-      <span
-        key={`${part}-${index}`}
-        className="font-semibold text-[var(--accent)]"
-      >
-        {part}
-      </span>
-    ) : (
-      <span key={`${part}-${index}`}>{part}</span>
-    );
+      <span key={index} className="font-semibold text-[var(--accent)]">{part}</span>
+    ) : <span key={index}>{part}</span>;
   });
 }
 
@@ -97,20 +77,6 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
-  const troubleItems =
-    project.type === 'fe'
-      ? project.troubleshooting.filter(
-          (item) => item.problem.trim() && item.solution.trim(),
-        )
-      : [
-          {
-            problem:
-              '구축형 프로젝트 특성상 다양한 화면 규칙과 브라우저 대응이 동시에 필요했습니다.',
-            solution:
-              '공통 마크업 패턴과 스타일 기준을 유지하면서 프로젝트별 변형 포인트를 분리해 대응했습니다.',
-          },
-        ];
-
   return (
     <section className="section-shell py-12 sm:py-16">
       <div className="mb-8 flex flex-wrap items-center gap-3">
@@ -147,7 +113,7 @@ export default async function ProjectDetailPage({
             </div>
             <div>
               <p className="text-xs font-semibold text-[var(--muted-foreground)] sm:text-sm">
-                투입 인원
+                담당 역할 · 협업
               </p>
               <p className="mt-2 text-sm sm:text-base">
                 {project.type === 'fe'
@@ -166,103 +132,75 @@ export default async function ProjectDetailPage({
           />
         ) : null}
 
-        <div className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] p-5 sm:p-6">
-          <h2 className="text-base font-semibold">프로젝트 내용</h2>
-          <div className="mt-5 space-y-4 border-t border-[var(--border)] pt-5">
-            {project.type === 'fe' ? (
-              project.body.map((item) => (
-                <p
-                  key={item}
-                  className="text-[13px] leading-6 text-[var(--muted-foreground)] sm:text-sm sm:leading-7"
-                >
-                  {item}
-                </p>
-              ))
-            ) : (
-              <>
-                <p className="text-[13px] leading-6 text-[var(--muted-foreground)] sm:text-sm sm:leading-7">
-                  {project.summary}
-                </p>
-                <p className="text-[13px] leading-6 text-[var(--muted-foreground)] sm:text-sm sm:leading-7">
-                  사용 기술: {project.skills.join(', ')}
-                </p>
-              </>
-            )}
-          </div>
-        </div>
-
-        {troubleItems.length ? (
-          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm sm:p-7">
-            <h2 className="flex items-center gap-2 text-base font-bold tracking-tight text-[var(--foreground)]">
-              <AlertTriangle className="size-4 text-[var(--accent)]" />
-              트러블 슈팅
-            </h2>
-
-            <div className="mt-5 space-y-6 border-t border-[var(--border)] pt-5">
-              {troubleItems.map((item, index) => (
-                <article
-                  key={`${item.problem}-${index}`}
-                  className="relative grid items-start gap-4 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-6"
-                >
-                  <div className="rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 shadow-inner sm:p-6">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-[color:color-mix(in_oklab,var(--accent)_10%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--accent-strong)]">
-                      <AlertTriangle className="size-3" />
-                      문제
+        {(project.type === 'fe'
+          ? [
+              { title: '문제: 추진 배경과 해결 과제', lines: project.caseStudy.problem },
+              { title: '기술적 선택: 채택한 방식과 이유', lines: project.caseStudy.choice },
+              { title: '구현: 문제 해결 방식', lines: project.caseStudy.implementation },
+              { title: '결과와 성과', lines: project.caseStudy.results },
+            ]
+          : [{ title: '프로젝트 내용', lines: [project.summary] }]
+        ).map((section, index) => (
+          <section key={section.title} aria-labelledby={`case-section-${index}`} className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] p-5 sm:p-7">
+            <h2 id={`case-section-${index}`} className="text-base font-semibold sm:text-lg">{section.title}</h2>
+            <div className="mt-5 space-y-4 border-t border-[var(--border)] pt-5">
+              {project.type === 'fe' && index === 3 ? (
+                <h3 className="text-sm font-semibold">구현 결과</h3>
+              ) : null}
+              {section.lines.map((line, lineIndex) => (
+                project.type === 'fe' && index === 1 ? (
+                  <dl key={line} className="space-y-3 rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 text-[13px] leading-7 sm:p-5 sm:text-sm">
+                    <div>
+                      <dt className="font-semibold text-[var(--foreground)]">선택한 방식</dt>
+                      <dd className="mt-1 text-[var(--muted-foreground)]">{line}</dd>
                     </div>
-                    <p className="mt-3 text-[13px] leading-6 text-[var(--foreground)] sm:text-sm sm:leading-7">
-                      {item.problem}
-                    </p>
-                  </div>
-
-                  <div className="hidden h-full items-center justify-center pt-10 md:flex">
-                    <ArrowRight className="size-8 text-[var(--border)]" />
-                  </div>
-
-                  <div className="flex justify-center md:hidden">
-                    <div className="h-8 w-0.5 bg-[var(--border)]" />
-                  </div>
-
-                  <div className="rounded-lg border border-[var(--accent)] bg-[color:color-mix(in_oklab,var(--accent)_5%,var(--card))] p-4 shadow-[0_4px_12px_rgba(184,87,44,0.08)] dark:shadow-[0_4px_12px_rgba(245,158,11,0.15)] sm:p-6">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-[var(--accent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
-                      <Lightbulb className="size-3" />
-                      해결
+                    <div>
+                      <dt className="font-semibold text-[var(--foreground)]">선택 이유</dt>
+                      <dd className="mt-1 text-[var(--muted-foreground)]">{project.caseStudy.choiceReasons[lineIndex]}</dd>
                     </div>
-                    <p className="mt-3 text-[13px] leading-6 text-[var(--foreground)] sm:text-sm sm:leading-7">
-                      {item.solution}
-                    </p>
-                  </div>
-                </article>
+                  </dl>
+                ) : (
+                  <p key={line} className="text-[13px] leading-7 text-[var(--muted-foreground)] sm:text-sm">
+                    {highlightOutcomeText(line)}
+                  </p>
+                )
               ))}
+              {project.type === 'fe' && index === 2 && project.troubleshooting.length > 0 ? (
+                <div className="space-y-5 border-t border-[var(--border)] pt-6">
+                  <h3 className="text-base font-semibold">기술적 문제와 해결</h3>
+                  {project.troubleshooting.map((item, caseIndex) => (
+                    <article key={item.problem} className="rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 sm:p-5">
+                      <p className="mb-4 text-xs font-semibold text-[var(--accent)]">사례 {caseIndex + 1}</p>
+                      <dl className="space-y-4 text-[13px] leading-7 sm:text-sm">
+                        <div>
+                          <dt className="font-semibold text-[var(--foreground)]">문제 상황</dt>
+                          <dd className="mt-1 text-[var(--muted-foreground)]">{item.problem}</dd>
+                        </div>
+                        <div>
+                          <dt className="font-semibold text-[var(--foreground)]">해결 방식</dt>
+                          <dd className="mt-1 text-[var(--muted-foreground)]">{highlightOutcomeText(item.solution)}</dd>
+                        </div>
+                      </dl>
+                    </article>
+                  ))}
+                </div>
+              ) : null}
+              {project.type === 'fe' && index === 3 ? (
+                [
+                  { title: '성과 · 개선 효과', lines: project.caseStudy.effects },
+                  { title: '배운 점', lines: project.caseStudy.learning },
+                ].filter(group => group.lines.length > 0).map(group => (
+                  <div key={group.title} className="space-y-3 border-t border-[var(--border)] pt-5">
+                    <h3 className="text-sm font-semibold">{group.title}</h3>
+                    {group.lines.map(line => (
+                      <p key={line} className="text-[13px] leading-7 text-[var(--muted-foreground)] sm:text-sm">{highlightOutcomeText(line)}</p>
+                    ))}
+                  </div>
+                ))
+              ) : null}
             </div>
-          </div>
-        ) : null}
-
-        <div className="mt-10 rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm sm:p-7">
-          <h2 className="flex items-center gap-2 text-base font-bold tracking-tight text-[var(--foreground)]">
-            <CheckCircle2 className="size-4 text-emerald-500" />
-            성과
-          </h2>
-
-          <ul className="mt-5 grid gap-3 border-t border-[var(--border)] pt-5 sm:grid-cols-2">
-            {(project.type === 'fe'
-              ? project.outcomes
-              : [
-                  '다양한 구축형 프로젝트 경험 축적',
-                  '반응형/접근성 대응 역량 강화',
-                ]
-            ).map((item) => (
-              <li
-                key={item}
-                className="group flex gap-2 rounded-xl border border-[var(--border)] bg-[var(--background)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)] hover:shadow-md sm:p-5"
-              >
-                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[var(--accent)] transition-colors group-hover:text-[var(--accent-strong)]" />
-                <span className="text-[13px] leading-6 text-[var(--foreground)] sm:text-sm sm:leading-7">
-                  {highlightOutcomeText(item)}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+          </section>
+        ))}
 
         <div className="rounded-[10px] border border-[var(--border)] bg-[var(--card)] p-5 sm:p-6">
           <h2 className="text-xl font-semibold sm:text-2xl">사용 기술</h2>

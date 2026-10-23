@@ -23,6 +23,7 @@ import {
   slugifyTitle,
 } from '@/lib/career-parse';
 import type { CareerItem } from '@/lib/types';
+import { feProjects } from '@/lib/site-data';
 
 const feProjectLinkMap: Record<string, string> = {
   [slugifyTitle(
@@ -64,6 +65,8 @@ const feProjectLinkMap: Record<string, string> = {
 };
 
 function resolveProjectHref(title: string) {
+  const project = feProjects.find((item) => item.title === title);
+  if (project) return `/projects/fe/${project.slug}`;
   const normalizedTitle = slugifyTitle(title);
 
   if (feProjectLinkMap[normalizedTitle]) {
@@ -202,8 +205,15 @@ export function CareerList({ items }: { items: CareerItem[] }) {
                             <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                               {parsed.summary.map((entry) => (
                                 <li key={entry} className="flex gap-3 leading-7">
-                                  <span className="mt-2 size-1.5 rounded-full bg-[var(--accent)]" />
-                                  <span>{entry}</span>
+                                  <span aria-hidden="true" className="mt-[11px] size-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+                                  <span className="min-w-0 flex-1">
+                                    {/^(해결 과제|담당 업무|품질 개선):/.test(entry) ? (
+                                      <>
+                                        <strong className="font-semibold text-[var(--foreground)]">{entry.slice(0, entry.indexOf(':'))}</strong>
+                                        {entry.slice(entry.indexOf(':'))}
+                                      </>
+                                    ) : entry}
+                                  </span>
                                 </li>
                               ))}
                             </ul>

@@ -5,7 +5,10 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:content": "node scripts/verify-content.cjs",
+    "resume:export": "node scripts/export-resume.cjs"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.12",
