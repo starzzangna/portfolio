@@ -44,6 +44,11 @@ export default async function HomePage() {
               {profile.intro}
             </p>
             <div className="mt-6 flex flex-wrap gap-3 justify-end">
+              <Button asChild variant="outline">
+                <a href="http://127.0.0.1:3205/lab/">
+                  개인 설계·검증 프로젝트 <ArrowUpRight className="size-4" />
+                </a>
+              </Button>
               <Button
                 asChild
                 className="border-[var(--cta-border)] bg-[var(--cta-bg)] !text-white shadow-[0_16px_32px_var(--cta-shadow)] hover:border-[var(--cta-hover-border)] hover:bg-[var(--cta-hover-bg)] hover:!text-white"
@@ -87,9 +92,7 @@ export default async function HomePage() {
                     href={strength.evidence.href}
                     className="mt-auto inline-flex items-center justify-end gap-1.5 self-end pt-5 text-right text-xs font-semibold text-[var(--accent)] hover:underline"
                   >
-                    <span>
-                      {strength.evidence.label}
-                    </span>
+                    <span>{strength.evidence.label}</span>
                     <ArrowUpRight className="size-3.5 shrink-0" />
                   </DocumentLink>
                 </CardContent>

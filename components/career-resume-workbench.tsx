@@ -11,7 +11,7 @@ import {
   RotateCcw,
   Trash2,
 } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Badge } from '@/components/ui/badge';
@@ -200,32 +200,41 @@ function Field({
   );
 }
 
+const subscribeToHydration = () => () => {};
+const clientSnapshot = () => true;
+const serverSnapshot = () => false;
+
 export function CareerResumeWorkbench({
   sourceItems,
 }: {
   sourceItems: ResumeSourceItem[];
 }) {
-  const [hydrated, setHydrated] = useState(false);
+  const hydrated = useSyncExternalStore(
+    subscribeToHydration,
+    clientSnapshot,
+    serverSnapshot,
+  );
+  if (!hydrated) {
+    return <p role="status">저장된 이력서 초안을 불러오는 중입니다.</p>;
+  }
+  // Mount only after hydration so the first editable state includes saved changes.
+  return (
+    <ResumeEditor key={JSON.stringify(sourceItems)} sourceItems={sourceItems} />
+  );
+}
+
+function ResumeEditor({ sourceItems }: { sourceItems: ResumeSourceItem[] }) {
   const [drafts, setDrafts] = useState<StoredDraft[]>(() =>
-    mergeStoredDrafts(sourceItems, null),
+    mergeStoredDrafts(sourceItems, readStoredDrafts()),
   );
   const [filter, setFilter] = useState<FilterTab>('all');
   const [selectedCompany, setSelectedCompany] = useState(ALL_COMPANIES);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   useEffect(() => {
-    setDrafts(mergeStoredDrafts(sourceItems, readStoredDrafts()));
-    setHydrated(true);
-  }, [sourceItems]);
-
-  useEffect(() => {
-    if (!hydrated) {
-      return;
-    }
-
     const payload: StoredState = { version: 1, items: drafts };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  }, [drafts, hydrated]);
+  }, [drafts]);
 
   const sources = useMemo(() => sourceMapOf(sourceItems), [sourceItems]);
 
@@ -235,8 +244,8 @@ export function CareerResumeWorkbench({
         const source = draft.sourceId ? sources.get(draft.sourceId) : undefined;
         const sourceUpdated = Boolean(
           source &&
-            !snapshotsEqual(draft, draft.base) &&
-            !snapshotsEqual(source, draft.base),
+          !snapshotsEqual(draft, draft.base) &&
+          !snapshotsEqual(source, draft.base),
         );
         const status = getChangeStatus(draft, source, sourceUpdated);
 
@@ -328,7 +337,10 @@ export function CareerResumeWorkbench({
   }, [rows, visibleRows]);
 
   const visibleCompanyGroups = companyGroups.filter((group) => {
-    if (selectedCompany !== ALL_COMPANIES && group.company !== selectedCompany) {
+    if (
+      selectedCompany !== ALL_COMPANIES &&
+      group.company !== selectedCompany
+    ) {
       return false;
     }
 
@@ -463,8 +475,8 @@ export function CareerResumeWorkbench({
               이력서 경력 초안
             </h1>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--muted-foreground)]">
-              포트폴리오에는 연결되지 않습니다. 현재 경력 데이터를 이력서 양식으로
-              보고, 포함·수정·복사한 뒤 로컬에만 보관합니다.
+              포트폴리오에는 연결되지 않습니다. 현재 경력 데이터를 이력서
+              양식으로 보고, 포함·수정·복사한 뒤 로컬에만 보관합니다.
             </p>
           </div>
           <ThemeToggle />
@@ -593,8 +605,7 @@ export function CareerResumeWorkbench({
                   variant="outline"
                   onClick={() => addDraftToCompany(selectedGroup.company)}
                 >
-                  <Plus className="size-3.5" />
-                  이 회사 항목 추가
+                  <Plus className="size-3.5" />이 회사 항목 추가
                 </Button>
                 <Button
                   type="button"
@@ -849,10 +860,7 @@ export function CareerResumeWorkbench({
                                 변경 상태
                               </h4>
                               <div className="grid gap-3">
-                                <Field
-                                  id={`${draft.id}-title`}
-                                  label="제목"
-                                >
+                                <Field id={`${draft.id}-title`} label="제목">
                                   <input
                                     id={`${draft.id}-title`}
                                     className={fieldClassName}
@@ -864,10 +872,7 @@ export function CareerResumeWorkbench({
                                     }
                                   />
                                 </Field>
-                                <Field
-                                  id={`${draft.id}-period`}
-                                  label="기간"
-                                >
+                                <Field id={`${draft.id}-period`} label="기간">
                                   <input
                                     id={`${draft.id}-period`}
                                     className={fieldClassName}
@@ -900,10 +905,7 @@ export function CareerResumeWorkbench({
                                     }
                                   />
                                 </Field>
-                                <Field
-                                  id={`${draft.id}-outcome`}
-                                  label="성과"
-                                >
+                                <Field id={`${draft.id}-outcome`} label="성과">
                                   <textarea
                                     id={`${draft.id}-outcome`}
                                     rows={3}

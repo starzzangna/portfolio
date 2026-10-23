@@ -1,32 +1,39 @@
-"use client";
+'use client';
 
-import { ChevronRight, Home } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { ChevronRight, Home } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
-import { DocumentLink } from "@/components/document-link";
-import { stripPublicBasePath } from "@/lib/app-path";
+import { DocumentLink } from '@/components/document-link';
+import { stripPublicBasePath } from '@/lib/app-path';
 
 const segmentLabels: Record<string, string> = {
-  projects: "프로젝트",
-  fe: "FE",
-  publish: "퍼블리싱",
+  lab: 'Engineering Lab',
+  evidence: '검증 근거',
+  basis: 'Basis',
+  ledger: 'Ledger',
+  shelf: 'Shelf',
+  folio: 'Folio',
+  dadum: '다듬',
+  projects: '프로젝트',
+  fe: 'FE',
+  publish: '퍼블리싱',
 };
 
 function formatSegment(segment: string) {
-  return segmentLabels[segment] ?? decodeURIComponent(segment).replace(/-/g, " ");
+  return segmentLabels[segment] ?? decodeURIComponent(segment).replace(/-/g, ' ');
 }
 
 export function SiteBreadcrumb() {
   const pathname = usePathname();
   const appPath = stripPublicBasePath(pathname);
 
-  if (appPath === "/" || appPath === "") {
+  if (appPath === '/' || appPath === '') {
     return null;
   }
 
-  const segments = appPath.split("/").filter(Boolean);
+  const segments = appPath.split('/').filter(Boolean);
   const items = segments.map((segment, index) => {
-    const href = `/${segments.slice(0, index + 1).join("/")}`;
+    const href = `/${segments.slice(0, index + 1).join('/')}`;
     const isLast = index === segments.length - 1;
 
     return {
@@ -56,9 +63,7 @@ export function SiteBreadcrumb() {
             <li key={item.href} className="flex items-center gap-2">
               <ChevronRight className="size-4 text-[var(--border)]" />
               {item.isLast ? (
-                <span className="font-medium text-[var(--foreground)]">
-                  {item.label}
-                </span>
+                <span className="font-medium text-[var(--foreground)]">{item.label}</span>
               ) : (
                 <DocumentLink
                   href={item.href}

@@ -2,6 +2,10 @@
 
 개인 포트폴리오 사이트입니다. 기존 정적 HTML·jQuery 기반 소스는 `beforeProject/`에 보관되어 있으며, 현재 저장소 루트는 **Next.js(App Router)** 로 이전·갱신된 버전입니다.
 
+## Engineering Lab
+
+프로젝트 소개·설계·검증 내용은 별도 portfolio-lab의 apps/showcase에서 관리합니다. 이 사이트에는 홈·헤더의 [Engineering Lab 로컬 링크](http://127.0.0.1:3205/lab/)만 남겼습니다. 기존 /lab/resume 내부 도구는 유지합니다. portfolio 빌드는 portfolio-lab에 의존하지 않습니다. 운영 배포는 수행하지 않았습니다.
+
 ## 스택
 
 - **Next.js** 16 · **React** 19 · **TypeScript**
@@ -67,3 +71,4 @@ GitHub **프로젝트 페이지**는 반드시 **`https://<사용자>.github.io/
 - **2026-04-07** — `beforeProject` 레거시를 기준으로 Next.js·TypeScript·Tailwind 기반 현재 소스로 갱신
 - **2025-07-20** — 갱신
 - **2020-05-19** — index 수정
+

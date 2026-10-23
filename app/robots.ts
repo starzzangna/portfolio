@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/lab/'],
+      disallow: [(process.env.NEXT_PUBLIC_BASE_PATH ?? '') + '/lab/resume'],
     },
   };
 }
